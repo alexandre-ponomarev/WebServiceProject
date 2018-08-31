@@ -13,7 +13,11 @@ Alex
 
 Luis
 1. What was done since last scrum
+- n/a
 2. What is to be done now, until next scrum
 - write project proposal
+	* DataBase Diagram
+	* Screens project
+	* See tutorial WCF
 3. Where do I need assistance, research, test things, etc.
 - n/a
