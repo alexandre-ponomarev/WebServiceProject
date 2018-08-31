@@ -34,7 +34,9 @@ Luis
 
 Alex
 1. What was done since last scrum
-- n/a
+- everything is set up for smoother work
+- all the required documents have been submitted
+- the technologies are now decided
 2. What is to be done now, until next scrum
 - n/a
 3. Where do I need assistance, research, test things, etc.
