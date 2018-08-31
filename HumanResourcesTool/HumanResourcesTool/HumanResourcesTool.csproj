@@ -93,5 +93,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\GenderFemale.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\EmployeeId0001.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\GenderMale.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\GenderMaleAndFemale.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
