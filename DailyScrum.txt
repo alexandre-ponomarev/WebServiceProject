@@ -1,0 +1,19 @@
+2018-08-31
+----------
+
+Alex
+1. What was done since last scrum
+- n/a
+2. What is to be done now, until next scrum
+- set all tools up
+- fill out BackLog on trello
+- decide what technologies to use for the project
+3. Where do I need assistance, research, test things, etc.
+- n/a
+
+Luis
+1. What was done since last scrum
+2. What is to be done now, until next scrum
+- write project proposal
+3. Where do I need assistance, research, test things, etc.
+- n/a
