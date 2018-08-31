@@ -1,3 +1,5 @@
+--*****************************************************************************
+--*****************************************************************************
 2018-08-31
 ----------
 
@@ -16,8 +18,34 @@ Luis
 - n/a
 2. What is to be done now, until next scrum
 - write project proposal
-	* DataBase Diagram
+	* Database Diagram
 	* Screens project
-	* See tutorial WCF
+- Prepare the remote server for the database in Azure
+- See tutorial WCF
+- See tutorial Dock Panel Layout
 3. Where do I need assistance, research, test things, etc.
 - n/a
+
+
+--*****************************************************************************
+--*****************************************************************************
+2018-09-01
+----------
+
+Alex
+1. What was done since last scrum
+- n/a
+2. What is to be done now, until next scrum
+- n/a
+3. Where do I need assistance, research, test things, etc.
+- n/a
+
+Luis
+1. What was done since last scrum
+- n/a
+2. What is to be done now, until next scrum
+- n/a
+3. Where do I need assistance, research, test things, etc.
+- n/a
+
+
