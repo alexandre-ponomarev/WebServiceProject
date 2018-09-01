@@ -16,13 +16,22 @@ using System.Windows.Shapes;
 namespace HumanResourcesTool
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MasterEmployees.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MasterEmployees : Window
     {
-        public MainWindow()
+        public MasterEmployees()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeesList myWindow1 = new EmployeesList();
+            myWindow1.Owner = this;
+            myWindow1.Show();
+
+
         }
     }
 }

@@ -1,0 +1,65 @@
+﻿<Window x:Class="HumanResourcesTool.MasterEmployees"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HumanResourcesTool"
+        mc:Ignorable="d"
+        Title="MasterEmployees" Height="780.062" Width="1027.584">
+    <Grid Margin="0,0,2,2">
+        <Label Content="Title:" HorizontalAlignment="Left" Margin="25,57,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
+        <Label Content="First Name:" HorizontalAlignment="Left" Margin="25,96,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
+        <Label Content="Sur Name:" HorizontalAlignment="Left" Margin="25,178,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
+        <Label Content="Others Name:" HorizontalAlignment="Left" Margin="25,230,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
+        <Label Content="Known As:" HorizontalAlignment="Left" Margin="25,272,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
+        <Label Content="Gender:" HorizontalAlignment="Left" Margin="25,328,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
+        <Label Content="Address:" HorizontalAlignment="Left" Margin="25,380,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.514,8.656" Width="119" FontFamily="Arial Black"/>
+        <Label Content="City / Town:" HorizontalAlignment="Left" Margin="25,538,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
+        <Label Content="Country:" HorizontalAlignment="Left" Margin="25,457,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
+        <Label Content="Postcode:" HorizontalAlignment="Left" Margin="25,594,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" RenderTransformOrigin="0.531,2.01"/>
+        <Label Content="Home Telephone:" HorizontalAlignment="Left" Margin="558,365,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
+        <Label Content="Mobile:" HorizontalAlignment="Left" Margin="558,409,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
+        <Label Content="Personal Email:" HorizontalAlignment="Left" Margin="558,453,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
+        <Label Content="Date Of Birth:" HorizontalAlignment="Left" Margin="558,492,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
+        <Label Content="Age:" HorizontalAlignment="Left" Margin="558,542,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
+        <ComboBox HorizontalAlignment="Left" Margin="191,57,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial Black" FontSize="14" Height="26"/>
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="191,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="191,178,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="191,230,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="191,272,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
+        <Button HorizontalAlignment="Left" Height="52" Margin="290,316,0,0" VerticalAlignment="Top" Width="86">
+            <Image Height="36" Width="42" Source="images/GenderFemale.PNG"/>
+        </Button>
+        <Button HorizontalAlignment="Left" Height="52" Margin="191,316,0,0" VerticalAlignment="Top" Width="83">
+            <Image Height="36" Width="42" Source="images/GenderMale.PNG"/>
+        </Button>
+        <TextBox HorizontalAlignment="Left" Height="53" Margin="191,380,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
+        <ComboBox HorizontalAlignment="Left" Margin="191,455,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial Black" FontSize="14" Height="26"/>
+        <ComboBox HorizontalAlignment="Left" Margin="191,536,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial Black" FontSize="14" Height="26"/>
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="686,361,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="686,409,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="686,453,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
+        <DatePicker HorizontalAlignment="Left" Margin="686,499,0,0" VerticalAlignment="Top" Width="296" Height="29" FontFamily="Arial" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="191,590,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="686,542,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
+        <Image HorizontalAlignment="Left" Height="312" Margin="558,10,0,0" VerticalAlignment="Top" Width="424" Source="images/EmployeeId0001.PNG" Stretch="UniformToFill"/>
+        <Label Content="Employee Id:" HorizontalAlignment="Left" Margin="25,10,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="191,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" FontFamily="Arial" FontSize="14"/>
+        <Button Content="?" HorizontalAlignment="Left" Height="28" Margin="449,10,0,0" VerticalAlignment="Top" Width="38"/>
+        <StatusBar HorizontalAlignment="Left" Height="24" Margin="-12,723,0,0" VerticalAlignment="Top" Width="1030"/>
+        <Button HorizontalAlignment="Left" Height="52" Margin="405,316,0,0" VerticalAlignment="Top" Width="82">
+            <Image Height="36" Width="42" Source="images/GenderMaleAndFemale.PNG"/>
+        </Button>
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="191,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
+        <Label Content="Last Name:" HorizontalAlignment="Left" Margin="25,135,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
+        <Label Content="Possition:" HorizontalAlignment="Left" Margin="25,642,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
+        <ComboBox HorizontalAlignment="Left" Margin="191,640,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial Black" FontSize="14" Height="26"/>
+        <Label Content="Annual Salary:" HorizontalAlignment="Left" Margin="558,594,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
+        <Label Content="Houraly Rate:" HorizontalAlignment="Left" Margin="558,640,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="686,590,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="686,640,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
+        <Label Content="Region:" HorizontalAlignment="Left" Margin="25,499,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
+        <ComboBox HorizontalAlignment="Left" Margin="191,497,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial Black" FontSize="14" Height="26"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="412,686,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1,2.188" Click="Button_Click"/>
+    </Grid>
+</Window>
