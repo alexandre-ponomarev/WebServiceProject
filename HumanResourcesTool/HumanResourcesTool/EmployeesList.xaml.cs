@@ -27,15 +27,22 @@ namespace HumanResourcesTool
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            dataGrid1.ItemsSource = null;
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Employee Id");
-            dt.Columns.Add("Fist Name");
-            dt.Columns.Add("Last Name");
-            dt.Columns.Add("Sur Name");
-            dt.Columns.Add("Orher Name");
-            dt.Rows.Add("1", "Luis", "Roman", "Lucho", "Ernesto");
-            dataGrid1.ItemsSource = dt.DefaultView;
+            ServiceReference.HRWebServicesClient cities = new ServiceReference.HRWebServicesClient();
+
+
+
+            var query = cities.GetCities();
+
+
+            dataGrid1.ItemsSource = query;
+            //DataTable dt = new DataTable();
+            //dt.Columns.Add("Employee Id");
+            //dt.Columns.Add("Fist Name");
+            //dt.Columns.Add("Last Name");
+            //dt.Columns.Add("Sur Name");
+            //dt.Columns.Add("Orher Name");
+            //dt.Rows.Add("1", "Luis", "Roman", "Lucho", "Ernesto");
+            //dataGrid1.ItemsSource = dt.DefaultView;
         }
     }
 }
