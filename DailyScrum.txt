@@ -38,16 +38,17 @@ Alex
 - all the required documents have been submitted
 - the technologies are now decided
 2. What is to be done now, until next scrum
-- n/a
+- begin WCF methods creation
+- think about time tracking system logic
 3. Where do I need assistance, research, test things, etc.
-- n/a
+- do WCF tutorial
 
 Luis
 1. What was done since last scrum
-- n/a
+- basic interface
 2. What is to be done now, until next scrum
-- n/a
+- create db structure
 3. Where do I need assistance, research, test things, etc.
-- n/a
+- renew PDF plugin license
 
 
