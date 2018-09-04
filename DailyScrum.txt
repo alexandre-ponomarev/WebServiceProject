@@ -72,6 +72,11 @@ Luis
 1. What was done since last scrum
 - Testing PDF creator
 2. What is to be done now, until next scrum
+- Publish DataBase in Server Cloud
+- Create database scripts:
+	01-Script_Create_Tables_01.sql
+	02-Script_Insert_Data_Tables_01.sql
+- Testing Database in Server Cloud.
 - Validations Filds in Maintenance Employees Program
 3. Where do I need assistance, research, test things, etc.
 
