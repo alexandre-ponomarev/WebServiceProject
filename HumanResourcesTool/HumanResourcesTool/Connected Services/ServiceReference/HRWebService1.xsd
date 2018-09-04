@@ -25,4 +25,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetDepartments">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDepartmentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="GetDepartmentsResult" nillable="true" type="q3:ArrayOftblDepartment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

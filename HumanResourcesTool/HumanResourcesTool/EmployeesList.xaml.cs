@@ -28,15 +28,15 @@ namespace HumanResourcesTool
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ServiceReference.HRWebServicesClient cities = new ServiceReference.HRWebServicesClient();
+            //ServiceReference.HRWebServicesClient positions = new ServiceReference.HRWebServicesClient();
 
 
 
             var query = cities.GetCities();
-            //var query2 = cities.GetPositions();
-
-
             dataGrid1.ItemsSource = query;
-            //cbPositions.ItemsSource = query2;
+
+            var query2 = cities.GetPositions();
+            cbPositions.ItemsSource = query2;
 
             //DataTable dt = new DataTable();
             //dt.Columns.Add("Employee Id");

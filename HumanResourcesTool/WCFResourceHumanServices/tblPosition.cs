@@ -26,6 +26,7 @@ namespace WCFResourceHumanServices
         public string Pos_Description { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblEmployee> tblEmployees { get; set; }
+        [DataMember]
+        public ICollection<tblEmployee> tblEmployees { get; set; }
     }
 }

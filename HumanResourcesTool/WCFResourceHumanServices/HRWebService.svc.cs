@@ -37,6 +37,19 @@ namespace WCFResourceHumanServices
             }
         }
 
+        List<tblDepartment> HRWebServices.GetDepartments()
+        {
+            using (var dbcontext = new HRDBContext())
+            {
+                List<tblDepartment> runnersObjects = dbcontext.tblDepartments.ToList();
+
+
+
+                return runnersObjects;
+            }
+
+        }
+
 
     }
 }

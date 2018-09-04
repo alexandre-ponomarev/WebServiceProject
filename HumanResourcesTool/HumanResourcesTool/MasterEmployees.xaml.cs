@@ -26,6 +26,9 @@ namespace HumanResourcesTool
         public MasterEmployees()
         {
             InitializeComponent();
+
+            Clear_Controls();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,11 +43,49 @@ namespace HumanResourcesTool
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
 
-            var query = WCFHRHumanResources.GetPositions();
+            //Clear_Controls();
 
-            cbPositions.ItemsSource = query;
 
         }
+
+
+        //**************************************************************************
+        // Additional Methods
+        public void Clear_Controls ()
+        {
+            //txtsdfsdf.text = ""
+
+            Fill_cbPositions();
+            Fill_cbDepartments();
+
+
+        }
+
+        private void Fill_cbPositions()
+        {
+            var query = WCFHRHumanResources.GetPositions();
+            cbPositions.DisplayMemberPath = "Pos_Description";
+            cbPositions.SelectedValuePath = "Pos_PositionId";
+            cbPositions.ItemsSource = query;
+            if (cbPositions.Items.Count > 0)
+            {
+                cbPositions.SelectedIndex = 0;
+            }
+        }
+
+        private void Fill_cbDepartments()
+        {
+            var query = WCFHRHumanResources.GetDepartments();
+            cbDepartment.DisplayMemberPath = "Dep_Name";
+            cbDepartment.SelectedValuePath = "Dep_DepartmentId";
+            cbDepartment.ItemsSource = query;
+            if (cbDepartment.Items.Count > 0)
+            {
+                cbDepartment.SelectedIndex = 0;
+            }
+        }
+
+
     }
 }
 
