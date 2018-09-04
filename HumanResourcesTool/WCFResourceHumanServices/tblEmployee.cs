@@ -21,15 +21,6 @@ namespace WCFResourceHumanServices
         [StringLength(100)]
         public string Emp_LastName { get; set; }
 
-        [StringLength(100)]
-        public string Emp_SurName { get; set; }
-
-        [StringLength(100)]
-        public string Emp_OtherName { get; set; }
-
-        [StringLength(100)]
-        public string Emp_KnownAs { get; set; }
-
         [Required]
         [StringLength(1)]
         public string Emp_Gender { get; set; }

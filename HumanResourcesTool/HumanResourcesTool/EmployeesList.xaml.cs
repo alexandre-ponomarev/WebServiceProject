@@ -44,5 +44,12 @@ namespace HumanResourcesTool
             //dt.Rows.Add("1", "Luis", "Roman", "Lucho", "Ernesto");
             //dataGrid1.ItemsSource = dt.DefaultView;
         }
+
+        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            MasterEmployees myWindow1 = new MasterEmployees();
+            myWindow1.Owner = this;
+            myWindow1.Show();
+        }
     }
 }
