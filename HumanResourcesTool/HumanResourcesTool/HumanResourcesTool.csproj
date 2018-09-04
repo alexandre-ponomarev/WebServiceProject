@@ -168,5 +168,32 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ico-new02.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ico-save02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ico-exit01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ico-update04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ico-delete01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ico-maleandfemale06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ico-male04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ico-female04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ico-search01.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

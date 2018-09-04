@@ -5,58 +5,78 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HumanResourcesTool"
         mc:Ignorable="d"
-        Title="MasterEmployees" Height="780.062" Width="1027.584">
+        Title="MasterEmployees" Height="926.312" Width="1008.834">
     <Grid Margin="0,0,2,2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="69*"/>
+            <RowDefinition Height="118*"/>
+        </Grid.RowDefinitions>
         <Label Content="Title:" HorizontalAlignment="Left" Margin="25,57,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
         <Label Content="First Name:" HorizontalAlignment="Left" Margin="25,96,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <Label Content="Gender:" HorizontalAlignment="Left" Margin="25,328,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <Label Content="Address:" HorizontalAlignment="Left" Margin="25,380,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.514,8.656" Width="119" FontFamily="Arial Black"/>
-        <Label Content="City / Town:" HorizontalAlignment="Left" Margin="25,538,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <Label Content="Country:" HorizontalAlignment="Left" Margin="25,457,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <Label Content="Postcode:" HorizontalAlignment="Left" Margin="25,594,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" RenderTransformOrigin="0.531,2.01"/>
-        <Label Content="Home Telephone:" HorizontalAlignment="Left" Margin="558,365,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <Label Content="Mobile:" HorizontalAlignment="Left" Margin="558,409,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <Label Content="Personal Email:" HorizontalAlignment="Left" Margin="558,453,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <Label Content="Date Of Birth:" HorizontalAlignment="Left" Margin="558,492,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <Label Content="Age:" HorizontalAlignment="Left" Margin="558,542,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <ComboBox x:Name="cbTitles" HorizontalAlignment="Left" Margin="191,57,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26"/>
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="191,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
-        <Button HorizontalAlignment="Left" Height="52" Margin="290,316,0,0" VerticalAlignment="Top" Width="86">
-            <Image Height="36" Width="42" Source="images/GenderFemale.PNG"/>
+        <Label Content="Gender:" HorizontalAlignment="Left" Margin="25,52.5,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" Grid.Row="1"/>
+        <Label Content="Address:" HorizontalAlignment="Left" Margin="25,104.5,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.514,8.656" Width="119" FontFamily="Arial Black" Grid.Row="1"/>
+        <Label Content="City / Town:" HorizontalAlignment="Left" Margin="25,262.5,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" Grid.Row="1"/>
+        <Label Content="Country:" HorizontalAlignment="Left" Margin="25,181.5,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" Grid.Row="1"/>
+        <Label Content="Postcode:" HorizontalAlignment="Left" Margin="25,318.5,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" RenderTransformOrigin="0.531,2.01" Grid.Row="1"/>
+        <Label Content="Home Telephone:" HorizontalAlignment="Left" Margin="558,89.5,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" Grid.Row="1"/>
+        <Label Content="Mobile:" HorizontalAlignment="Left" Margin="558,133.5,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" Grid.Row="1"/>
+        <Label Content="Personal Email:" HorizontalAlignment="Left" Margin="558,177.5,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" Grid.Row="1"/>
+        <Label Content="Date Of Birth:" HorizontalAlignment="Left" Margin="558,216.5,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" Grid.Row="1"/>
+        <Label Content="Age:" HorizontalAlignment="Left" Margin="558,266.5,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" Grid.Row="1"/>
+        <ComboBox x:Name="cbTitles" HorizontalAlignment="Left" Margin="191,57,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26" KeyDown="cbTitles_KeyDown"/>
+        <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="28" Margin="191,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" KeyDown="txtFirstName_KeyDown" GotFocus="txtFirstName_GotFocus"/>
+        <Button x:Name="btnGenderFemale" HorizontalAlignment="Left" Height="52" Margin="299,40,0,0" VerticalAlignment="Top" Width="86" Grid.Row="1">
+            <Image Height="36" Width="42" Source="images/ico-female04.png"/>
         </Button>
-        <Button HorizontalAlignment="Left" Height="52" Margin="191,316,0,0" VerticalAlignment="Top" Width="83">
-            <Image Height="36" Width="42" Source="images/GenderMale.PNG"/>
+        <Button x:Name="btnGenderMale" HorizontalAlignment="Left" Height="52" Margin="191,40.5,0,0" VerticalAlignment="Top" Width="83" Grid.Row="1">
+            <Image Height="36" Width="42" Source="images/ico-male04.png"/>
         </Button>
-        <TextBox HorizontalAlignment="Left" Height="53" Margin="191,380,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
-        <ComboBox x:Name="cbCountries" HorizontalAlignment="Left" Margin="191,455,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26"/>
-        <ComboBox x:Name="cbCities" HorizontalAlignment="Left" Margin="191,536,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26"/>
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="686,361,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="686,409,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="686,453,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
-        <DatePicker HorizontalAlignment="Left" Margin="686,499,0,0" VerticalAlignment="Top" Width="296" Height="29" FontFamily="Arial" FontSize="14"/>
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="191,590,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="686,542,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
-        <Image HorizontalAlignment="Left" Height="312" Margin="558,10,0,0" VerticalAlignment="Top" Width="424" Source="images/EmployeeId0001.PNG" Stretch="UniformToFill"/>
+        <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Height="53" Margin="191,104.5,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Grid.Row="1" KeyDown="txtAddress_KeyDown" GotFocus="txtAddress_GotFocus"/>
+        <ComboBox x:Name="cbCountries" HorizontalAlignment="Left" Margin="191,179.5,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26" Grid.Row="1" KeyDown="cbCountries_KeyDown"/>
+        <ComboBox x:Name="cbCities" HorizontalAlignment="Left" Margin="191,260.5,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26" Grid.Row="1" KeyDown="cbCities_KeyDown"/>
+        <TextBox x:Name="txtHomeTelephone" HorizontalAlignment="Left" Height="28" Margin="686,85.5,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Grid.Row="1" KeyDown="txtHomeTelephone_KeyDown" GotFocus="txtHomeTelephone_GotFocus"/>
+        <TextBox x:Name="txtMobileTelephone" HorizontalAlignment="Left" Height="28" Margin="686,133.5,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Grid.Row="1" KeyDown="txtMobileTelephone_KeyDown" GotFocus="txtMobileTelephone_GotFocus"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="28" Margin="686,177.5,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Grid.Row="1" KeyDown="txtEmail_KeyDown" GotFocus="txtEmail_GotFocus"/>
+        <DatePicker x:Name="dpDOB" HorizontalAlignment="Left" Margin="686,223.5,0,0" VerticalAlignment="Top" Width="296" Height="29" FontFamily="Arial" FontSize="14" Grid.Row="1" KeyDown="dpDOB_KeyDown"/>
+        <TextBox x:Name="txtPostCode" HorizontalAlignment="Left" Height="28" Margin="191,314.5,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Grid.Row="1" KeyDown="txtPostCode_KeyDown" GotFocus="txtPostCode_GotFocus"/>
+        <TextBox x:Name="txtAge" HorizontalAlignment="Left" Height="28" Margin="686,266.5,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Grid.Row="1" Background="Gray"/>
+        <Image HorizontalAlignment="Left" Height="312" Margin="558,10,0,0" VerticalAlignment="Top" Width="424" Source="images/EmployeeId0001.PNG" Stretch="UniformToFill" Grid.RowSpan="2"/>
         <Label Content="Employee Id:" HorizontalAlignment="Left" Margin="25,10,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="191,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" FontFamily="Arial" FontSize="14"/>
-        <Button Content="?" HorizontalAlignment="Left" Height="28" Margin="449,10,0,0" VerticalAlignment="Top" Width="38"/>
-        <StatusBar HorizontalAlignment="Left" Height="24" Margin="-12,723,0,0" VerticalAlignment="Top" Width="1030"/>
-        <Button HorizontalAlignment="Left" Height="52" Margin="405,316,0,0" VerticalAlignment="Top" Width="82">
-            <Image Height="36" Width="42" Source="images/GenderMaleAndFemale.PNG"/>
+        <TextBox x:Name="txtEmployeeId" HorizontalAlignment="Left" Height="28" Margin="191,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" FontFamily="Arial" FontSize="14"/>
+        <Button x:Name="btnSearchEmployee" HorizontalAlignment="Left" Height="28" Margin="449,10,0,0" VerticalAlignment="Top" Width="38">
+            <Image x:Name="btnSearchEmployee1" Height="28" Width="38" Source="images/ico-search01.png"/>
         </Button>
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="191,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
+        <StatusBar HorizontalAlignment="Left" Height="24" Margin="0,539,-31,0" VerticalAlignment="Top" Width="1030" Grid.Row="1"/>
+        <Button x:Name="btnGenderMaleAndFemale" HorizontalAlignment="Left" Height="52" Margin="405,40.5,0,0" VerticalAlignment="Top" Width="82" Grid.Row="1">
+            <Image x:Name="imgMaleAndFemale" Height="36" Width="42" Source="images/ico-maleandfemale06.png"/>
+        </Button>
+        <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="28" Margin="191,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" KeyDown="txtLastName_KeyDown" GotFocus="txtLastName_GotFocus"/>
         <Label Content="Last Name:" HorizontalAlignment="Left" Margin="25,135,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <Label Content="Possition:" HorizontalAlignment="Left" Margin="25,642,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <ComboBox x:Name="cbPositions" HorizontalAlignment="Left" Margin="191,640,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26"/>
-        <Label Content="Annual Salary:" HorizontalAlignment="Left" Margin="558,594,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <Label Content="Houraly Rate:" HorizontalAlignment="Left" Margin="558,640,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="686,590,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="686,640,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
-        <Label Content="Region:" HorizontalAlignment="Left" Margin="25,499,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <ComboBox x:Name="cbProvinces" HorizontalAlignment="Left" Margin="191,497,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26"/>
+        <Label Content="Possition:" HorizontalAlignment="Left" Margin="25,366.5,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" Grid.Row="1"/>
+        <ComboBox x:Name="cbPositions" HorizontalAlignment="Left" Margin="191,364.5,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26" Grid.Row="1" KeyDown="cbPositions_KeyDown"/>
+        <Label Content="Annual Salary:" HorizontalAlignment="Left" Margin="558,318.5,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" Grid.Row="1"/>
+        <Label Content="Houraly Rate:" HorizontalAlignment="Left" Margin="558,364.5,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" Grid.Row="1"/>
+        <TextBox x:Name="txtAnnualSalary" HorizontalAlignment="Left" Height="28" Margin="686,314.5,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Grid.Row="1" KeyDown="txtAnnualSalary_KeyDown" GotFocus="txtAnnualSalary_GotFocus"/>
+        <TextBox x:Name="txtHouralyRate" HorizontalAlignment="Left" Height="28" Margin="686,364.5,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Grid.Row="1" KeyDown="txtHouralyRate_KeyDown" GotFocus="txtHouralyRate_GotFocus"/>
+        <Label Content="Region:" HorizontalAlignment="Left" Margin="25,223.5,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" Grid.Row="1"/>
+        <ComboBox x:Name="cbProvinces" HorizontalAlignment="Left" Margin="191,221.5,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26" Grid.Row="1" KeyDown="cbProvinces_KeyDown"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="25,241,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1,2.188" Click="Button_Click"/>
-        <Button Content="Testing Insert Data" HorizontalAlignment="Left" Margin="25,277,0,0" VerticalAlignment="Top" Width="136" RenderTransformOrigin="-0.037,0.162" Click="Button_Click_1"/>
         <Label Content="Department:" HorizontalAlignment="Left" Margin="25,180,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <ComboBox x:Name="cbDepartment" HorizontalAlignment="Left" Margin="191,178,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26"/>
+        <ComboBox x:Name="cbDepartment" HorizontalAlignment="Left" Margin="191,178,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26" KeyDown="cbDepartment_KeyDown"/>
+        <Button x:Name="btnNew" HorizontalAlignment="Left" Margin="25,460,0,0" Grid.Row="1" VerticalAlignment="Top" Width="160" Height="62" FontFamily="Arial Black" FontSize="14" Click="btnNew_Click">
+            <Image Height="62" Width="79" Source="images/ico-new02.ico"/>
+        </Button>
+        <Button x:Name="btnUpdate" HorizontalAlignment="Left" Margin="202,460,0,0" Grid.Row="1" VerticalAlignment="Top" Width="160" Height="62" FontFamily="Arial Black" FontSize="14">
+            <Image Height="52" Width="75" Source="images/ico-update04.png"/>
+        </Button>
+        <Button x:Name="btnDelete" HorizontalAlignment="Left" Margin="382,460,0,0" Grid.Row="1" VerticalAlignment="Top" Width="160" Height="62" FontFamily="Arial Black" FontSize="14">
+            <Image Height="52" Width="72" Source="images/ico-delete01.png"/>
+        </Button>
+        <Button x:Name="btnSave" HorizontalAlignment="Left" Margin="650,460,0,0" Grid.Row="1" VerticalAlignment="Top" Width="160" Height="62" FontFamily="Arial Black" FontSize="14" >
+            <Image Height="52" Width="75" Source="images/ico-save02.png"/>
+        </Button>
+        <Button x:Name="btnExit" HorizontalAlignment="Left" Margin="825,460,0,0" Grid.Row="1" VerticalAlignment="Top" Width="160" Height="62" FontFamily="Arial Black" FontSize="14" Click="btnExit_Click">
+            <Image Height="52" Width="71" Source="images/ico-exit01.png"/>
+        </Button>
     </Grid>
 </Window>
