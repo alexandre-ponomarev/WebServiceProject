@@ -32,9 +32,12 @@ namespace HumanResourcesTool
 
 
             var query = cities.GetCities();
+            //var query2 = cities.GetPositions();
 
 
             dataGrid1.ItemsSource = query;
+            //cbPositions.ItemsSource = query2;
+
             //DataTable dt = new DataTable();
             //dt.Columns.Add("Employee Id");
             //dt.Columns.Add("Fist Name");

@@ -20,6 +20,9 @@ namespace HumanResourcesTool
     /// </summary>
     public partial class MasterEmployees : Window
     {
+
+        ServiceReference.HRWebServicesClient WCFHRHumanResources = new ServiceReference.HRWebServicesClient();
+
         public MasterEmployees()
         {
             InitializeComponent();
@@ -33,5 +36,15 @@ namespace HumanResourcesTool
 
 
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+            var query = WCFHRHumanResources.GetPositions();
+
+            cbPositions.ItemsSource = query;
+
+        }
     }
 }
+

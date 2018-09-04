@@ -14,4 +14,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="tblCity" nillable="true" type="tns:tblCity" />
+  <xs:complexType name="ArrayOftblPosition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tblPosition" nillable="true" type="tns:tblPosition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftblPosition" nillable="true" type="tns:ArrayOftblPosition" />
+  <xs:complexType name="tblPosition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Pos_Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pos_PositionId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tblPosition" nillable="true" type="tns:tblPosition" />
 </xs:schema>

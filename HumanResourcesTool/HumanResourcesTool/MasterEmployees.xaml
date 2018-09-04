@@ -47,13 +47,14 @@
         <TextBox HorizontalAlignment="Left" Height="28" Margin="191,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
         <Label Content="Last Name:" HorizontalAlignment="Left" Margin="25,135,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
         <Label Content="Possition:" HorizontalAlignment="Left" Margin="25,642,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <ComboBox HorizontalAlignment="Left" Margin="191,640,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial Black" FontSize="14" Height="26"/>
+        <ComboBox x:Name="cbPositions" HorizontalAlignment="Left" Margin="191,640,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial Black" FontSize="14" Height="26"/>
         <Label Content="Annual Salary:" HorizontalAlignment="Left" Margin="558,594,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
         <Label Content="Houraly Rate:" HorizontalAlignment="Left" Margin="558,640,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
         <TextBox HorizontalAlignment="Left" Height="28" Margin="686,590,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
         <TextBox HorizontalAlignment="Left" Height="28" Margin="686,640,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
         <Label Content="Region:" HorizontalAlignment="Left" Margin="25,499,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
         <ComboBox HorizontalAlignment="Left" Margin="191,497,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial Black" FontSize="14" Height="26"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="412,686,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1,2.188" Click="Button_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="25,196,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1,2.188" Click="Button_Click"/>
+        <Button Content="Testing Insert Data" HorizontalAlignment="Left" Margin="25,232,0,0" VerticalAlignment="Top" Width="136" RenderTransformOrigin="-0.037,0.162" Click="Button_Click_1"/>
     </Grid>
 </Window>

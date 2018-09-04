@@ -23,5 +23,20 @@ namespace WCFResourceHumanServices
                 return runnersObjects;
             }
         }
+
+
+        List<tblPosition> HRWebServices.GetPositions()
+        {
+            using (var dbcontext = new HRDBContext())
+            {
+                List<tblPosition> runnersObjects = dbcontext.tblPositions.ToList();
+
+
+
+                return runnersObjects;
+            }
+        }
+
+
     }
 }

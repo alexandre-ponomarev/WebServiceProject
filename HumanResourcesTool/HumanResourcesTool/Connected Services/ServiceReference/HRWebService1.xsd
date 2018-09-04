@@ -13,4 +13,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetPositions">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPositionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="GetPositionsResult" nillable="true" type="q2:ArrayOftblPosition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

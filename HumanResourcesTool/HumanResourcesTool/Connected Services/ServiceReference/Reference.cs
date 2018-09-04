@@ -90,6 +90,67 @@ namespace HumanResourcesTool.ServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tblPosition", Namespace="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices")]
+    [System.SerializableAttribute()]
+    public partial class tblPosition : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Pos_DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Pos_PositionIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Pos_Description {
+            get {
+                return this.Pos_DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Pos_DescriptionField, value) != true)) {
+                    this.Pos_DescriptionField = value;
+                    this.RaisePropertyChanged("Pos_Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Pos_PositionId {
+            get {
+                return this.Pos_PositionIdField;
+            }
+            set {
+                if ((this.Pos_PositionIdField.Equals(value) != true)) {
+                    this.Pos_PositionIdField = value;
+                    this.RaisePropertyChanged("Pos_PositionId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.HRWebServices")]
     public interface HRWebServices {
@@ -99,6 +160,12 @@ namespace HumanResourcesTool.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetCities", ReplyAction="http://tempuri.org/HRWebServices/GetCitiesResponse")]
         System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblCity[]> GetCitiesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetPositions", ReplyAction="http://tempuri.org/HRWebServices/GetPositionsResponse")]
+        HumanResourcesTool.ServiceReference.tblPosition[] GetPositions();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetPositions", ReplyAction="http://tempuri.org/HRWebServices/GetPositionsResponse")]
+        System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblPosition[]> GetPositionsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -134,6 +201,14 @@ namespace HumanResourcesTool.ServiceReference {
         
         public System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblCity[]> GetCitiesAsync() {
             return base.Channel.GetCitiesAsync();
+        }
+        
+        public HumanResourcesTool.ServiceReference.tblPosition[] GetPositions() {
+            return base.Channel.GetPositions();
+        }
+        
+        public System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblPosition[]> GetPositionsAsync() {
+            return base.Channel.GetPositionsAsync();
         }
     }
 }
