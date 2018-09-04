@@ -25,12 +25,6 @@ namespace WCFResourceHumanServices
         [DataMember]
         public string Cuo_Name { get; set; }
 
-        [DataMember]
-        public tblCountry tblCountries1 { get; set; }
-
-        [DataMember]
-        public tblCountry tblCountry1 { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         [DataMember]
         public ICollection<tblProvince> tblProvinces { get; set; }
