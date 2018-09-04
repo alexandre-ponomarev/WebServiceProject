@@ -9,9 +9,6 @@
     <Grid Margin="0,0,2,2">
         <Label Content="Title:" HorizontalAlignment="Left" Margin="25,57,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
         <Label Content="First Name:" HorizontalAlignment="Left" Margin="25,96,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <Label Content="Sur Name:" HorizontalAlignment="Left" Margin="25,178,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <Label Content="Others Name:" HorizontalAlignment="Left" Margin="25,230,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <Label Content="Known As:" HorizontalAlignment="Left" Margin="25,272,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
         <Label Content="Gender:" HorizontalAlignment="Left" Margin="25,328,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
         <Label Content="Address:" HorizontalAlignment="Left" Margin="25,380,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.514,8.656" Width="119" FontFamily="Arial Black"/>
         <Label Content="City / Town:" HorizontalAlignment="Left" Margin="25,538,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
@@ -24,9 +21,6 @@
         <Label Content="Age:" HorizontalAlignment="Left" Margin="558,542,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
         <ComboBox HorizontalAlignment="Left" Margin="191,57,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial Black" FontSize="14" Height="26"/>
         <TextBox HorizontalAlignment="Left" Height="28" Margin="191,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="191,178,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="191,230,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="191,272,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
         <Button HorizontalAlignment="Left" Height="52" Margin="290,316,0,0" VerticalAlignment="Top" Width="86">
             <Image Height="36" Width="42" Source="images/GenderFemale.PNG"/>
         </Button>

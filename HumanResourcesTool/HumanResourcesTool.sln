@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumanResourcesTool", "HumanResourcesTool\HumanResourcesTool.csproj", "{3D20F6A4-1B6C-4148-BE9C-5F639F465CBA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1FEAC435-17D3-4B84-B52A-DB01A7B53D80} = {1FEAC435-17D3-4B84-B52A-DB01A7B53D80}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFResourceHumanServices", "WCFResourceHumanServices\WCFResourceHumanServices.csproj", "{1FEAC435-17D3-4B84-B52A-DB01A7B53D80}"
 EndProject
