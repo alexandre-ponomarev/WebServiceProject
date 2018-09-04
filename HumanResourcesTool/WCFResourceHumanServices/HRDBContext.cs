@@ -22,9 +22,6 @@ namespace WCFResourceHumanServices
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<tblCountry>()
-                .HasOptional(e => e.tblCountries1)
-                .WithRequired(e => e.tblCountry1);
 
             modelBuilder.Entity<tblCountry>()
                 .HasMany(e => e.tblProvinces)

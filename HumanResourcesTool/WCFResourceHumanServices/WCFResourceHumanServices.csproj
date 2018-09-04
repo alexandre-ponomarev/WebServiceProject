@@ -82,6 +82,10 @@
     <Compile Include="Migrations\201809040015223_InitialCreate.Designer.cs">
       <DependentUpon>201809040015223_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809042350302_test.cs" />
+    <Compile Include="Migrations\201809042350302_test.Designer.cs">
+      <DependentUpon>201809042350302_test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tblCity.cs" />
@@ -107,6 +111,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201809040015223_InitialCreate.resx">
       <DependentUpon>201809040015223_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809042350302_test.resx">
+      <DependentUpon>201809042350302_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

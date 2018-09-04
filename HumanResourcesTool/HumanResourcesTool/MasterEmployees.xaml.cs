@@ -51,7 +51,7 @@ namespace HumanResourcesTool
             Fill_cbPositions();
             Fill_cbDepartments();
             Fill_cbTitles();
-            //Fill_cbCountries();
+            Fill_cbCountries();
             Fill_cbProvinces();
             Fill_cbCities();
 
