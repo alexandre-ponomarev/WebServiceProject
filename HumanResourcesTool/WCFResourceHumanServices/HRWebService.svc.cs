@@ -12,19 +12,6 @@ namespace WCFResourceHumanServices
     {
         
 
-        List<tblCity> HRWebServices.GetCities()
-        {
-            using (var dbcontext = new HRDBContext())
-            {
-                List<tblCity> runnersObjects = dbcontext.tblCities.ToList();
-
-
-
-                return runnersObjects;
-            }
-        }
-
-
         List<tblPosition> HRWebServices.GetPositions()
         {
             using (var dbcontext = new HRDBContext())
@@ -49,6 +36,58 @@ namespace WCFResourceHumanServices
             }
 
         }
+
+        List<tblTitle> HRWebServices.GetTitles()
+        {
+            using (var dbcontext = new HRDBContext())
+            {
+                List<tblTitle> runnersObjects = dbcontext.tblTitles.ToList();
+
+
+
+                return runnersObjects;
+            }
+
+        }
+
+        List<tblCountry> HRWebServices.GetCountries()
+        {
+            using (var dbcontext = new HRDBContext())
+            {
+                List<tblCountry> runnersObjects = dbcontext.tblCountries.ToList();
+
+
+
+                return runnersObjects;
+            }
+        }
+
+
+        List<tblProvince> HRWebServices.GetProvinces()
+        {
+            using (var dbcontext = new HRDBContext())
+            {
+                List<tblProvince> runnersObjects = dbcontext.tblProvinces.ToList();
+
+
+
+                return runnersObjects;
+            }
+        }
+
+
+        List<tblCity> HRWebServices.GetCities()
+        {
+            using (var dbcontext = new HRDBContext())
+            {
+                List<tblCity> runnersObjects = dbcontext.tblCities.ToList();
+
+
+
+                return runnersObjects;
+            }
+        }
+
 
 
     }

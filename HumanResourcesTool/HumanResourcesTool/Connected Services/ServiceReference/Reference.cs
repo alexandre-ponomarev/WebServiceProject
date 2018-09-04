@@ -15,83 +15,6 @@ namespace HumanResourcesTool.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="tblCity", Namespace="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices")]
-    [System.SerializableAttribute()]
-    public partial class tblCity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Cit_CityIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Cit_NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Pro_ProvinceIdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Cit_CityId {
-            get {
-                return this.Cit_CityIdField;
-            }
-            set {
-                if ((this.Cit_CityIdField.Equals(value) != true)) {
-                    this.Cit_CityIdField = value;
-                    this.RaisePropertyChanged("Cit_CityId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Cit_Name {
-            get {
-                return this.Cit_NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Cit_NameField, value) != true)) {
-                    this.Cit_NameField = value;
-                    this.RaisePropertyChanged("Cit_Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Pro_ProvinceId {
-            get {
-                return this.Pro_ProvinceIdField;
-            }
-            set {
-                if ((this.Pro_ProvinceIdField.Equals(value) != true)) {
-                    this.Pro_ProvinceIdField = value;
-                    this.RaisePropertyChanged("Pro_ProvinceId");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="tblPosition", Namespace="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices")]
     [System.SerializableAttribute()]
     public partial class tblPosition : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -702,15 +625,288 @@ namespace HumanResourcesTool.ServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tblCountry", Namespace="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices")]
+    [System.SerializableAttribute()]
+    public partial class tblCountry : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Cuo_CountryIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Cuo_NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HumanResourcesTool.ServiceReference.tblCountry tblCountries1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HumanResourcesTool.ServiceReference.tblCountry tblCountry1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HumanResourcesTool.ServiceReference.tblProvince[] tblProvincesField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Cuo_CountryId {
+            get {
+                return this.Cuo_CountryIdField;
+            }
+            set {
+                if ((this.Cuo_CountryIdField.Equals(value) != true)) {
+                    this.Cuo_CountryIdField = value;
+                    this.RaisePropertyChanged("Cuo_CountryId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Cuo_Name {
+            get {
+                return this.Cuo_NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Cuo_NameField, value) != true)) {
+                    this.Cuo_NameField = value;
+                    this.RaisePropertyChanged("Cuo_Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public HumanResourcesTool.ServiceReference.tblCountry tblCountries1 {
+            get {
+                return this.tblCountries1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tblCountries1Field, value) != true)) {
+                    this.tblCountries1Field = value;
+                    this.RaisePropertyChanged("tblCountries1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public HumanResourcesTool.ServiceReference.tblCountry tblCountry1 {
+            get {
+                return this.tblCountry1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tblCountry1Field, value) != true)) {
+                    this.tblCountry1Field = value;
+                    this.RaisePropertyChanged("tblCountry1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public HumanResourcesTool.ServiceReference.tblProvince[] tblProvinces {
+            get {
+                return this.tblProvincesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tblProvincesField, value) != true)) {
+                    this.tblProvincesField = value;
+                    this.RaisePropertyChanged("tblProvinces");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tblProvince", Namespace="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices")]
+    [System.SerializableAttribute()]
+    public partial class tblProvince : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Cou_CountryidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Pro_NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Pro_ProvinceIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HumanResourcesTool.ServiceReference.tblCountry tblCountryField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Cou_Countryid {
+            get {
+                return this.Cou_CountryidField;
+            }
+            set {
+                if ((this.Cou_CountryidField.Equals(value) != true)) {
+                    this.Cou_CountryidField = value;
+                    this.RaisePropertyChanged("Cou_Countryid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Pro_Name {
+            get {
+                return this.Pro_NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Pro_NameField, value) != true)) {
+                    this.Pro_NameField = value;
+                    this.RaisePropertyChanged("Pro_Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Pro_ProvinceId {
+            get {
+                return this.Pro_ProvinceIdField;
+            }
+            set {
+                if ((this.Pro_ProvinceIdField.Equals(value) != true)) {
+                    this.Pro_ProvinceIdField = value;
+                    this.RaisePropertyChanged("Pro_ProvinceId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public HumanResourcesTool.ServiceReference.tblCountry tblCountry {
+            get {
+                return this.tblCountryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tblCountryField, value) != true)) {
+                    this.tblCountryField = value;
+                    this.RaisePropertyChanged("tblCountry");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tblCity", Namespace="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices")]
+    [System.SerializableAttribute()]
+    public partial class tblCity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Cit_CityIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Cit_NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Pro_ProvinceIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Cit_CityId {
+            get {
+                return this.Cit_CityIdField;
+            }
+            set {
+                if ((this.Cit_CityIdField.Equals(value) != true)) {
+                    this.Cit_CityIdField = value;
+                    this.RaisePropertyChanged("Cit_CityId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Cit_Name {
+            get {
+                return this.Cit_NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Cit_NameField, value) != true)) {
+                    this.Cit_NameField = value;
+                    this.RaisePropertyChanged("Cit_Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Pro_ProvinceId {
+            get {
+                return this.Pro_ProvinceIdField;
+            }
+            set {
+                if ((this.Pro_ProvinceIdField.Equals(value) != true)) {
+                    this.Pro_ProvinceIdField = value;
+                    this.RaisePropertyChanged("Pro_ProvinceId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.HRWebServices")]
     public interface HRWebServices {
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetCities", ReplyAction="http://tempuri.org/HRWebServices/GetCitiesResponse")]
-        HumanResourcesTool.ServiceReference.tblCity[] GetCities();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetCities", ReplyAction="http://tempuri.org/HRWebServices/GetCitiesResponse")]
-        System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblCity[]> GetCitiesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetPositions", ReplyAction="http://tempuri.org/HRWebServices/GetPositionsResponse")]
         HumanResourcesTool.ServiceReference.tblPosition[] GetPositions();
@@ -723,6 +919,30 @@ namespace HumanResourcesTool.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetDepartments", ReplyAction="http://tempuri.org/HRWebServices/GetDepartmentsResponse")]
         System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblDepartment[]> GetDepartmentsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetTitles", ReplyAction="http://tempuri.org/HRWebServices/GetTitlesResponse")]
+        HumanResourcesTool.ServiceReference.tblTitle[] GetTitles();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetTitles", ReplyAction="http://tempuri.org/HRWebServices/GetTitlesResponse")]
+        System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblTitle[]> GetTitlesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetCountries", ReplyAction="http://tempuri.org/HRWebServices/GetCountriesResponse")]
+        HumanResourcesTool.ServiceReference.tblCountry[] GetCountries();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetCountries", ReplyAction="http://tempuri.org/HRWebServices/GetCountriesResponse")]
+        System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblCountry[]> GetCountriesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetProvinces", ReplyAction="http://tempuri.org/HRWebServices/GetProvincesResponse")]
+        HumanResourcesTool.ServiceReference.tblProvince[] GetProvinces();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetProvinces", ReplyAction="http://tempuri.org/HRWebServices/GetProvincesResponse")]
+        System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblProvince[]> GetProvincesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetCities", ReplyAction="http://tempuri.org/HRWebServices/GetCitiesResponse")]
+        HumanResourcesTool.ServiceReference.tblCity[] GetCities();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetCities", ReplyAction="http://tempuri.org/HRWebServices/GetCitiesResponse")]
+        System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblCity[]> GetCitiesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -752,14 +972,6 @@ namespace HumanResourcesTool.ServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public HumanResourcesTool.ServiceReference.tblCity[] GetCities() {
-            return base.Channel.GetCities();
-        }
-        
-        public System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblCity[]> GetCitiesAsync() {
-            return base.Channel.GetCitiesAsync();
-        }
-        
         public HumanResourcesTool.ServiceReference.tblPosition[] GetPositions() {
             return base.Channel.GetPositions();
         }
@@ -774,6 +986,38 @@ namespace HumanResourcesTool.ServiceReference {
         
         public System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblDepartment[]> GetDepartmentsAsync() {
             return base.Channel.GetDepartmentsAsync();
+        }
+        
+        public HumanResourcesTool.ServiceReference.tblTitle[] GetTitles() {
+            return base.Channel.GetTitles();
+        }
+        
+        public System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblTitle[]> GetTitlesAsync() {
+            return base.Channel.GetTitlesAsync();
+        }
+        
+        public HumanResourcesTool.ServiceReference.tblCountry[] GetCountries() {
+            return base.Channel.GetCountries();
+        }
+        
+        public System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblCountry[]> GetCountriesAsync() {
+            return base.Channel.GetCountriesAsync();
+        }
+        
+        public HumanResourcesTool.ServiceReference.tblProvince[] GetProvinces() {
+            return base.Channel.GetProvinces();
+        }
+        
+        public System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblProvince[]> GetProvincesAsync() {
+            return base.Channel.GetProvincesAsync();
+        }
+        
+        public HumanResourcesTool.ServiceReference.tblCity[] GetCities() {
+            return base.Channel.GetCities();
+        }
+        
+        public System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblCity[]> GetCitiesAsync() {
+            return base.Channel.GetCitiesAsync();
         }
     }
 }

@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:58483/HRWebService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" />
-  <xs:element name="GetCities">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetCitiesResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="GetCitiesResult" nillable="true" type="q1:ArrayOftblCity" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="GetPositions">
     <xs:complexType>
       <xs:sequence />
@@ -21,7 +9,7 @@
   <xs:element name="GetPositionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="GetPositionsResult" nillable="true" type="q2:ArrayOftblPosition" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="GetPositionsResult" nillable="true" type="q1:ArrayOftblPosition" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -33,7 +21,55 @@
   <xs:element name="GetDepartmentsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="GetDepartmentsResult" nillable="true" type="q3:ArrayOftblDepartment" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="GetDepartmentsResult" nillable="true" type="q2:ArrayOftblDepartment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTitles">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTitlesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="GetTitlesResult" nillable="true" type="q3:ArrayOftblTitle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCountries">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCountriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="GetCountriesResult" nillable="true" type="q4:ArrayOftblCountry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProvinces">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProvincesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="GetProvincesResult" nillable="true" type="q5:ArrayOftblProvince" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCities">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCitiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="GetCitiesResult" nillable="true" type="q6:ArrayOftblCity" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

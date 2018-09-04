@@ -7,12 +7,6 @@
       <xsd:import schemaLocation="http://localhost:58483/HRWebService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="HRWebServices_GetCities_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetCities" />
-  </wsdl:message>
-  <wsdl:message name="HRWebServices_GetCities_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetCitiesResponse" />
-  </wsdl:message>
   <wsdl:message name="HRWebServices_GetPositions_InputMessage">
     <wsdl:part name="parameters" element="tns:GetPositions" />
   </wsdl:message>
@@ -25,11 +19,31 @@
   <wsdl:message name="HRWebServices_GetDepartments_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDepartmentsResponse" />
   </wsdl:message>
+  <wsdl:message name="HRWebServices_GetTitles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTitles" />
+  </wsdl:message>
+  <wsdl:message name="HRWebServices_GetTitles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTitlesResponse" />
+  </wsdl:message>
+  <wsdl:message name="HRWebServices_GetCountries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountries" />
+  </wsdl:message>
+  <wsdl:message name="HRWebServices_GetCountries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="HRWebServices_GetProvinces_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProvinces" />
+  </wsdl:message>
+  <wsdl:message name="HRWebServices_GetProvinces_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProvincesResponse" />
+  </wsdl:message>
+  <wsdl:message name="HRWebServices_GetCities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCities" />
+  </wsdl:message>
+  <wsdl:message name="HRWebServices_GetCities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCitiesResponse" />
+  </wsdl:message>
   <wsdl:portType name="HRWebServices">
-    <wsdl:operation name="GetCities">
-      <wsdl:input wsaw:Action="http://tempuri.org/HRWebServices/GetCities" message="tns:HRWebServices_GetCities_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/HRWebServices/GetCitiesResponse" message="tns:HRWebServices_GetCities_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetPositions">
       <wsdl:input wsaw:Action="http://tempuri.org/HRWebServices/GetPositions" message="tns:HRWebServices_GetPositions_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/HRWebServices/GetPositionsResponse" message="tns:HRWebServices_GetPositions_OutputMessage" />
@@ -38,18 +52,25 @@
       <wsdl:input wsaw:Action="http://tempuri.org/HRWebServices/GetDepartments" message="tns:HRWebServices_GetDepartments_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/HRWebServices/GetDepartmentsResponse" message="tns:HRWebServices_GetDepartments_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetTitles">
+      <wsdl:input wsaw:Action="http://tempuri.org/HRWebServices/GetTitles" message="tns:HRWebServices_GetTitles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/HRWebServices/GetTitlesResponse" message="tns:HRWebServices_GetTitles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <wsdl:input wsaw:Action="http://tempuri.org/HRWebServices/GetCountries" message="tns:HRWebServices_GetCountries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/HRWebServices/GetCountriesResponse" message="tns:HRWebServices_GetCountries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProvinces">
+      <wsdl:input wsaw:Action="http://tempuri.org/HRWebServices/GetProvinces" message="tns:HRWebServices_GetProvinces_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/HRWebServices/GetProvincesResponse" message="tns:HRWebServices_GetProvinces_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCities">
+      <wsdl:input wsaw:Action="http://tempuri.org/HRWebServices/GetCities" message="tns:HRWebServices_GetCities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/HRWebServices/GetCitiesResponse" message="tns:HRWebServices_GetCities_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_HRWebServices" type="tns:HRWebServices">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetCities">
-      <soap:operation soapAction="http://tempuri.org/HRWebServices/GetCities" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetPositions">
       <soap:operation soapAction="http://tempuri.org/HRWebServices/GetPositions" style="document" />
       <wsdl:input>
@@ -61,6 +82,42 @@
     </wsdl:operation>
     <wsdl:operation name="GetDepartments">
       <soap:operation soapAction="http://tempuri.org/HRWebServices/GetDepartments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTitles">
+      <soap:operation soapAction="http://tempuri.org/HRWebServices/GetTitles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <soap:operation soapAction="http://tempuri.org/HRWebServices/GetCountries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProvinces">
+      <soap:operation soapAction="http://tempuri.org/HRWebServices/GetProvinces" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCities">
+      <soap:operation soapAction="http://tempuri.org/HRWebServices/GetCities" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

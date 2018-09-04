@@ -61,10 +61,10 @@ namespace WCFResourceHumanServices
         [Column(TypeName = "image")]
         public byte[] Emp_Photo { get; set; }
 
-        public virtual tblDepartment tblDepartment { get; set; }
+        public tblDepartment tblDepartment { get; set; }
 
-        public virtual tblPosition tblPosition { get; set; }
+        public tblPosition tblPosition { get; set; }
 
-        public virtual tblTitle tblTitle { get; set; }
+        public tblTitle tblTitle { get; set; }
     }
 }

@@ -12,15 +12,25 @@ namespace WCFResourceHumanServices
     public interface HRWebServices
     {
 
-        [OperationContract]
-        List<tblCity> GetCities();
-
 
         [OperationContract]
         List<tblPosition> GetPositions();
 
         [OperationContract]
         List<tblDepartment> GetDepartments();
+
+        [OperationContract]
+        List<tblTitle> GetTitles();
+
+        [OperationContract]
+        List<tblCountry> GetCountries();
+
+        [OperationContract]
+        List<tblProvince> GetProvinces();
+
+        [OperationContract]
+        List<tblCity> GetCities();
+
 
     }
 

@@ -19,7 +19,7 @@
         <Label Content="Personal Email:" HorizontalAlignment="Left" Margin="558,453,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
         <Label Content="Date Of Birth:" HorizontalAlignment="Left" Margin="558,492,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
         <Label Content="Age:" HorizontalAlignment="Left" Margin="558,542,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <ComboBox HorizontalAlignment="Left" Margin="191,57,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial Black" FontSize="14" Height="26"/>
+        <ComboBox x:Name="cbTitles" HorizontalAlignment="Left" Margin="191,57,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26"/>
         <TextBox HorizontalAlignment="Left" Height="28" Margin="191,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
         <Button HorizontalAlignment="Left" Height="52" Margin="290,316,0,0" VerticalAlignment="Top" Width="86">
             <Image Height="36" Width="42" Source="images/GenderFemale.PNG"/>
@@ -28,8 +28,8 @@
             <Image Height="36" Width="42" Source="images/GenderMale.PNG"/>
         </Button>
         <TextBox HorizontalAlignment="Left" Height="53" Margin="191,380,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
-        <ComboBox HorizontalAlignment="Left" Margin="191,455,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial Black" FontSize="14" Height="26"/>
-        <ComboBox HorizontalAlignment="Left" Margin="191,536,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial Black" FontSize="14" Height="26"/>
+        <ComboBox x:Name="cbCountries" HorizontalAlignment="Left" Margin="191,455,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26"/>
+        <ComboBox x:Name="cbCities" HorizontalAlignment="Left" Margin="191,536,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26"/>
         <TextBox HorizontalAlignment="Left" Height="28" Margin="686,361,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
         <TextBox HorizontalAlignment="Left" Height="28" Margin="686,409,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
         <TextBox HorizontalAlignment="Left" Height="28" Margin="686,453,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
@@ -47,16 +47,16 @@
         <TextBox HorizontalAlignment="Left" Height="28" Margin="191,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
         <Label Content="Last Name:" HorizontalAlignment="Left" Margin="25,135,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
         <Label Content="Possition:" HorizontalAlignment="Left" Margin="25,642,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <ComboBox x:Name="cbPositions" HorizontalAlignment="Left" Margin="191,640,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial Black" FontSize="14" Height="26"/>
+        <ComboBox x:Name="cbPositions" HorizontalAlignment="Left" Margin="191,640,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26"/>
         <Label Content="Annual Salary:" HorizontalAlignment="Left" Margin="558,594,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
         <Label Content="Houraly Rate:" HorizontalAlignment="Left" Margin="558,640,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
         <TextBox HorizontalAlignment="Left" Height="28" Margin="686,590,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
         <TextBox HorizontalAlignment="Left" Height="28" Margin="686,640,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"/>
         <Label Content="Region:" HorizontalAlignment="Left" Margin="25,499,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <ComboBox HorizontalAlignment="Left" Margin="191,497,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial Black" FontSize="14" Height="26"/>
+        <ComboBox x:Name="cbProvinces" HorizontalAlignment="Left" Margin="191,497,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="25,241,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1,2.188" Click="Button_Click"/>
         <Button Content="Testing Insert Data" HorizontalAlignment="Left" Margin="25,277,0,0" VerticalAlignment="Top" Width="136" RenderTransformOrigin="-0.037,0.162" Click="Button_Click_1"/>
         <Label Content="Department:" HorizontalAlignment="Left" Margin="25,180,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
-        <ComboBox x:Name="cbDepartment" HorizontalAlignment="Left" Margin="191,178,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial Black" FontSize="14" Height="26"/>
+        <ComboBox x:Name="cbDepartment" HorizontalAlignment="Left" Margin="191,178,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26"/>
     </Grid>
 </Window>

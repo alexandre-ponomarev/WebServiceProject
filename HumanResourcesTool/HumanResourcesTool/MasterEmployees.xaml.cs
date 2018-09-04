@@ -57,7 +57,10 @@ namespace HumanResourcesTool
 
             Fill_cbPositions();
             Fill_cbDepartments();
-
+            Fill_cbTitles();
+            //Fill_cbCountries();
+            Fill_cbProvinces();
+            Fill_cbCities();
 
         }
 
@@ -84,6 +87,57 @@ namespace HumanResourcesTool
                 cbDepartment.SelectedIndex = 0;
             }
         }
+
+        private void Fill_cbTitles()
+        {
+            var query = WCFHRHumanResources.GetTitles();
+            cbTitles.DisplayMemberPath = "Tit_Name";
+            cbTitles.SelectedValuePath = "Tit_TitleId";
+            cbTitles.ItemsSource = query;
+            if (cbTitles.Items.Count > 0)
+            {
+                cbTitles.SelectedIndex = 0;
+            }
+        }
+
+        private void Fill_cbCountries()
+        {
+            var query = WCFHRHumanResources.GetCountries();
+            cbCountries.DisplayMemberPath = "Cuo_Name";
+            cbCountries.SelectedValuePath = "Cuo_CountryId";
+            cbCountries.ItemsSource = query;
+            if (cbCountries.Items.Count > 0)
+            {
+                cbCountries.SelectedIndex = 0;
+            }
+        }
+
+
+        private void Fill_cbProvinces()
+        {
+            var query = WCFHRHumanResources.GetProvinces();
+            cbProvinces.DisplayMemberPath = "Pro_Name";
+            cbProvinces.SelectedValuePath = "Pro_ProvinceId";
+            cbProvinces.ItemsSource = query;
+            if (cbProvinces.Items.Count > 0)
+            {
+                cbProvinces.SelectedIndex = 0;
+            }
+        }
+
+
+        private void Fill_cbCities()
+        {
+            var query = WCFHRHumanResources.GetCities();
+            cbCities.DisplayMemberPath = "Cit_Name";
+            cbCities.SelectedValuePath = "Cit_CityId";
+            cbCities.ItemsSource = query;
+            if (cbCities.Items.Count > 0)
+            {
+                cbCities.SelectedIndex = 0;
+            }
+        }
+
 
 
     }
