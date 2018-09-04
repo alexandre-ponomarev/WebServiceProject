@@ -51,6 +51,9 @@ Luis
 3. Where do I need assistance, research, test things, etc.
 - renew PDF plugin license
 
+
+--*****************************************************************************
+--*****************************************************************************
 2018-09-03
 ----------
 
@@ -64,6 +67,18 @@ Alex
 3. Where do I need assistance, research, test things, etc.
 -
 
+
+Luis
+1. What was done since last scrum
+- Testing PDF creator
+2. What is to be done now, until next scrum
+- Validations Filds in Maintenance Employees Program
+3. Where do I need assistance, research, test things, etc.
+
+
+
+--*****************************************************************************
+--*****************************************************************************
 2018-09-04
 ----------
 
@@ -79,3 +94,12 @@ Alex
 - think about the logic of calendar planner
 3. Where do I need assistance, research, test things, etc.
 -
+
+Luis
+1. What was done since last scrum
+- Validations Filds in Maintenance Employees Program
+2. What is to be done now, until next scrum
+- Insert Employees into Database
+3. Where do I need assistance, research, test things, etc.
+
+
