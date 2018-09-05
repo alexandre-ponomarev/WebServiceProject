@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,6 +22,8 @@ namespace HumanResourcesTool
     public partial class MasterEmployees : Window
     {
 
+        System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+
         ServiceReference.HRWebServicesClient WCFHRHumanResources = new ServiceReference.HRWebServicesClient();
         string optionSelectedCRUM = "i";
 
@@ -29,16 +32,13 @@ namespace HumanResourcesTool
             InitializeComponent();
 
             Clear_Controls();
-            Enabled_Desabled_Controls(true);
+            Enabled_Desabled_Controls(false);
+            //case special
+            txtAge.IsEnabled = false;
 
-        }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            EmployeesList myWindow1 = new EmployeesList();
-            myWindow1.Owner = this;
-            myWindow1.Show();
-
+            Initial_Status_Bar();
+            Initial_Timer();
 
         }
 
@@ -59,10 +59,12 @@ namespace HumanResourcesTool
             txtEmail.Text = "";
 
             dpDOB.Text = DateTime.Now.Date.ToString();
+            dpDateStart.Text = DateTime.Now.Date.ToString();
+            dpDateFinish.Text = DateTime.Now.Date.ToString();
 
             txtAge.Text = "";
-            txtAnnualSalary.Text = "";
-            txtHouralyRate.Text = "";
+            txtAnnualSalary.Text = "0";
+            txtHouralyRate.Text = "0";
 
             //imgGenderMale.Visibility = true;
             imgGenderMale.Visibility = System.Windows.Visibility.Visible;
@@ -174,9 +176,16 @@ namespace HumanResourcesTool
             txtMobileTelephone.IsEnabled = option;
             txtEmail.IsEnabled = option;
             dpDOB.IsEnabled = option;
-            txtAge.IsEnabled = option;
+            dpDateStart.IsEnabled = option;
+            dpDateFinish.IsEnabled = option;
+
             txtAnnualSalary.IsEnabled = option;
             txtHouralyRate.IsEnabled = option;
+
+            btnGenderMale.IsEnabled = option;
+            btnGenderFemale.IsEnabled = option;
+            btnGenderMaleAndFemale.IsEnabled = option;
+
 
         }
 
@@ -196,12 +205,14 @@ namespace HumanResourcesTool
         {
 
             optionSelectedCRUM = "i";
+            sbItem3.Content = "New Employee";
 
             Clear_Controls();
             txtEmployeeId.Text = fSearchLastEmployeeId().ToString();
             Enabled_Desabled_Controls(true);
             txtEmployeeId.IsEnabled = false;
-            cbTitles.Focus();
+            //cbTitles.Focus();
+            txtFirstName.Focus();
 
         }
 
@@ -270,7 +281,17 @@ namespace HumanResourcesTool
             if (e.Key == Key.Enter) dpDOB.Focus();
         }
 
-        private void dpDOB_KeyDown(object sender, KeyEventArgs e)
+        private void dpDOB_PreviewKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter) dpDateStart.Focus();
+        }
+
+        private void dpDateStart_PreviewKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter) dpDateFinish.Focus();
+        }
+
+        private void dpDateFinish_PreviewKeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter) txtAnnualSalary.Focus();
         }
@@ -395,30 +416,205 @@ namespace HumanResourcesTool
 
         private bool fValidate_Info_Employee()
         {
+            string errorMessage = "";
 
             //***************************************************************
             //***************************************************************
-            // ... Get DatePicker reference.
-            var picker = dpDOB as DatePicker;
-
-            // ... Get nullable DateTime from SelectedDate.
-            DateTime? date = picker.SelectedDate;
-            if (date == null)
+            var varDOB = dpDOB as DatePicker;
+            DateTime? dateDOB = varDOB.SelectedDate;
+            if (dateDOB == null)
             {
-                // ... A null object.
-                this.Title = "No date";
+                errorMessage += "Field: " + lblDateDOB.Content + " is Invalid." + "\n";
+            }
+            //***************************************************************
+            //***************************************************************
+
+
+            //***************************************************************
+            //***************************************************************
+            var varDateStart = dpDateStart as DatePicker;
+            DateTime? dateStart = varDateStart.SelectedDate;
+            if (dateStart == null)
+            {
+                errorMessage += "Field: " + lblDateStart.Content + " is Invalid." + "\n";
+            }
+            //***************************************************************
+            //***************************************************************
+
+            //***************************************************************
+            //***************************************************************
+            var varDateFinish = dpDateFinish as DatePicker;
+            DateTime? dateFinish = varDateFinish.SelectedDate;
+            if (dateFinish == null)
+            {
+                errorMessage += "Field: " + lblDateFinish.Content + " is Invalid." + "\n";
+            }
+            //***************************************************************
+            //***************************************************************
+
+            //***************************************************************
+            //***************************************************************
+            if (cbCities.Items.Count <= 0)
+            {
+                errorMessage += "Field: " + lblCity.Content + " is Invalid." + "\n";
+            }
+            //***************************************************************
+            //***************************************************************
+
+            //***************************************************************
+            //***************************************************************
+            if (cbCountries.Items.Count <= 0)
+            {
+                errorMessage += "Field: " + lblCountry.Content + " is Invalid." + "\n";
+            }
+            //***************************************************************
+            //***************************************************************
+
+            //***************************************************************
+            //***************************************************************
+            if (cbProvinces.Items.Count <= 0)
+            {
+                errorMessage += "Field: " + lblRegion.Content + " is Invalid." + "\n";
+            }
+            //***************************************************************
+            //***************************************************************
+
+            //***************************************************************
+            //***************************************************************
+            if (cbDepartment.Items.Count <= 0)
+            {
+                errorMessage += "Field: " + lblDepartment.Content + " is Invalid." + "\n";
+            }
+            //***************************************************************
+            //***************************************************************
+
+            //***************************************************************
+            //***************************************************************
+            if (txtFirstName.Text.Length <= 0)
+            {
+                errorMessage += "Field: " + lblFirstName.Content + " is Invalid." + "\n";
+            }
+            //***************************************************************
+            //***************************************************************
+
+            //***************************************************************
+            //***************************************************************
+            if (txtAddress.Text.Length <= 0)
+            {
+                errorMessage += "Field: " + lblLastName.Content + " is Invalid." + "\n";
+            }
+            //***************************************************************
+            //***************************************************************
+
+            //***************************************************************
+            //***************************************************************
+            if (txtLastName.Text.Length <= 0)
+            {
+                errorMessage += "Field: " + lblAddress.Content + " is Invalid." + "\n";
+            }
+            //***************************************************************
+            //***************************************************************
+
+            //***************************************************************
+            //***************************************************************
+            if (txtAnnualSalary.Text.Length <= 0)
+            {
+                errorMessage += "Field: " + lblAnnualSalary.Content + " is Invalid." + "\n";
+            } else
+            {
+                if (!IsNumber(txtAnnualSalary.Text.ToString()))
+                {
+                    errorMessage += "Field: " + lblAnnualSalary.Content + " is Invalid. You need insert only numeric data" + "\n";
+                }
+            }
+            //***************************************************************
+            //***************************************************************
+
+            //***************************************************************
+            //***************************************************************
+            if (txtHouralyRate.Text.Length <= 0)
+            {
+                errorMessage += "Field: " + lblHouralyRate.Content + " is Invalid." + "\n";
             }
             else
             {
-                // ... No need to display the time.
-                this.Title = date.Value.ToShortDateString();
+                if (!IsNumber(txtHouralyRate.Text.ToString()))
+                {
+                    errorMessage += "Field: " + lblHouralyRate.Content + " is Invalid. You need insert only numeric data" + "\n";
+                }
+            }
+            //***************************************************************
+            //***************************************************************
+
+            //***************************************************************
+            //***************************************************************
+            if (txtMobileTelephone.Text.Length <= 0)
+            {
+                errorMessage += "Field: " + lblMobile.Content + " is Invalid." + "\n";
             }
             //***************************************************************
             //***************************************************************
 
 
+            //***************************************************************
+            //***************************************************************
+            if (txtHomeTelephone.Text.Length <= 0)
+            {
+                errorMessage += "Field: " + lblHomeTepehone.Content + " is Invalid." + "\n";
+            }
+            //***************************************************************
+            //***************************************************************
 
-            return true;
+
+            //***************************************************************
+            //***************************************************************
+            if (!validationEmail(txtEmail.Text))
+            {
+                errorMessage += "Field: " + lblPersonalEmail.Content + " is Invalid." + "\n";
+            }
+            //***************************************************************
+            //***************************************************************
+
+
+            //***************************************************************
+            //***************************************************************
+            if (!IsPostalCode(txtPostCode.Text))
+            {
+                errorMessage += "Field: " + lblPostCode.Content + " is Invalid." + "\n";
+            }
+            //***************************************************************
+            //***************************************************************
+
+            //***************************************************************
+            //***************************************************************
+            if (cbPositions.Items.Count <= 0)
+            {
+                errorMessage += "Field: " + lblPosition.Content + " is Invalid." + "\n";
+            }
+            //***************************************************************
+            //***************************************************************
+
+            //***************************************************************
+            //***************************************************************
+            if (imgGenderMale.IsVisible == false && imgGenderFemale.IsVisible == false && imgGenderMaleAndFemale.IsVisible == false)
+            {
+                errorMessage += "Field: " + lblGender.Content + " is Invalid. You need select Gender" + "\n";
+            }
+            //***************************************************************
+            //***************************************************************
+
+
+            if (errorMessage == "")
+            {
+                return true;
+            } else
+            {
+                MessageBox.Show(errorMessage, "Verification Data");
+                return false;
+            }
+
+
+            
         }
 
         private void insertEmployee()
@@ -453,24 +649,53 @@ namespace HumanResourcesTool
             objEmployee.Cit_CityId = Int32.Parse(cbCities.SelectedValue.ToString());
             objEmployee.Dep_DepartmentId = Int32.Parse(cbDepartment.SelectedValue.ToString());
             objEmployee.Emp_Address = txtAddress.Text;
+            objEmployee.Emp_AnualSalary = Decimal.Parse(txtAnnualSalary.Text);
+            objEmployee.Emp_HourlyRate = Decimal.Parse(txtHouralyRate.Text);
+            objEmployee.Emp_CellPhone = txtMobileTelephone.Text;
+            objEmployee.Emp_Phone = txtHomeTelephone.Text;
+            objEmployee.Emp_Email = txtEmail.Text;
+            objEmployee.Emp_FirstName = txtFirstName.Text;
+            objEmployee.Emp_LastName = txtLastName.Text;
+            objEmployee.Emp_PostalCode = txtPostCode.Text;
+            objEmployee.Tit_TitleId = Int32.Parse(cbTitles.SelectedValue.ToString());
+            objEmployee.Pos_PositionId = Int32.Parse(cbPositions.SelectedValue.ToString());
+            if (imgGenderMale.IsVisible) objEmployee.Emp_Gender = "M";
+            if (imgGenderFemale.IsVisible) objEmployee.Emp_Gender = "F";
+            if (imgGenderMaleAndFemale.IsVisible) objEmployee.Emp_Gender = "B";
 
-            objEmployee.Emp_AnualSalary = 65000;
-            objEmployee.Emp_CellPhone = "514836664";
-            objEmployee.Emp_Email = "Lromanz@132.com";
-            objEmployee.Emp_FirstName = "Ernesto";
-            objEmployee.Emp_Gender = "M";
-            objEmployee.Emp_HourlyRate = 30;
-            objEmployee.Emp_LastName = "Zambrano";
-            objEmployee.Emp_Phone = "514524154";
-            objEmployee.Emp_Photo = null;
-            objEmployee.Emp_PostalCode = "H3E1C9";
-
+            //----------------------------------------------------------------------
             objEmployee.Emp_BirthOfDate = DateTime.Now;
-            objEmployee.Emp_StartDate = DateTime.Now;
-            objEmployee.Emp_TerminationDate = DateTime.Now;
+            DateTime? selectedDateDOB = dpDOB.SelectedDate;
+            if (selectedDateDOB.HasValue)
+            {
+                //string formatted = selectedDate.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                objEmployee.Emp_BirthOfDate = selectedDateDOB.Value;
+            }
+            //----------------------------------------------------------------------
 
-            objEmployee.Tit_TitleId = 1;
-            objEmployee.Pos_PositionId = 1;
+            //----------------------------------------------------------------------
+            objEmployee.Emp_StartDate = DateTime.Now;
+            DateTime? selectedDateStart = dpDOB.SelectedDate;
+            if (selectedDateStart.HasValue)
+            {
+                //string formatted = selectedDate.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                objEmployee.Emp_StartDate = selectedDateStart.Value;
+            }
+            //----------------------------------------------------------------------
+
+            //----------------------------------------------------------------------
+            objEmployee.Emp_TerminationDate = DateTime.Now;
+            DateTime? selectedDateFinish = dpDOB.SelectedDate;
+            if (selectedDateFinish.HasValue)
+            {
+                //string formatted = selectedDate.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                objEmployee.Emp_TerminationDate = selectedDateFinish.Value;
+            }
+            //----------------------------------------------------------------------
+
+
+            objEmployee.Emp_Photo = null;
+
 
 
             if (WCFHRHumanResources.insertEmployees(objEmployee))
@@ -488,6 +713,7 @@ namespace HumanResourcesTool
         {
 
             optionSelectedCRUM = "u";
+            sbItem3.Content = "Update Employee";
 
 
         }
@@ -496,6 +722,7 @@ namespace HumanResourcesTool
         {
 
             optionSelectedCRUM = "d";
+            sbItem3.Content = "Delete Employee";
 
 
         }
@@ -506,6 +733,7 @@ namespace HumanResourcesTool
             imgGenderMale.Visibility = System.Windows.Visibility.Hidden;
             imgGenderFemale.Visibility = System.Windows.Visibility.Visible;
             imgGenderMaleAndFemale.Visibility = System.Windows.Visibility.Hidden;
+            txtAddress.Focus();
         }
 
         private void btnGenderMaleAndFemale_Click(object sender, RoutedEventArgs e)
@@ -513,6 +741,7 @@ namespace HumanResourcesTool
             imgGenderMale.Visibility = System.Windows.Visibility.Hidden;
             imgGenderFemale.Visibility = System.Windows.Visibility.Hidden;
             imgGenderMaleAndFemale.Visibility = System.Windows.Visibility.Visible;
+            txtAddress.Focus();
 
         }
 
@@ -521,23 +750,88 @@ namespace HumanResourcesTool
             imgGenderMale.Visibility = System.Windows.Visibility.Visible;
             imgGenderFemale.Visibility = System.Windows.Visibility.Hidden;
             imgGenderMaleAndFemale.Visibility = System.Windows.Visibility.Hidden;
+            txtAddress.Focus();
 
         }
 
-        private void btnTestingInsert_Click(object sender, RoutedEventArgs e)
+
+        public bool IsNumber(string num)
         {
-            //reference to clase
-            ServiceReference.tblDepartment objDepartment = new ServiceReference.tblDepartment();
-            objDepartment.Dep_Name = "Sales";
-            if (WCFHRHumanResources.insertDepartments(objDepartment))
             {
-                MessageBox.Show("Employee inserted successfully");
+                try
+                {
+                    double x = Convert.ToDouble(num);
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+        }
+
+        private Boolean validationEmail(String email)
+        {
+            String expresion;
+            expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(email, expresion))
+            {
+                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                MessageBox.Show("Failed insert Employee");
+                return false;
             }
         }
+
+        public static bool IsPostalCode(string postalCode)
+        {
+
+            //Canadian Postal Code in the format of "M3A 1A5"
+            string pattern = "^[ABCEGHJ-NPRSTVXY]{1}[0-9]{1}[ABCEGHJ-NPRSTV-Z]{1}[ ]?[0-9]{1}[ABCEGHJ-NPRSTV-Z]{1}[0-9]{1}$";
+
+            Regex reg = new Regex(pattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
+
+            if (!(reg.IsMatch(postalCode)))
+                return false;
+            return true;
+        }
+
+
+        private void Initial_Status_Bar()
+        {
+            sbItem1.Content = "Maintenace Employees";
+            //sbItem3.Content = "New Employee";
+            sbItem3.Content = "";
+            sbItem4.Content = DateTime.Now;
+
+            //sbInfo.ItemsPanel[0].te
+            //int row = sbInfo.GetLineIndexFromCharacterIndex(sbInfo.CaretIndex);
+            //int col = sbInfo.CaretIndex - sbInfo.GetCharacterIndexFromLineIndex(row);
+            //lblCursorPosition.Text = "Line " + (row + 1) + ", Char " + (col + 1);
+        }
+
+
+        private void Initial_Timer()
+        {
+            dispatcherTimer.Tick += dispatcherTimer_Tick;
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            dispatcherTimer.Start();
+
+        }
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            sbItem4.Content = DateTime.Now;
+        }
+
     }
 }
 

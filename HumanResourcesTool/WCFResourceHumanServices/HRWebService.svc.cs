@@ -127,7 +127,7 @@ namespace WCFResourceHumanServices
                     return true;
 
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     return false;
                 }
@@ -148,7 +148,7 @@ namespace WCFResourceHumanServices
                     return true;
 
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     return false;
                 }
