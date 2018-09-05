@@ -43,6 +43,12 @@
   <wsdl:message name="HRWebServices_GetCities_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCitiesResponse" />
   </wsdl:message>
+  <wsdl:message name="HRWebServices_GetEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployees" />
+  </wsdl:message>
+  <wsdl:message name="HRWebServices_GetEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeesResponse" />
+  </wsdl:message>
   <wsdl:portType name="HRWebServices">
     <wsdl:operation name="GetPositions">
       <wsdl:input wsaw:Action="http://tempuri.org/HRWebServices/GetPositions" message="tns:HRWebServices_GetPositions_InputMessage" />
@@ -67,6 +73,10 @@
     <wsdl:operation name="GetCities">
       <wsdl:input wsaw:Action="http://tempuri.org/HRWebServices/GetCities" message="tns:HRWebServices_GetCities_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/HRWebServices/GetCitiesResponse" message="tns:HRWebServices_GetCities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployees">
+      <wsdl:input wsaw:Action="http://tempuri.org/HRWebServices/GetEmployees" message="tns:HRWebServices_GetEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/HRWebServices/GetEmployeesResponse" message="tns:HRWebServices_GetEmployees_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_HRWebServices" type="tns:HRWebServices">
@@ -118,6 +128,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetCities">
       <soap:operation soapAction="http://tempuri.org/HRWebServices/GetCities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployees">
+      <soap:operation soapAction="http://tempuri.org/HRWebServices/GetEmployees" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

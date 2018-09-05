@@ -118,6 +118,9 @@
     <None Include="Connected Services\ServiceReference\HumanResourcesTool.ServiceReference.tblDepartment.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServiceReference\HumanResourcesTool.ServiceReference.tblEmployee.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceReference\HumanResourcesTool.ServiceReference.tblPosition.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

@@ -8,9 +8,9 @@
         Title="EmployeesList" Height="912.857" Width="1196">
     <Grid>
         <Grid HorizontalAlignment="Left" Height="373" Margin="27,64,0,0" VerticalAlignment="Top" Width="1133">
-            <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Height="363" Margin="10,0,0,0" VerticalAlignment="Top" Width="1088" ItemsSource="{Binding}" AutoGenerateColumns="False" >
+            <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Height="363" Margin="10,0,0,0" VerticalAlignment="Top" Width="1088" ItemsSource="{Binding}" AutoGenerateColumns="true" >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name" Binding="{Binding Cit_Name}" />
+                    <DataGridTextColumn Header="Title" Binding="{Binding tblTitle.Tit_Name}" />
                     
                 </DataGrid.Columns>
 

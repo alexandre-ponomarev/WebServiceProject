@@ -29,7 +29,7 @@ namespace HumanResourcesTool.ServiceReference {
         private int Pos_PositionIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HumanResourcesTool.ServiceReference.tblEmployee[] tblEmployeesField;
+        private System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee> tblEmployeesField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -68,7 +68,7 @@ namespace HumanResourcesTool.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public HumanResourcesTool.ServiceReference.tblEmployee[] tblEmployees {
+        public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee> tblEmployees {
             get {
                 return this.tblEmployeesField;
             }
@@ -487,7 +487,7 @@ namespace HumanResourcesTool.ServiceReference {
         private string Dep_NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HumanResourcesTool.ServiceReference.tblEmployee[] tblEmployeesField;
+        private System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee> tblEmployeesField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -526,7 +526,7 @@ namespace HumanResourcesTool.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public HumanResourcesTool.ServiceReference.tblEmployee[] tblEmployees {
+        public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee> tblEmployees {
             get {
                 return this.tblEmployeesField;
             }
@@ -564,7 +564,7 @@ namespace HumanResourcesTool.ServiceReference {
         private int Tit_TitleIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HumanResourcesTool.ServiceReference.tblEmployee[] tblEmployeesField;
+        private System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee> tblEmployeesField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -603,7 +603,7 @@ namespace HumanResourcesTool.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public HumanResourcesTool.ServiceReference.tblEmployee[] tblEmployees {
+        public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee> tblEmployees {
             get {
                 return this.tblEmployeesField;
             }
@@ -641,13 +641,7 @@ namespace HumanResourcesTool.ServiceReference {
         private string Cuo_NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HumanResourcesTool.ServiceReference.tblCountry tblCountries1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HumanResourcesTool.ServiceReference.tblCountry tblCountry1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HumanResourcesTool.ServiceReference.tblProvince[] tblProvincesField;
+        private System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblProvince> tblProvincesField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -686,33 +680,7 @@ namespace HumanResourcesTool.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public HumanResourcesTool.ServiceReference.tblCountry tblCountries1 {
-            get {
-                return this.tblCountries1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.tblCountries1Field, value) != true)) {
-                    this.tblCountries1Field = value;
-                    this.RaisePropertyChanged("tblCountries1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public HumanResourcesTool.ServiceReference.tblCountry tblCountry1 {
-            get {
-                return this.tblCountry1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.tblCountry1Field, value) != true)) {
-                    this.tblCountry1Field = value;
-                    this.RaisePropertyChanged("tblCountry1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public HumanResourcesTool.ServiceReference.tblProvince[] tblProvinces {
+        public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblProvince> tblProvinces {
             get {
                 return this.tblProvincesField;
             }
@@ -909,40 +877,46 @@ namespace HumanResourcesTool.ServiceReference {
     public interface HRWebServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetPositions", ReplyAction="http://tempuri.org/HRWebServices/GetPositionsResponse")]
-        HumanResourcesTool.ServiceReference.tblPosition[] GetPositions();
+        System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblPosition> GetPositions();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetPositions", ReplyAction="http://tempuri.org/HRWebServices/GetPositionsResponse")]
-        System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblPosition[]> GetPositionsAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblPosition>> GetPositionsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetDepartments", ReplyAction="http://tempuri.org/HRWebServices/GetDepartmentsResponse")]
-        HumanResourcesTool.ServiceReference.tblDepartment[] GetDepartments();
+        System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblDepartment> GetDepartments();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetDepartments", ReplyAction="http://tempuri.org/HRWebServices/GetDepartmentsResponse")]
-        System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblDepartment[]> GetDepartmentsAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblDepartment>> GetDepartmentsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetTitles", ReplyAction="http://tempuri.org/HRWebServices/GetTitlesResponse")]
-        HumanResourcesTool.ServiceReference.tblTitle[] GetTitles();
+        System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblTitle> GetTitles();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetTitles", ReplyAction="http://tempuri.org/HRWebServices/GetTitlesResponse")]
-        System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblTitle[]> GetTitlesAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblTitle>> GetTitlesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetCountries", ReplyAction="http://tempuri.org/HRWebServices/GetCountriesResponse")]
-        HumanResourcesTool.ServiceReference.tblCountry[] GetCountries();
+        System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblCountry> GetCountries();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetCountries", ReplyAction="http://tempuri.org/HRWebServices/GetCountriesResponse")]
-        System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblCountry[]> GetCountriesAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblCountry>> GetCountriesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetProvinces", ReplyAction="http://tempuri.org/HRWebServices/GetProvincesResponse")]
-        HumanResourcesTool.ServiceReference.tblProvince[] GetProvinces();
+        System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblProvince> GetProvinces();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetProvinces", ReplyAction="http://tempuri.org/HRWebServices/GetProvincesResponse")]
-        System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblProvince[]> GetProvincesAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblProvince>> GetProvincesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetCities", ReplyAction="http://tempuri.org/HRWebServices/GetCitiesResponse")]
-        HumanResourcesTool.ServiceReference.tblCity[] GetCities();
+        System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblCity> GetCities();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetCities", ReplyAction="http://tempuri.org/HRWebServices/GetCitiesResponse")]
-        System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblCity[]> GetCitiesAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblCity>> GetCitiesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetEmployees", ReplyAction="http://tempuri.org/HRWebServices/GetEmployeesResponse")]
+        System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee> GetEmployees();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetEmployees", ReplyAction="http://tempuri.org/HRWebServices/GetEmployeesResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee>> GetEmployeesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -972,52 +946,60 @@ namespace HumanResourcesTool.ServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public HumanResourcesTool.ServiceReference.tblPosition[] GetPositions() {
+        public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblPosition> GetPositions() {
             return base.Channel.GetPositions();
         }
         
-        public System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblPosition[]> GetPositionsAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblPosition>> GetPositionsAsync() {
             return base.Channel.GetPositionsAsync();
         }
         
-        public HumanResourcesTool.ServiceReference.tblDepartment[] GetDepartments() {
+        public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblDepartment> GetDepartments() {
             return base.Channel.GetDepartments();
         }
         
-        public System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblDepartment[]> GetDepartmentsAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblDepartment>> GetDepartmentsAsync() {
             return base.Channel.GetDepartmentsAsync();
         }
         
-        public HumanResourcesTool.ServiceReference.tblTitle[] GetTitles() {
+        public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblTitle> GetTitles() {
             return base.Channel.GetTitles();
         }
         
-        public System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblTitle[]> GetTitlesAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblTitle>> GetTitlesAsync() {
             return base.Channel.GetTitlesAsync();
         }
         
-        public HumanResourcesTool.ServiceReference.tblCountry[] GetCountries() {
+        public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblCountry> GetCountries() {
             return base.Channel.GetCountries();
         }
         
-        public System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblCountry[]> GetCountriesAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblCountry>> GetCountriesAsync() {
             return base.Channel.GetCountriesAsync();
         }
         
-        public HumanResourcesTool.ServiceReference.tblProvince[] GetProvinces() {
+        public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblProvince> GetProvinces() {
             return base.Channel.GetProvinces();
         }
         
-        public System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblProvince[]> GetProvincesAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblProvince>> GetProvincesAsync() {
             return base.Channel.GetProvincesAsync();
         }
         
-        public HumanResourcesTool.ServiceReference.tblCity[] GetCities() {
+        public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblCity> GetCities() {
             return base.Channel.GetCities();
         }
         
-        public System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblCity[]> GetCitiesAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblCity>> GetCitiesAsync() {
             return base.Channel.GetCitiesAsync();
+        }
+        
+        public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee> GetEmployees() {
+            return base.Channel.GetEmployees();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee>> GetEmployeesAsync() {
+            return base.Channel.GetEmployeesAsync();
         }
     }
 }

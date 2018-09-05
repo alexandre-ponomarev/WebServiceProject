@@ -28,7 +28,7 @@ namespace HumanResourcesTool
             InitializeComponent();
 
             Clear_Controls();
-            Enabled_Desabled_Controls(false);
+            Enabled_Desabled_Controls(true);
 
         }
 

@@ -5,12 +5,27 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Data.Entity;
 
 namespace WCFResourceHumanServices
 {
     public class HRWebService : HRWebServices
     {
-        
+
+        List<tblEmployee> HRWebServices.GetEmployees()
+        {
+            using (var dbcontext = new HRDBContext())
+            {
+                
+
+                List<tblEmployee> runnersObjects = dbcontext.tblEmployees.Include(p => p.tblTitle).ToList();
+
+                
+                
+
+                return runnersObjects;
+            }
+        }
 
         List<tblPosition> HRWebServices.GetPositions()
         {

@@ -85,8 +85,6 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Cuo_CountryId" type="xs:int" />
       <xs:element minOccurs="0" name="Cuo_Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="tblCountries1" nillable="true" type="tns:tblCountry" />
-      <xs:element minOccurs="0" name="tblCountry1" nillable="true" type="tns:tblCountry" />
       <xs:element minOccurs="0" name="tblProvinces" nillable="true" type="tns:ArrayOftblProvince" />
     </xs:sequence>
   </xs:complexType>

@@ -31,7 +31,8 @@ namespace WCFResourceHumanServices
         [OperationContract]
         List<tblCity> GetCities();
 
-
+        [OperationContract]
+        List<tblEmployee> GetEmployees();
     }
 
 

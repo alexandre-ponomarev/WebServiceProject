@@ -73,4 +73,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetEmployees">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="GetEmployeesResult" nillable="true" type="q7:ArrayOftblEmployee" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
