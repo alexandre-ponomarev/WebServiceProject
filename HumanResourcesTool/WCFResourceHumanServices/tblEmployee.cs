@@ -82,13 +82,16 @@ namespace WCFResourceHumanServices
         [DataMember]
         public byte[] Emp_Photo { get; set; }
 
-        
+        [DataMember]
         public tblDepartment tblDepartment { get; set; }
 
-        
+        [DataMember]
         public tblPosition tblPosition { get; set; }
 
         [DataMember]
         public tblTitle tblTitle { get; set; }
+
+        [DataMember]
+        public tblCity tblCity { get; set; }
     }
 }

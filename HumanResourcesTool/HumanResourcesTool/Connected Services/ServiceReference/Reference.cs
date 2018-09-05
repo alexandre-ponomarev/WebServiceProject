@@ -28,9 +28,6 @@ namespace HumanResourcesTool.ServiceReference {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int Pos_PositionIdField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee> tblEmployeesField;
-        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -67,15 +64,371 @@ namespace HumanResourcesTool.ServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee> tblEmployees {
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tblDepartment", Namespace="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices")]
+    [System.SerializableAttribute()]
+    public partial class tblDepartment : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Dep_DepartmentIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Dep_NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
-                return this.tblEmployeesField;
+                return this.extensionDataField;
             }
             set {
-                if ((object.ReferenceEquals(this.tblEmployeesField, value) != true)) {
-                    this.tblEmployeesField = value;
-                    this.RaisePropertyChanged("tblEmployees");
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Dep_DepartmentId {
+            get {
+                return this.Dep_DepartmentIdField;
+            }
+            set {
+                if ((this.Dep_DepartmentIdField.Equals(value) != true)) {
+                    this.Dep_DepartmentIdField = value;
+                    this.RaisePropertyChanged("Dep_DepartmentId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Dep_Name {
+            get {
+                return this.Dep_NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Dep_NameField, value) != true)) {
+                    this.Dep_NameField = value;
+                    this.RaisePropertyChanged("Dep_Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tblTitle", Namespace="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices")]
+    [System.SerializableAttribute()]
+    public partial class tblTitle : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Tit_NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Tit_TitleIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Tit_Name {
+            get {
+                return this.Tit_NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Tit_NameField, value) != true)) {
+                    this.Tit_NameField = value;
+                    this.RaisePropertyChanged("Tit_Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Tit_TitleId {
+            get {
+                return this.Tit_TitleIdField;
+            }
+            set {
+                if ((this.Tit_TitleIdField.Equals(value) != true)) {
+                    this.Tit_TitleIdField = value;
+                    this.RaisePropertyChanged("Tit_TitleId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tblCountry", Namespace="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices")]
+    [System.SerializableAttribute()]
+    public partial class tblCountry : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Cuo_CountryIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Cuo_NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblProvince> tblProvincesField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Cuo_CountryId {
+            get {
+                return this.Cuo_CountryIdField;
+            }
+            set {
+                if ((this.Cuo_CountryIdField.Equals(value) != true)) {
+                    this.Cuo_CountryIdField = value;
+                    this.RaisePropertyChanged("Cuo_CountryId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Cuo_Name {
+            get {
+                return this.Cuo_NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Cuo_NameField, value) != true)) {
+                    this.Cuo_NameField = value;
+                    this.RaisePropertyChanged("Cuo_Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblProvince> tblProvinces {
+            get {
+                return this.tblProvincesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tblProvincesField, value) != true)) {
+                    this.tblProvincesField = value;
+                    this.RaisePropertyChanged("tblProvinces");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tblProvince", Namespace="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices")]
+    [System.SerializableAttribute()]
+    public partial class tblProvince : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Cou_CountryidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Pro_NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Pro_ProvinceIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HumanResourcesTool.ServiceReference.tblCountry tblCountryField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Cou_Countryid {
+            get {
+                return this.Cou_CountryidField;
+            }
+            set {
+                if ((this.Cou_CountryidField.Equals(value) != true)) {
+                    this.Cou_CountryidField = value;
+                    this.RaisePropertyChanged("Cou_Countryid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Pro_Name {
+            get {
+                return this.Pro_NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Pro_NameField, value) != true)) {
+                    this.Pro_NameField = value;
+                    this.RaisePropertyChanged("Pro_Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Pro_ProvinceId {
+            get {
+                return this.Pro_ProvinceIdField;
+            }
+            set {
+                if ((this.Pro_ProvinceIdField.Equals(value) != true)) {
+                    this.Pro_ProvinceIdField = value;
+                    this.RaisePropertyChanged("Pro_ProvinceId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public HumanResourcesTool.ServiceReference.tblCountry tblCountry {
+            get {
+                return this.tblCountryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tblCountryField, value) != true)) {
+                    this.tblCountryField = value;
+                    this.RaisePropertyChanged("tblCountry");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tblCity", Namespace="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices")]
+    [System.SerializableAttribute()]
+    public partial class tblCity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Cit_CityIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Cit_NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Pro_ProvinceIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Cit_CityId {
+            get {
+                return this.Cit_CityIdField;
+            }
+            set {
+                if ((this.Cit_CityIdField.Equals(value) != true)) {
+                    this.Cit_CityIdField = value;
+                    this.RaisePropertyChanged("Cit_CityId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Cit_Name {
+            get {
+                return this.Cit_NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Cit_NameField, value) != true)) {
+                    this.Cit_NameField = value;
+                    this.RaisePropertyChanged("Cit_Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Pro_ProvinceId {
+            get {
+                return this.Pro_ProvinceIdField;
+            }
+            set {
+                if ((this.Pro_ProvinceIdField.Equals(value) != true)) {
+                    this.Pro_ProvinceIdField = value;
+                    this.RaisePropertyChanged("Pro_ProvinceId");
                 }
             }
         }
@@ -155,6 +508,15 @@ namespace HumanResourcesTool.ServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int Tit_TitleIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HumanResourcesTool.ServiceReference.tblCity tblCityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HumanResourcesTool.ServiceReference.tblDepartment tblDepartmentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HumanResourcesTool.ServiceReference.tblPosition tblPositionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private HumanResourcesTool.ServiceReference.tblTitle tblTitleField;
@@ -417,6 +779,45 @@ namespace HumanResourcesTool.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public HumanResourcesTool.ServiceReference.tblCity tblCity {
+            get {
+                return this.tblCityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tblCityField, value) != true)) {
+                    this.tblCityField = value;
+                    this.RaisePropertyChanged("tblCity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public HumanResourcesTool.ServiceReference.tblDepartment tblDepartment {
+            get {
+                return this.tblDepartmentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tblDepartmentField, value) != true)) {
+                    this.tblDepartmentField = value;
+                    this.RaisePropertyChanged("tblDepartment");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public HumanResourcesTool.ServiceReference.tblPosition tblPosition {
+            get {
+                return this.tblPositionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tblPositionField, value) != true)) {
+                    this.tblPositionField = value;
+                    this.RaisePropertyChanged("tblPosition");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public HumanResourcesTool.ServiceReference.tblTitle tblTitle {
             get {
                 return this.tblTitleField;
@@ -425,391 +826,6 @@ namespace HumanResourcesTool.ServiceReference {
                 if ((object.ReferenceEquals(this.tblTitleField, value) != true)) {
                     this.tblTitleField = value;
                     this.RaisePropertyChanged("tblTitle");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="tblTitle", Namespace="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices")]
-    [System.SerializableAttribute()]
-    public partial class tblTitle : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Tit_NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Tit_TitleIdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Tit_Name {
-            get {
-                return this.Tit_NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Tit_NameField, value) != true)) {
-                    this.Tit_NameField = value;
-                    this.RaisePropertyChanged("Tit_Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Tit_TitleId {
-            get {
-                return this.Tit_TitleIdField;
-            }
-            set {
-                if ((this.Tit_TitleIdField.Equals(value) != true)) {
-                    this.Tit_TitleIdField = value;
-                    this.RaisePropertyChanged("Tit_TitleId");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="tblDepartment", Namespace="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices")]
-    [System.SerializableAttribute()]
-    public partial class tblDepartment : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Dep_DepartmentIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Dep_NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee> tblEmployeesField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Dep_DepartmentId {
-            get {
-                return this.Dep_DepartmentIdField;
-            }
-            set {
-                if ((this.Dep_DepartmentIdField.Equals(value) != true)) {
-                    this.Dep_DepartmentIdField = value;
-                    this.RaisePropertyChanged("Dep_DepartmentId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Dep_Name {
-            get {
-                return this.Dep_NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Dep_NameField, value) != true)) {
-                    this.Dep_NameField = value;
-                    this.RaisePropertyChanged("Dep_Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee> tblEmployees {
-            get {
-                return this.tblEmployeesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.tblEmployeesField, value) != true)) {
-                    this.tblEmployeesField = value;
-                    this.RaisePropertyChanged("tblEmployees");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="tblCountry", Namespace="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices")]
-    [System.SerializableAttribute()]
-    public partial class tblCountry : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Cuo_CountryIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Cuo_NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblProvince> tblProvincesField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Cuo_CountryId {
-            get {
-                return this.Cuo_CountryIdField;
-            }
-            set {
-                if ((this.Cuo_CountryIdField.Equals(value) != true)) {
-                    this.Cuo_CountryIdField = value;
-                    this.RaisePropertyChanged("Cuo_CountryId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Cuo_Name {
-            get {
-                return this.Cuo_NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Cuo_NameField, value) != true)) {
-                    this.Cuo_NameField = value;
-                    this.RaisePropertyChanged("Cuo_Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblProvince> tblProvinces {
-            get {
-                return this.tblProvincesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.tblProvincesField, value) != true)) {
-                    this.tblProvincesField = value;
-                    this.RaisePropertyChanged("tblProvinces");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="tblProvince", Namespace="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices")]
-    [System.SerializableAttribute()]
-    public partial class tblProvince : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Cou_CountryidField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Pro_NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Pro_ProvinceIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HumanResourcesTool.ServiceReference.tblCountry tblCountryField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Cou_Countryid {
-            get {
-                return this.Cou_CountryidField;
-            }
-            set {
-                if ((this.Cou_CountryidField.Equals(value) != true)) {
-                    this.Cou_CountryidField = value;
-                    this.RaisePropertyChanged("Cou_Countryid");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Pro_Name {
-            get {
-                return this.Pro_NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Pro_NameField, value) != true)) {
-                    this.Pro_NameField = value;
-                    this.RaisePropertyChanged("Pro_Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Pro_ProvinceId {
-            get {
-                return this.Pro_ProvinceIdField;
-            }
-            set {
-                if ((this.Pro_ProvinceIdField.Equals(value) != true)) {
-                    this.Pro_ProvinceIdField = value;
-                    this.RaisePropertyChanged("Pro_ProvinceId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public HumanResourcesTool.ServiceReference.tblCountry tblCountry {
-            get {
-                return this.tblCountryField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.tblCountryField, value) != true)) {
-                    this.tblCountryField = value;
-                    this.RaisePropertyChanged("tblCountry");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="tblCity", Namespace="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices")]
-    [System.SerializableAttribute()]
-    public partial class tblCity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Cit_CityIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Cit_NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Pro_ProvinceIdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Cit_CityId {
-            get {
-                return this.Cit_CityIdField;
-            }
-            set {
-                if ((this.Cit_CityIdField.Equals(value) != true)) {
-                    this.Cit_CityIdField = value;
-                    this.RaisePropertyChanged("Cit_CityId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Cit_Name {
-            get {
-                return this.Cit_NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Cit_NameField, value) != true)) {
-                    this.Cit_NameField = value;
-                    this.RaisePropertyChanged("Cit_Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Pro_ProvinceId {
-            get {
-                return this.Pro_ProvinceIdField;
-            }
-            set {
-                if ((this.Pro_ProvinceIdField.Equals(value) != true)) {
-                    this.Pro_ProvinceIdField = value;
-                    this.RaisePropertyChanged("Pro_ProvinceId");
                 }
             }
         }

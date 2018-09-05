@@ -26,7 +26,7 @@ namespace WCFResourceHumanServices
         public string Dep_Name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [DataMember]
+        [IgnoreDataMember]
         public ICollection<tblEmployee> tblEmployees { get; set; }
     }
 }

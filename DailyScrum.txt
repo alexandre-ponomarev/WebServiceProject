@@ -107,4 +107,15 @@ Luis
 - Insert Employees into Database
 3. Where do I need assistance, research, test things, etc.
 
+2018-09-04
+----------
 
+Alex
+1. What was done since last scrum
+- Solveed problem of including reference tables to the entity model.
+2. What is to be done now, until next scrum
+- on double click to be able to edit employee
+- photo image implementation
+- think about the logic of calendar planner
+3. Where do I need assistance, research, test things, etc.
+-

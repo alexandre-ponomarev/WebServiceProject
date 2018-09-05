@@ -8,10 +8,26 @@
         Title="EmployeesList" Height="912.857" Width="1196">
     <Grid>
         <Grid HorizontalAlignment="Left" Height="373" Margin="27,64,0,0" VerticalAlignment="Top" Width="1133">
-            <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Height="363" Margin="10,0,0,0" VerticalAlignment="Top" Width="1088" ItemsSource="{Binding}" AutoGenerateColumns="true" >
+            <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Height="363" Margin="10,0,0,0" VerticalAlignment="Top" Width="1088" ItemsSource="{Binding}" AutoGenerateColumns="false" >
                 <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Emp_EmployeeId}" />
                     <DataGridTextColumn Header="Title" Binding="{Binding tblTitle.Tit_Name}" />
-                    
+                    <DataGridTextColumn Header="First Name" Binding="{Binding Emp_FirstName}" />
+                    <DataGridTextColumn Header="Last Name" Binding="{Binding Emp_LastName}" />
+                    <DataGridTextColumn Header="Gender" Binding="{Binding Emp_Gender}" />
+                    <DataGridTextColumn Header="Address" Binding="{Binding Emp_Address}" />
+                    <DataGridTextColumn Header="DOB" Binding="{Binding Emp_BirthOfDate}" />
+                    <DataGridTextColumn Header="Employed from" Binding="{Binding Emp_StartDate}" />
+                    <DataGridTextColumn Header="Employed till" Binding="{Binding Emp_TerminationDate}" />
+                    <DataGridTextColumn Header="City" Binding="{Binding tblCity.Cit_Name}" />
+                    <DataGridTextColumn Header="ZIP" Binding="{Binding Emp_PostalCode}" />
+                    <DataGridTextColumn Header="Position" Binding="{Binding tblPosition.Pos_Description}" />
+                    <DataGridTextColumn Header="Email" Binding="{Binding Emp_Email}" />
+                    <DataGridTextColumn Header="Phone" Binding="{Binding Emp_Phone}" />
+                    <DataGridTextColumn Header="Mobile" Binding="{Binding Emp_CellPhone}" />
+                    <DataGridTextColumn Header="Annual Salary" Binding="{Binding Emp_AnualSalary}" />
+                    <DataGridTextColumn Header="Hourly Rate" Binding="{Binding Emp_HourlyRate}" />
+                    <DataGridTextColumn Header="Department" Binding="{Binding tblDepartment.Dep_Name}" />
                 </DataGrid.Columns>
 
                 <DataGrid.ItemContainerStyle>

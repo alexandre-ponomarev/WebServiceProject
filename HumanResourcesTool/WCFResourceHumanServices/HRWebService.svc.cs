@@ -18,7 +18,7 @@ namespace WCFResourceHumanServices
             {
 
 
-                List<tblEmployee> runnersObjects = dbcontext.tblEmployees.Include(p => p.tblTitle).ToList();
+                List<tblEmployee> runnersObjects = dbcontext.tblEmployees.Include(t => t.tblTitle).Include(d => d.tblDepartment).Include(p => p.tblPosition).Include(c => c.tblCity).ToList();
 
 
 

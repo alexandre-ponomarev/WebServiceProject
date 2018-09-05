@@ -10,6 +10,12 @@ namespace WCFResourceHumanServices
     [DataContract]
     public partial class tblCity
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblCity()
+        {
+            tblEmployees = new HashSet<tblEmployee>();
+        }
+
         [Key]
         [DataMember]
         public int Cit_CityId { get; set; }
@@ -21,5 +27,9 @@ namespace WCFResourceHumanServices
 
         [DataMember]
         public int Pro_ProvinceId { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [IgnoreDataMember]
+        public ICollection<tblEmployee> tblEmployees { get; set; }
     }
 }

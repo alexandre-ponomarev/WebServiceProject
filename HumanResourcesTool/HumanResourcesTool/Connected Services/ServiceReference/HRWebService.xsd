@@ -10,48 +10,9 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Pos_Description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Pos_PositionId" type="xs:int" />
-      <xs:element minOccurs="0" name="tblEmployees" nillable="true" type="tns:ArrayOftblEmployee" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="tblPosition" nillable="true" type="tns:tblPosition" />
-  <xs:complexType name="ArrayOftblEmployee">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="tblEmployee" nillable="true" type="tns:tblEmployee" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOftblEmployee" nillable="true" type="tns:ArrayOftblEmployee" />
-  <xs:complexType name="tblEmployee">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Cit_CityId" type="xs:int" />
-      <xs:element minOccurs="0" name="Dep_DepartmentId" type="xs:int" />
-      <xs:element minOccurs="0" name="Emp_Address" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Emp_AnualSalary" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Emp_BirthOfDate" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Emp_CellPhone" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Emp_Email" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Emp_EmployeeId" type="xs:int" />
-      <xs:element minOccurs="0" name="Emp_FirstName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Emp_Gender" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Emp_HourlyRate" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Emp_LastName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Emp_Phone" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Emp_Photo" nillable="true" type="xs:base64Binary" />
-      <xs:element minOccurs="0" name="Emp_PostalCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Emp_StartDate" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Emp_TerminationDate" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Pos_PositionId" type="xs:int" />
-      <xs:element minOccurs="0" name="Tit_TitleId" type="xs:int" />
-      <xs:element minOccurs="0" name="tblTitle" nillable="true" type="tns:tblTitle" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="tblEmployee" nillable="true" type="tns:tblEmployee" />
-  <xs:complexType name="tblTitle">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Tit_Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Tit_TitleId" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="tblTitle" nillable="true" type="tns:tblTitle" />
   <xs:complexType name="ArrayOftblDepartment">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="tblDepartment" nillable="true" type="tns:tblDepartment" />
@@ -62,7 +23,6 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Dep_DepartmentId" type="xs:int" />
       <xs:element minOccurs="0" name="Dep_Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="tblEmployees" nillable="true" type="tns:ArrayOftblEmployee" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="tblDepartment" nillable="true" type="tns:tblDepartment" />
@@ -72,6 +32,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOftblTitle" nillable="true" type="tns:ArrayOftblTitle" />
+  <xs:complexType name="tblTitle">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Tit_Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tit_TitleId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tblTitle" nillable="true" type="tns:tblTitle" />
   <xs:complexType name="ArrayOftblCountry">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="tblCountry" nillable="true" type="tns:tblCountry" />
@@ -115,4 +82,38 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="tblCity" nillable="true" type="tns:tblCity" />
+  <xs:complexType name="ArrayOftblEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tblEmployee" nillable="true" type="tns:tblEmployee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftblEmployee" nillable="true" type="tns:ArrayOftblEmployee" />
+  <xs:complexType name="tblEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cit_CityId" type="xs:int" />
+      <xs:element minOccurs="0" name="Dep_DepartmentId" type="xs:int" />
+      <xs:element minOccurs="0" name="Emp_Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Emp_AnualSalary" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Emp_BirthOfDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Emp_CellPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Emp_Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Emp_EmployeeId" type="xs:int" />
+      <xs:element minOccurs="0" name="Emp_FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Emp_Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Emp_HourlyRate" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Emp_LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Emp_Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Emp_Photo" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Emp_PostalCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Emp_StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Emp_TerminationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Pos_PositionId" type="xs:int" />
+      <xs:element minOccurs="0" name="Tit_TitleId" type="xs:int" />
+      <xs:element minOccurs="0" name="tblCity" nillable="true" type="tns:tblCity" />
+      <xs:element minOccurs="0" name="tblDepartment" nillable="true" type="tns:tblDepartment" />
+      <xs:element minOccurs="0" name="tblPosition" nillable="true" type="tns:tblPosition" />
+      <xs:element minOccurs="0" name="tblTitle" nillable="true" type="tns:tblTitle" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tblEmployee" nillable="true" type="tns:tblEmployee" />
 </xs:schema>
