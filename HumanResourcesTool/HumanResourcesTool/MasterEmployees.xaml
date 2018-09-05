@@ -6,6 +6,102 @@
         xmlns:local="clr-namespace:HumanResourcesTool"
         mc:Ignorable="d"
         Title="MasterEmployees" Height="926.312" Width="1008.834">
+    <Window.Resources>
+        <Style x:Key="GlassButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <DropShadowBitmapEffect ShadowDepth="7" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle x:Name="BaseRect" Stroke="#FF000000" RadiusX="13.5" RadiusY="13.5" Opacity="0.085">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFFDFDFD" Offset="0"/>
+                                        <GradientStop Color="#FFFFFFFF" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Rectangle Stroke="#FF000000" RadiusX="13.5" RadiusY="13.5" x:Name="GlowRect" Opacity="0">
+                                <Rectangle.Fill>
+                                    <RadialGradientBrush GradientOrigin="0.5,0.5">
+                                        <RadialGradientBrush.RelativeTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1" ScaleY="1.335"/>
+                                                <SkewTransform AngleX="0" AngleY="0" CenterX="0.5" CenterY="0.5"/>
+                                                <RotateTransform Angle="0" CenterX="0.5" CenterY="0.5"/>
+                                                <TranslateTransform X="0" Y="0.442"/>
+                                            </TransformGroup>
+                                        </RadialGradientBrush.RelativeTransform>
+                                        <GradientStop Color="#FFF2FF79" Offset="0"/>
+                                        <GradientStop Color="#00FFFFFF" Offset="1"/>
+                                    </RadialGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Rectangle Stroke="#FF000000" RadiusX="13.5" RadiusY="13.5" x:Name="GlassRect" Opacity="0.795">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,0.278" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                        <GradientStop Color="#00FFFFFF" Offset="1"/>
+                                        <GradientStop Color="#65FFFFFF" Offset="0.71"/>
+                                        <GradientStop Color="#DAFFFFFF" Offset="0.446"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                            <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="GlowRect" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.5" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="GlowRect" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsPressed" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Width" To="200" Duration="0:0:0" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Width" To="203" Duration="0:0:0" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+                    <Setter Property="BitmapEffect">
+                        <Setter.Value>
+                            <DropShadowBitmapEffect ShadowDepth="2" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid Margin="0,0,2,2">
         <Grid.RowDefinitions>
             <RowDefinition Height="69*"/>
@@ -25,12 +121,6 @@
         <Label Content="Age:" HorizontalAlignment="Left" Margin="558,266.5,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" Grid.Row="1"/>
         <ComboBox x:Name="cbTitles" HorizontalAlignment="Left" Margin="191,57,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26" KeyDown="cbTitles_KeyDown"/>
         <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="28" Margin="191,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" KeyDown="txtFirstName_KeyDown" GotFocus="txtFirstName_GotFocus"/>
-        <Button x:Name="btnGenderFemale" HorizontalAlignment="Left" Height="52" Margin="299,40,0,0" VerticalAlignment="Top" Width="86" Grid.Row="1">
-            <Image Height="36" Width="42" Source="images/ico-female04.png"/>
-        </Button>
-        <Button x:Name="btnGenderMale" HorizontalAlignment="Left" Height="52" Margin="191,40.5,0,0" VerticalAlignment="Top" Width="83" Grid.Row="1">
-            <Image Height="36" Width="42" Source="images/ico-male04.png"/>
-        </Button>
         <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Height="53" Margin="191,104.5,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Grid.Row="1" KeyDown="txtAddress_KeyDown" GotFocus="txtAddress_GotFocus"/>
         <ComboBox x:Name="cbCountries" HorizontalAlignment="Left" Margin="191,179.5,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26" Grid.Row="1" KeyDown="cbCountries_KeyDown"/>
         <ComboBox x:Name="cbCities" HorizontalAlignment="Left" Margin="191,260.5,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26" Grid.Row="1" KeyDown="cbCities_KeyDown"/>
@@ -47,9 +137,6 @@
             <Image x:Name="btnSearchEmployee1" Height="28" Width="38" Source="images/ico-search01.png"/>
         </Button>
         <StatusBar HorizontalAlignment="Left" Height="24" Margin="0,539,-31,0" VerticalAlignment="Top" Width="1030" Grid.Row="1"/>
-        <Button x:Name="btnGenderMaleAndFemale" HorizontalAlignment="Left" Height="52" Margin="405,40.5,0,0" VerticalAlignment="Top" Width="82" Grid.Row="1">
-            <Image x:Name="imgMaleAndFemale" Height="36" Width="42" Source="images/ico-maleandfemale06.png"/>
-        </Button>
         <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="28" Margin="191,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" KeyDown="txtLastName_KeyDown" GotFocus="txtLastName_GotFocus"/>
         <Label Content="Last Name:" HorizontalAlignment="Left" Margin="25,135,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
         <Label Content="Possition:" HorizontalAlignment="Left" Margin="25,366.5,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" Grid.Row="1"/>
@@ -66,17 +153,30 @@
         <Button x:Name="btnNew" HorizontalAlignment="Left" Margin="25,460,0,0" Grid.Row="1" VerticalAlignment="Top" Width="160" Height="62" FontFamily="Arial Black" FontSize="14" Click="btnNew_Click">
             <Image Height="62" Width="79" Source="images/ico-new02.ico"/>
         </Button>
-        <Button x:Name="btnUpdate" HorizontalAlignment="Left" Margin="202,460,0,0" Grid.Row="1" VerticalAlignment="Top" Width="160" Height="62" FontFamily="Arial Black" FontSize="14">
+        <Button x:Name="btnUpdate" HorizontalAlignment="Left" Margin="202,460,0,0" Grid.Row="1" VerticalAlignment="Top" Width="160" Height="62" FontFamily="Arial Black" FontSize="14" Click="btnUpdate_Click">
             <Image Height="52" Width="75" Source="images/ico-update04.png"/>
         </Button>
-        <Button x:Name="btnDelete" HorizontalAlignment="Left" Margin="382,460,0,0" Grid.Row="1" VerticalAlignment="Top" Width="160" Height="62" FontFamily="Arial Black" FontSize="14">
+        <Button x:Name="btnDelete" HorizontalAlignment="Left" Margin="382,460,0,0" Grid.Row="1" VerticalAlignment="Top" Width="160" Height="62" FontFamily="Arial Black" FontSize="14" Click="btnDelete_Click">
             <Image Height="52" Width="72" Source="images/ico-delete01.png"/>
         </Button>
-        <Button x:Name="btnSave" HorizontalAlignment="Left" Margin="650,460,0,0" Grid.Row="1" VerticalAlignment="Top" Width="160" Height="62" FontFamily="Arial Black" FontSize="14" >
+        <Button x:Name="btnSave" HorizontalAlignment="Left" Margin="650,460,0,0" Grid.Row="1" VerticalAlignment="Top" Width="160" Height="62" FontFamily="Arial Black" FontSize="14" Click="btnSave_Click" >
             <Image Height="52" Width="75" Source="images/ico-save02.png"/>
         </Button>
         <Button x:Name="btnExit" HorizontalAlignment="Left" Margin="825,460,0,0" Grid.Row="1" VerticalAlignment="Top" Width="160" Height="62" FontFamily="Arial Black" FontSize="14" Click="btnExit_Click">
             <Image Height="52" Width="71" Source="images/ico-exit01.png"/>
         </Button>
+        <Image x:Name="imgGenderMale" HorizontalAlignment="Left" Height="23" Margin="227,10,0,0" VerticalAlignment="Top" Width="35" Source="images/ico-chech01.png" Grid.Row="1"/>
+        <Button x:Name="btnGenderMale" HorizontalAlignment="Left" Margin="191,36,0,0" VerticalAlignment="Top" Width="89" Height="51" Grid.Row="1"  Click="btnGenderMale_Click">
+            <Image Height="41" Width="58" Source="images/ico-male04.png"/>
+        </Button>
+        <Button x:Name="btnGenderFemale" HorizontalAlignment="Left" Margin="294,36,0,0" VerticalAlignment="Top" Width="89" Height="51" Grid.Row="1" Click="btnGenderFemale_Click">
+            <Image Height="41" Width="53" Source="images/ico-female04.png"/>
+        </Button>
+        <Button x:Name="btnGenderMaleAndFemale" HorizontalAlignment="Left" Margin="398,36,0,0" VerticalAlignment="Top" Width="89" Height="51" Grid.Row="1" Click="btnGenderMaleAndFemale_Click">
+            <Image x:Name="imgMaleAndFemale_Copy" Height="41" Width="58" Source="images/ico-maleandfemale06.png"/>
+        </Button>
+        <Image x:Name="imgGenderFemale" HorizontalAlignment="Left" Height="23" Margin="332,10,0,0" VerticalAlignment="Top" Width="39" Source="images/ico-chech01.png" Grid.Row="1"/>
+        <Image x:Name="imgGenderMaleAndFemale" HorizontalAlignment="Left" Height="21" Margin="436,10,0,0" VerticalAlignment="Top" Width="39" Source="images/ico-chech01.png" Grid.Row="1"/>
+        <Button x:Name="btnTestingInsert" Content="Button" HorizontalAlignment="Left" Margin="25,266,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1,2.188" Click="btnTestingInsert_Click"/>
     </Grid>
 </Window>

@@ -157,12 +157,6 @@ namespace HumanResourcesTool.ServiceReference {
         private int Tit_TitleIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HumanResourcesTool.ServiceReference.tblDepartment tblDepartmentField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HumanResourcesTool.ServiceReference.tblPosition tblPositionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private HumanResourcesTool.ServiceReference.tblTitle tblTitleField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -423,32 +417,6 @@ namespace HumanResourcesTool.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public HumanResourcesTool.ServiceReference.tblDepartment tblDepartment {
-            get {
-                return this.tblDepartmentField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.tblDepartmentField, value) != true)) {
-                    this.tblDepartmentField = value;
-                    this.RaisePropertyChanged("tblDepartment");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public HumanResourcesTool.ServiceReference.tblPosition tblPosition {
-            get {
-                return this.tblPositionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.tblPositionField, value) != true)) {
-                    this.tblPositionField = value;
-                    this.RaisePropertyChanged("tblPosition");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public HumanResourcesTool.ServiceReference.tblTitle tblTitle {
             get {
                 return this.tblTitleField;
@@ -457,6 +425,67 @@ namespace HumanResourcesTool.ServiceReference {
                 if ((object.ReferenceEquals(this.tblTitleField, value) != true)) {
                     this.tblTitleField = value;
                     this.RaisePropertyChanged("tblTitle");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tblTitle", Namespace="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices")]
+    [System.SerializableAttribute()]
+    public partial class tblTitle : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Tit_NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Tit_TitleIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Tit_Name {
+            get {
+                return this.Tit_NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Tit_NameField, value) != true)) {
+                    this.Tit_NameField = value;
+                    this.RaisePropertyChanged("Tit_Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Tit_TitleId {
+            get {
+                return this.Tit_TitleIdField;
+            }
+            set {
+                if ((this.Tit_TitleIdField.Equals(value) != true)) {
+                    this.Tit_TitleIdField = value;
+                    this.RaisePropertyChanged("Tit_TitleId");
                 }
             }
         }
@@ -521,83 +550,6 @@ namespace HumanResourcesTool.ServiceReference {
                 if ((object.ReferenceEquals(this.Dep_NameField, value) != true)) {
                     this.Dep_NameField = value;
                     this.RaisePropertyChanged("Dep_Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee> tblEmployees {
-            get {
-                return this.tblEmployeesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.tblEmployeesField, value) != true)) {
-                    this.tblEmployeesField = value;
-                    this.RaisePropertyChanged("tblEmployees");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="tblTitle", Namespace="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices")]
-    [System.SerializableAttribute()]
-    public partial class tblTitle : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Tit_NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Tit_TitleIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee> tblEmployeesField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Tit_Name {
-            get {
-                return this.Tit_NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Tit_NameField, value) != true)) {
-                    this.Tit_NameField = value;
-                    this.RaisePropertyChanged("Tit_Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Tit_TitleId {
-            get {
-                return this.Tit_TitleIdField;
-            }
-            set {
-                if ((this.Tit_TitleIdField.Equals(value) != true)) {
-                    this.Tit_TitleIdField = value;
-                    this.RaisePropertyChanged("Tit_TitleId");
                 }
             }
         }
@@ -917,6 +869,24 @@ namespace HumanResourcesTool.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetEmployees", ReplyAction="http://tempuri.org/HRWebServices/GetEmployeesResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee>> GetEmployeesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetLastEmployeeId", ReplyAction="http://tempuri.org/HRWebServices/GetLastEmployeeIdResponse")]
+        int GetLastEmployeeId();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetLastEmployeeId", ReplyAction="http://tempuri.org/HRWebServices/GetLastEmployeeIdResponse")]
+        System.Threading.Tasks.Task<int> GetLastEmployeeIdAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/insertDepartments", ReplyAction="http://tempuri.org/HRWebServices/insertDepartmentsResponse")]
+        bool insertDepartments(HumanResourcesTool.ServiceReference.tblDepartment objDepartment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/insertDepartments", ReplyAction="http://tempuri.org/HRWebServices/insertDepartmentsResponse")]
+        System.Threading.Tasks.Task<bool> insertDepartmentsAsync(HumanResourcesTool.ServiceReference.tblDepartment objDepartment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/insertEmployees", ReplyAction="http://tempuri.org/HRWebServices/insertEmployeesResponse")]
+        bool insertEmployees(HumanResourcesTool.ServiceReference.tblEmployee objEmployee);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/insertEmployees", ReplyAction="http://tempuri.org/HRWebServices/insertEmployeesResponse")]
+        System.Threading.Tasks.Task<bool> insertEmployeesAsync(HumanResourcesTool.ServiceReference.tblEmployee objEmployee);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1000,6 +970,30 @@ namespace HumanResourcesTool.ServiceReference {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee>> GetEmployeesAsync() {
             return base.Channel.GetEmployeesAsync();
+        }
+        
+        public int GetLastEmployeeId() {
+            return base.Channel.GetLastEmployeeId();
+        }
+        
+        public System.Threading.Tasks.Task<int> GetLastEmployeeIdAsync() {
+            return base.Channel.GetLastEmployeeIdAsync();
+        }
+        
+        public bool insertDepartments(HumanResourcesTool.ServiceReference.tblDepartment objDepartment) {
+            return base.Channel.insertDepartments(objDepartment);
+        }
+        
+        public System.Threading.Tasks.Task<bool> insertDepartmentsAsync(HumanResourcesTool.ServiceReference.tblDepartment objDepartment) {
+            return base.Channel.insertDepartmentsAsync(objDepartment);
+        }
+        
+        public bool insertEmployees(HumanResourcesTool.ServiceReference.tblEmployee objEmployee) {
+            return base.Channel.insertEmployees(objEmployee);
+        }
+        
+        public System.Threading.Tasks.Task<bool> insertEmployeesAsync(HumanResourcesTool.ServiceReference.tblEmployee objEmployee) {
+            return base.Channel.insertEmployeesAsync(objEmployee);
         }
     }
 }

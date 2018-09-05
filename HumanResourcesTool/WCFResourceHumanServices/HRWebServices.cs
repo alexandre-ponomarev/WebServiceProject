@@ -33,6 +33,16 @@ namespace WCFResourceHumanServices
 
         [OperationContract]
         List<tblEmployee> GetEmployees();
+
+        [OperationContract]
+        int GetLastEmployeeId();
+
+        [OperationContract]
+        bool insertDepartments(tblDepartment objDepartment);
+
+        [OperationContract]
+        bool insertEmployees(tblEmployee objEmployee);
+
     }
 
 

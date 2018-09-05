@@ -22,6 +22,7 @@ namespace HumanResourcesTool
     {
 
         ServiceReference.HRWebServicesClient WCFHRHumanResources = new ServiceReference.HRWebServicesClient();
+        string optionSelectedCRUM = "i";
 
         public MasterEmployees()
         {
@@ -46,7 +47,27 @@ namespace HumanResourcesTool
         // Additional Methods
         public void Clear_Controls ()
         {
-            //txtsdfsdf.text = ""
+
+            txtEmployeeId.Text = "";
+            txtFirstName.Text = "";
+            txtLastName.Text = "";
+            txtAddress.Text = "";
+            cbCities.Text = "";
+            txtPostCode.Text = "";
+            txtHomeTelephone.Text = "";
+            txtMobileTelephone.Text = "";
+            txtEmail.Text = "";
+
+            dpDOB.Text = DateTime.Now.Date.ToString();
+
+            txtAge.Text = "";
+            txtAnnualSalary.Text = "";
+            txtHouralyRate.Text = "";
+
+            //imgGenderMale.Visibility = true;
+            imgGenderMale.Visibility = System.Windows.Visibility.Visible;
+            imgGenderFemale.Visibility = System.Windows.Visibility.Hidden;
+            imgGenderMaleAndFemale.Visibility = System.Windows.Visibility.Hidden;
 
             Fill_cbPositions();
             Fill_cbDepartments();
@@ -161,7 +182,8 @@ namespace HumanResourcesTool
 
         private int fSearchLastEmployeeId()
         {
-            return 0;
+            int query = WCFHRHumanResources.GetLastEmployeeId();
+            return query;
         }
 
 
@@ -172,6 +194,9 @@ namespace HumanResourcesTool
 
         private void btnNew_Click(object sender, RoutedEventArgs e)
         {
+
+            optionSelectedCRUM = "i";
+
             Clear_Controls();
             txtEmployeeId.Text = fSearchLastEmployeeId().ToString();
             Enabled_Desabled_Controls(true);
@@ -347,6 +372,171 @@ namespace HumanResourcesTool
                 txtHouralyRate.SelectionLength = txtHouralyRate.Text.Length;
             }
 
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            if (fValidate_Info_Employee())
+            {
+                switch (optionSelectedCRUM)
+                {
+                    case "i":
+                        insertEmployee();
+                        break;
+                    case "u":
+                        //updateEmployee();
+                        break;
+                    case "d":
+                        //deleteEmployee();
+                        break;
+                }
+            }
+        }
+
+        private bool fValidate_Info_Employee()
+        {
+
+            //***************************************************************
+            //***************************************************************
+            // ... Get DatePicker reference.
+            var picker = dpDOB as DatePicker;
+
+            // ... Get nullable DateTime from SelectedDate.
+            DateTime? date = picker.SelectedDate;
+            if (date == null)
+            {
+                // ... A null object.
+                this.Title = "No date";
+            }
+            else
+            {
+                // ... No need to display the time.
+                this.Title = date.Value.ToShortDateString();
+            }
+            //***************************************************************
+            //***************************************************************
+
+
+
+            return true;
+        }
+
+        private void insertEmployee()
+        {
+            //reference to clase
+            ServiceReference.tblEmployee objEmployee = new ServiceReference.tblEmployee();
+
+            ////mapping data
+            //objEmployee.Cit_CityId = 1;
+            //objEmployee.Dep_DepartmentId = 1;
+            //objEmployee.Emp_Address = "Address 2";
+            //objEmployee.Emp_AnualSalary = 65000;
+            //objEmployee.Emp_CellPhone = "514836664";
+            //objEmployee.Emp_Email = "Lromanz@132.com";
+            //objEmployee.Emp_FirstName = "Ernesto";
+            //objEmployee.Emp_Gender = "M";
+            //objEmployee.Emp_HourlyRate = 30;
+            //objEmployee.Emp_LastName = "Zambrano";
+            //objEmployee.Emp_Phone = "514524154";
+            //objEmployee.Emp_Photo = null;
+            //objEmployee.Emp_PostalCode = "H3E1C9";
+
+            //objEmployee.Emp_BirthOfDate = DateTime.Now;
+            //objEmployee.Emp_StartDate = DateTime.Now;
+            //objEmployee.Emp_TerminationDate = DateTime.Now;
+
+            //objEmployee.Tit_TitleId = 1;
+            //objEmployee.Pos_PositionId = 1;
+
+
+            //mapping data
+            objEmployee.Cit_CityId = Int32.Parse(cbCities.SelectedValue.ToString());
+            objEmployee.Dep_DepartmentId = Int32.Parse(cbDepartment.SelectedValue.ToString());
+            objEmployee.Emp_Address = txtAddress.Text;
+
+            objEmployee.Emp_AnualSalary = 65000;
+            objEmployee.Emp_CellPhone = "514836664";
+            objEmployee.Emp_Email = "Lromanz@132.com";
+            objEmployee.Emp_FirstName = "Ernesto";
+            objEmployee.Emp_Gender = "M";
+            objEmployee.Emp_HourlyRate = 30;
+            objEmployee.Emp_LastName = "Zambrano";
+            objEmployee.Emp_Phone = "514524154";
+            objEmployee.Emp_Photo = null;
+            objEmployee.Emp_PostalCode = "H3E1C9";
+
+            objEmployee.Emp_BirthOfDate = DateTime.Now;
+            objEmployee.Emp_StartDate = DateTime.Now;
+            objEmployee.Emp_TerminationDate = DateTime.Now;
+
+            objEmployee.Tit_TitleId = 1;
+            objEmployee.Pos_PositionId = 1;
+
+
+            if (WCFHRHumanResources.insertEmployees(objEmployee))
+            {
+                MessageBox.Show("Employee inserted successfully");
+            } else
+            {
+                MessageBox.Show("Failed insert Employee");
+            }
+            
+
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+
+            optionSelectedCRUM = "u";
+
+
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+            optionSelectedCRUM = "d";
+
+
+        }
+
+        private void btnGenderFemale_Click(object sender, RoutedEventArgs e)
+        {
+
+            imgGenderMale.Visibility = System.Windows.Visibility.Hidden;
+            imgGenderFemale.Visibility = System.Windows.Visibility.Visible;
+            imgGenderMaleAndFemale.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private void btnGenderMaleAndFemale_Click(object sender, RoutedEventArgs e)
+        {
+            imgGenderMale.Visibility = System.Windows.Visibility.Hidden;
+            imgGenderFemale.Visibility = System.Windows.Visibility.Hidden;
+            imgGenderMaleAndFemale.Visibility = System.Windows.Visibility.Visible;
+
+        }
+
+        private void btnGenderMale_Click(object sender, RoutedEventArgs e)
+        {
+            imgGenderMale.Visibility = System.Windows.Visibility.Visible;
+            imgGenderFemale.Visibility = System.Windows.Visibility.Hidden;
+            imgGenderMaleAndFemale.Visibility = System.Windows.Visibility.Hidden;
+
+        }
+
+        private void btnTestingInsert_Click(object sender, RoutedEventArgs e)
+        {
+            //reference to clase
+            ServiceReference.tblDepartment objDepartment = new ServiceReference.tblDepartment();
+            objDepartment.Dep_Name = "Sales";
+            if (WCFHRHumanResources.insertDepartments(objDepartment))
+            {
+                MessageBox.Show("Employee inserted successfully");
+            }
+            else
+            {
+                MessageBox.Show("Failed insert Employee");
+            }
         }
     }
 }

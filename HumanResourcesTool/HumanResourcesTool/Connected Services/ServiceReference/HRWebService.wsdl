@@ -49,6 +49,24 @@
   <wsdl:message name="HRWebServices_GetEmployees_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetEmployeesResponse" />
   </wsdl:message>
+  <wsdl:message name="HRWebServices_GetLastEmployeeId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastEmployeeId" />
+  </wsdl:message>
+  <wsdl:message name="HRWebServices_GetLastEmployeeId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastEmployeeIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="HRWebServices_insertDepartments_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertDepartments" />
+  </wsdl:message>
+  <wsdl:message name="HRWebServices_insertDepartments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertDepartmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="HRWebServices_insertEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertEmployees" />
+  </wsdl:message>
+  <wsdl:message name="HRWebServices_insertEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertEmployeesResponse" />
+  </wsdl:message>
   <wsdl:portType name="HRWebServices">
     <wsdl:operation name="GetPositions">
       <wsdl:input wsaw:Action="http://tempuri.org/HRWebServices/GetPositions" message="tns:HRWebServices_GetPositions_InputMessage" />
@@ -77,6 +95,18 @@
     <wsdl:operation name="GetEmployees">
       <wsdl:input wsaw:Action="http://tempuri.org/HRWebServices/GetEmployees" message="tns:HRWebServices_GetEmployees_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/HRWebServices/GetEmployeesResponse" message="tns:HRWebServices_GetEmployees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastEmployeeId">
+      <wsdl:input wsaw:Action="http://tempuri.org/HRWebServices/GetLastEmployeeId" message="tns:HRWebServices_GetLastEmployeeId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/HRWebServices/GetLastEmployeeIdResponse" message="tns:HRWebServices_GetLastEmployeeId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertDepartments">
+      <wsdl:input wsaw:Action="http://tempuri.org/HRWebServices/insertDepartments" message="tns:HRWebServices_insertDepartments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/HRWebServices/insertDepartmentsResponse" message="tns:HRWebServices_insertDepartments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertEmployees">
+      <wsdl:input wsaw:Action="http://tempuri.org/HRWebServices/insertEmployees" message="tns:HRWebServices_insertEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/HRWebServices/insertEmployeesResponse" message="tns:HRWebServices_insertEmployees_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_HRWebServices" type="tns:HRWebServices">
@@ -137,6 +167,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetEmployees">
       <soap:operation soapAction="http://tempuri.org/HRWebServices/GetEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastEmployeeId">
+      <soap:operation soapAction="http://tempuri.org/HRWebServices/GetLastEmployeeId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertDepartments">
+      <soap:operation soapAction="http://tempuri.org/HRWebServices/insertDepartments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertEmployees">
+      <soap:operation soapAction="http://tempuri.org/HRWebServices/insertEmployees" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

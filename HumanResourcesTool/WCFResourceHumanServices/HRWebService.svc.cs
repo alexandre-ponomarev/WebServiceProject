@@ -16,12 +16,12 @@ namespace WCFResourceHumanServices
         {
             using (var dbcontext = new HRDBContext())
             {
-                
+
 
                 List<tblEmployee> runnersObjects = dbcontext.tblEmployees.Include(p => p.tblTitle).ToList();
 
-                
-                
+
+
 
                 return runnersObjects;
             }
@@ -102,6 +102,62 @@ namespace WCFResourceHumanServices
                 return runnersObjects;
             }
         }
+
+
+        int HRWebServices.GetLastEmployeeId()
+        {
+            using (var dbcontext = new HRDBContext())
+            {
+
+                int maxEmployeeId = (dbcontext.tblEmployees.Select(e => e.Emp_EmployeeId).DefaultIfEmpty(0).Max()) + 1;
+
+                return maxEmployeeId;
+            }
+        }
+
+
+        public bool insertDepartments(tblDepartment objDepartment)
+        {
+            using (var dbcontext = new HRDBContext())
+            {
+                try
+                {
+                    dbcontext.tblDepartments.Add(objDepartment);
+                    dbcontext.SaveChanges();
+                    return true;
+
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+
+            }
+
+        }
+
+
+        public bool insertEmployees(tblEmployee objEmployee)
+        {
+            using (var dbcontext = new HRDBContext())
+            {
+                try
+                {
+                    dbcontext.tblEmployees.Add(objEmployee);
+                    dbcontext.SaveChanges();
+                    return true;
+
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+
+            }
+
+
+        }
+
 
 
 

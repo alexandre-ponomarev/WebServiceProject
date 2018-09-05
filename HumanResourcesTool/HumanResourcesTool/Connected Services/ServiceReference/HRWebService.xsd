@@ -41,25 +41,14 @@
       <xs:element minOccurs="0" name="Emp_TerminationDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Pos_PositionId" type="xs:int" />
       <xs:element minOccurs="0" name="Tit_TitleId" type="xs:int" />
-      <xs:element minOccurs="0" name="tblDepartment" nillable="true" type="tns:tblDepartment" />
-      <xs:element minOccurs="0" name="tblPosition" nillable="true" type="tns:tblPosition" />
       <xs:element minOccurs="0" name="tblTitle" nillable="true" type="tns:tblTitle" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="tblEmployee" nillable="true" type="tns:tblEmployee" />
-  <xs:complexType name="tblDepartment">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Dep_DepartmentId" type="xs:int" />
-      <xs:element minOccurs="0" name="Dep_Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="tblEmployees" nillable="true" type="tns:ArrayOftblEmployee" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="tblDepartment" nillable="true" type="tns:tblDepartment" />
   <xs:complexType name="tblTitle">
     <xs:sequence>
       <xs:element minOccurs="0" name="Tit_Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Tit_TitleId" type="xs:int" />
-      <xs:element minOccurs="0" name="tblEmployees" nillable="true" type="tns:ArrayOftblEmployee" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="tblTitle" nillable="true" type="tns:tblTitle" />
@@ -69,6 +58,14 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOftblDepartment" nillable="true" type="tns:ArrayOftblDepartment" />
+  <xs:complexType name="tblDepartment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Dep_DepartmentId" type="xs:int" />
+      <xs:element minOccurs="0" name="Dep_Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tblEmployees" nillable="true" type="tns:ArrayOftblEmployee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tblDepartment" nillable="true" type="tns:tblDepartment" />
   <xs:complexType name="ArrayOftblTitle">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="tblTitle" nillable="true" type="tns:tblTitle" />
