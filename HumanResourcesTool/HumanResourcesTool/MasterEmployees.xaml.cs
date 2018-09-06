@@ -385,7 +385,8 @@ namespace HumanResourcesTool
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
-            App.Current.Shutdown();
+            //App.Current.Shutdown();
+            this.Close();
         }
 
         private void btnNew_Click(object sender, RoutedEventArgs e)
