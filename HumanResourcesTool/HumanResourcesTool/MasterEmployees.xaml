@@ -130,7 +130,7 @@
         <DatePicker x:Name="dpDOB" HorizontalAlignment="Left" Margin="686,156,0,0" VerticalAlignment="Top" Width="296" Height="30" FontFamily="Arial" FontSize="14" Grid.Row="1" PreviewKeyUp="dpDOB_PreviewKeyUp"/>
         <TextBox x:Name="txtPostCode" HorizontalAlignment="Left" Height="28" Margin="191,314.5,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Grid.Row="1" KeyDown="txtPostCode_KeyDown" GotFocus="txtPostCode_GotFocus"/>
         <TextBox x:Name="txtAge" HorizontalAlignment="Left" Height="28" Margin="686,199,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Grid.Row="1" Background="Gray"/>
-        <Image x:Name="imgEmployee" HorizontalAlignment="Left" Height="312" Margin="558,10,0,0" VerticalAlignment="Top" Width="424" Source="images/EmployeeId0001.PNG" Stretch="UniformToFill" Grid.RowSpan="2"/>
+        <Image x:Name="imgEmployee" HorizontalAlignment="Left" Height="312" Margin="558,10,0,0" VerticalAlignment="Top" Width="424" Source="images/EmployeeId0000.PNG" Stretch="UniformToFill" Grid.RowSpan="2"/>
         <Label x:Name="lblEmployeeId" Content="Employee Id:" HorizontalAlignment="Left" Margin="25,10,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"/>
         <TextBox x:Name="txtEmployeeId" HorizontalAlignment="Left" Height="28" Margin="191,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" FontFamily="Arial" FontSize="14" KeyDown="txtEmployeeId_KeyDown" TextChanged="txtEmployeeId_TextChanged"/>
         <Button x:Name="btnSearchEmployee" HorizontalAlignment="Left" Height="28" Margin="449,10,0,0" VerticalAlignment="Top" Width="38">
@@ -210,6 +210,5 @@
         <DatePicker x:Name="dpDateStart" HorizontalAlignment="Left" Margin="686,244,0,0" VerticalAlignment="Top" Width="296" Height="30" FontFamily="Arial" FontSize="14" Grid.Row="1" PreviewKeyUp="dpDateStart_PreviewKeyUp"/>
         <Label x:Name="lblDateFinish" Content="Date Finish Works:" HorizontalAlignment="Left" Margin="543,292,0,0" VerticalAlignment="Top" Width="137" FontFamily="Arial Black" Grid.Row="1"/>
         <DatePicker x:Name="dpDateFinish" HorizontalAlignment="Left" Margin="686,292,0,0" VerticalAlignment="Top" Width="296" Height="30" FontFamily="Arial" FontSize="14" Grid.Row="1" PreviewKeyUp="dpDateFinish_PreviewKeyUp"/>
-        <Button x:Name="btnEmployeePhoto" Content="Photo" HorizontalAlignment="Left" Margin="449,288,0,0" VerticalAlignment="Top" Width="93" Click="Button_Click" Height="32"/>
     </Grid>
 </Window>

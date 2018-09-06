@@ -84,7 +84,7 @@ namespace HumanResourcesTool
             Fill_cbProvincesByCountry();
             Fill_cbCitiesByProvince();
 
-            imgEmployee.Source = null;
+            //imgEmployee.Source = null;
 
         }
 
@@ -361,7 +361,7 @@ namespace HumanResourcesTool
             btnGenderFemale.IsEnabled = option;
             btnGenderMaleAndFemale.IsEnabled = option;
 
-            btnEmployeePhoto.IsEnabled = option;
+            //btnEmployeePhoto.IsEnabled = option;
 
         }
 
@@ -1197,18 +1197,18 @@ namespace HumanResourcesTool
             Clear_Controls();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog op = new OpenFileDialog();
-            op.Title = "Select a picture";
-            op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
-                "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
-                "Portable Network Graphic (*.png)|*.png";
-            if (op.ShowDialog() == true)
-            {
-                imgEmployee.Source = new BitmapImage(new Uri(op.FileName));
-            }
-        }
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    OpenFileDialog op = new OpenFileDialog();
+        //    op.Title = "Select a picture";
+        //    op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+        //        "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+        //        "Portable Network Graphic (*.png)|*.png";
+        //    if (op.ShowDialog() == true)
+        //    {
+        //        imgEmployee.Source = new BitmapImage(new Uri(op.FileName));
+        //    }
+        //}
 
         private void cbCountries_LostFocus(object sender, RoutedEventArgs e)
         {
