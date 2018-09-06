@@ -5,10 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HumanResourcesTool"
         mc:Ignorable="d"
-        Title="EmployeesList" Height="912.857" Width="1196">
+        Title="EmployeesList" Height="460.857" Width="1112">
     <Grid>
-        <Grid HorizontalAlignment="Left" Height="373" Margin="27,64,0,0" VerticalAlignment="Top" Width="1133">
-            <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Height="363" Margin="10,0,0,0" VerticalAlignment="Top" Width="1088" ItemsSource="{Binding}" AutoGenerateColumns="false" >
+        <Grid HorizontalAlignment="Left" Height="373" Margin="0,47,0,0" VerticalAlignment="Top" Width="1104">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1127*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Height="363" VerticalAlignment="Top" Width="1104" ItemsSource="{Binding}" AutoGenerateColumns="false" CanUserAddRows="False" Grid.ColumnSpan="2" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding Emp_EmployeeId}" />
                     <DataGridTextColumn Header="Title" Binding="{Binding tblTitle.Tit_Name}" />
@@ -16,17 +20,17 @@
                     <DataGridTextColumn Header="Last Name" Binding="{Binding Emp_LastName}" />
                     <DataGridTextColumn Header="Gender" Binding="{Binding Emp_Gender}" />
                     <DataGridTextColumn Header="Address" Binding="{Binding Emp_Address}" />
-                    <DataGridTextColumn Header="DOB" Binding="{Binding Emp_BirthOfDate}" />
-                    <DataGridTextColumn Header="Employed from" Binding="{Binding Emp_StartDate}" />
-                    <DataGridTextColumn Header="Employed till" Binding="{Binding Emp_TerminationDate}" />
+                    <DataGridTextColumn Header="DOB" Binding="{Binding Emp_BirthOfDate, StringFormat=\{0:dd.MM.yy\}}" />
+                    <DataGridTextColumn Header="Employed from" Binding="{Binding Emp_StartDate, StringFormat=\{0:dd.MM.yy\}}" />
+                    <DataGridTextColumn Header="Employed till" Binding="{Binding Emp_TerminationDate, StringFormat=\{0:dd.MM.yy\}}" />
                     <DataGridTextColumn Header="City" Binding="{Binding tblCity.Cit_Name}" />
                     <DataGridTextColumn Header="ZIP" Binding="{Binding Emp_PostalCode}" />
                     <DataGridTextColumn Header="Position" Binding="{Binding tblPosition.Pos_Description}" />
                     <DataGridTextColumn Header="Email" Binding="{Binding Emp_Email}" />
                     <DataGridTextColumn Header="Phone" Binding="{Binding Emp_Phone}" />
                     <DataGridTextColumn Header="Mobile" Binding="{Binding Emp_CellPhone}" />
-                    <DataGridTextColumn Header="Annual Salary" Binding="{Binding Emp_AnualSalary}" />
-                    <DataGridTextColumn Header="Hourly Rate" Binding="{Binding Emp_HourlyRate}" />
+                    <DataGridTextColumn Header="Annual Salary" Binding="{Binding Emp_AnualSalary, StringFormat=N2}" />
+                    <DataGridTextColumn Header="Hourly Rate" Binding="{Binding Emp_HourlyRate, StringFormat=N2}" />
                     <DataGridTextColumn Header="Department" Binding="{Binding tblDepartment.Dep_Name}" />
                 </DataGrid.Columns>
 
@@ -38,8 +42,10 @@
             </DataGrid>
 
         </Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="53,13,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <ComboBox x:Name="cbPositions" HorizontalAlignment="Left" Margin="187,13,0,0" VerticalAlignment="Top" Width="356"/>
+        <Button Name="btnAdd" Content="Add Employee" HorizontalAlignment="Left" Margin="507,10,0,0" VerticalAlignment="Top" Width="96" Click="btnAdd_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="695,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Image x:Name="imgPhoto" Width="320" Height="240" Stretch="Uniform" Margin="175,180,609,10"/>
+        <TextBox IsReadOnly="True" Grid.Row="0" x:Name="txtFileName" Width="300" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="105,5,0,0"/>
 
     </Grid>
 </Window>
