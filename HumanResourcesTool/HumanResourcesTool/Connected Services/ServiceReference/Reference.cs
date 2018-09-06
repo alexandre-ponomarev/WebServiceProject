@@ -874,11 +874,35 @@ namespace HumanResourcesTool.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetProvinces", ReplyAction="http://tempuri.org/HRWebServices/GetProvincesResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblProvince>> GetProvincesAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetProvincesByCountry", ReplyAction="http://tempuri.org/HRWebServices/GetProvincesByCountryResponse")]
+        System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblProvince> GetProvincesByCountry(int CountryId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetProvincesByCountry", ReplyAction="http://tempuri.org/HRWebServices/GetProvincesByCountryResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblProvince>> GetProvincesByCountryAsync(int CountryId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetCities", ReplyAction="http://tempuri.org/HRWebServices/GetCitiesResponse")]
         System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblCity> GetCities();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetCities", ReplyAction="http://tempuri.org/HRWebServices/GetCitiesResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblCity>> GetCitiesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetCitiesByProvince", ReplyAction="http://tempuri.org/HRWebServices/GetCitiesByProvinceResponse")]
+        System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblCity> GetCitiesByProvince(int ProvinceId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetCitiesByProvince", ReplyAction="http://tempuri.org/HRWebServices/GetCitiesByProvinceResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblCity>> GetCitiesByProvinceAsync(int ProvinceId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetProvinceIdByCityId", ReplyAction="http://tempuri.org/HRWebServices/GetProvinceIdByCityIdResponse")]
+        int GetProvinceIdByCityId(int CityId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetProvinceIdByCityId", ReplyAction="http://tempuri.org/HRWebServices/GetProvinceIdByCityIdResponse")]
+        System.Threading.Tasks.Task<int> GetProvinceIdByCityIdAsync(int CityId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetCountryIdByProvinceId", ReplyAction="http://tempuri.org/HRWebServices/GetCountryIdByProvinceIdResponse")]
+        int GetCountryIdByProvinceId(int ProvinceId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetCountryIdByProvinceId", ReplyAction="http://tempuri.org/HRWebServices/GetCountryIdByProvinceIdResponse")]
+        System.Threading.Tasks.Task<int> GetCountryIdByProvinceIdAsync(int ProvinceId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetEmployees", ReplyAction="http://tempuri.org/HRWebServices/GetEmployeesResponse")]
         System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee> GetEmployees();
@@ -996,12 +1020,44 @@ namespace HumanResourcesTool.ServiceReference {
             return base.Channel.GetProvincesAsync();
         }
         
+        public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblProvince> GetProvincesByCountry(int CountryId) {
+            return base.Channel.GetProvincesByCountry(CountryId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblProvince>> GetProvincesByCountryAsync(int CountryId) {
+            return base.Channel.GetProvincesByCountryAsync(CountryId);
+        }
+        
         public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblCity> GetCities() {
             return base.Channel.GetCities();
         }
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblCity>> GetCitiesAsync() {
             return base.Channel.GetCitiesAsync();
+        }
+        
+        public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblCity> GetCitiesByProvince(int ProvinceId) {
+            return base.Channel.GetCitiesByProvince(ProvinceId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblCity>> GetCitiesByProvinceAsync(int ProvinceId) {
+            return base.Channel.GetCitiesByProvinceAsync(ProvinceId);
+        }
+        
+        public int GetProvinceIdByCityId(int CityId) {
+            return base.Channel.GetProvinceIdByCityId(CityId);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetProvinceIdByCityIdAsync(int CityId) {
+            return base.Channel.GetProvinceIdByCityIdAsync(CityId);
+        }
+        
+        public int GetCountryIdByProvinceId(int ProvinceId) {
+            return base.Channel.GetCountryIdByProvinceId(ProvinceId);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetCountryIdByProvinceIdAsync(int ProvinceId) {
+            return base.Channel.GetCountryIdByProvinceIdAsync(ProvinceId);
         }
         
         public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee> GetEmployees() {

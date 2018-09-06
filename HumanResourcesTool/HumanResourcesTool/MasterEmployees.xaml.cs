@@ -33,6 +33,7 @@ namespace HumanResourcesTool
             InitializeComponent();
 
             Clear_Controls();
+            Initilice_CombosBox();
             txtEmployeeId.Text = "";
 
             Enabled_Desabled_Controls(true);
@@ -78,10 +79,27 @@ namespace HumanResourcesTool
             Fill_cbDepartments();
             Fill_cbTitles();
             Fill_cbCountries();
-            Fill_cbProvinces();
-            Fill_cbCities();
+            //Fill_cbProvinces();
+            //Fill_cbCities();
+            Fill_cbProvincesByCountry();
+            Fill_cbCitiesByProvince();
 
             imgEmployee.Source = null;
+
+        }
+
+        //**************************************************************************
+        // Additional Methods
+        public void Initilice_CombosBox()
+        {
+            Fill_cbPositions();
+            Fill_cbDepartments();
+            Fill_cbTitles();
+            Fill_cbCountries();
+            //Fill_cbProvinces();
+            //Fill_cbCities();
+            Fill_cbProvincesByCountry();
+            Fill_cbCitiesByProvince();
 
         }
 
@@ -146,6 +164,22 @@ namespace HumanResourcesTool
             }
         }
 
+        private void Fill_cbProvincesByCountry()
+        {
+            if (cbCountries.Items.Count > 0)
+            {
+                int CountryId = Int32.Parse(cbCountries.SelectedValue.ToString());
+                var query = WCFHRHumanResources.GetProvincesByCountry(CountryId);
+                cbProvinces.DisplayMemberPath = "Pro_Name";
+                cbProvinces.SelectedValuePath = "Pro_ProvinceId";
+                cbProvinces.ItemsSource = query;
+                if (cbProvinces.Items.Count > 0)
+                {
+                    cbProvinces.SelectedIndex = 0;
+                }
+            }
+        }
+
 
         private void Fill_cbCities()
         {
@@ -159,6 +193,23 @@ namespace HumanResourcesTool
             }
         }
 
+        private void Fill_cbCitiesByProvince()
+        {
+            if (cbProvinces.Items.Count > 0)
+            {
+                int ProvinceId = Int32.Parse(cbProvinces.SelectedValue.ToString());
+                var query = WCFHRHumanResources.GetCitiesByProvince(ProvinceId);
+                cbCities.DisplayMemberPath = "Cit_Name";
+                cbCities.SelectedValuePath = "Cit_CityId";
+                cbCities.ItemsSource = query;
+                if (cbCities.Items.Count > 0)
+                {
+                    cbCities.SelectedIndex = 0;
+                }
+
+            }
+
+        }
 
         private void Fill_Employee_Info(int EmployeeId)
         {
@@ -167,12 +218,90 @@ namespace HumanResourcesTool
 
             if (query != null)
             {
-                //objEmployee.Cit_CityId = Int32.Parse(cbCities.SelectedValue.ToString());
-                //objEmployee.Dep_DepartmentId = Int32.Parse(cbDepartment.SelectedValue.ToString());
-                //objEmployee.Tit_TitleId = Int32.Parse(cbTitles.SelectedValue.ToString());
-                //objEmployee.Pos_PositionId = Int32.Parse(cbPositions.SelectedValue.ToString());
-                //query.Cit_CityId
-                //query.Dep_DepartmentId
+
+                bool Founded;
+                int i;
+
+
+                //-----------------------------------------------------
+                //Special by find ProvinceId and CountryId
+                int ProvinceIdByCityId = fSearchProvinceIdByCityId(query.Cit_CityId);
+                int CountryIdByProvinceId = fSearchCountryIdByProvinceId(ProvinceIdByCityId);
+
+                //-----------------------------------------------------
+
+
+                //-----------------------------------------------------
+                i = 0;
+                Founded = false;
+                while ((i < cbCountries.Items.Count) && (Founded == false))
+                {
+                    cbCountries.SelectedIndex = i;
+                    if (Int32.Parse(cbCountries.SelectedValue.ToString()) == CountryIdByProvinceId) Founded = true;
+                    i++;
+                }
+                Fill_cbProvincesByCountry();
+                //-----------------------------------------------------
+
+                //-----------------------------------------------------
+                i = 0;
+                Founded = false;
+                while ((i < cbProvinces.Items.Count) && (Founded == false))
+                {
+                    cbProvinces.SelectedIndex = i;
+                    if (Int32.Parse(cbProvinces.SelectedValue.ToString()) == ProvinceIdByCityId) Founded = true;
+                    i++;
+                }
+                Fill_cbCitiesByProvince();
+                //-----------------------------------------------------
+
+
+                //-----------------------------------------------------
+                i = 0;
+                Founded = false;
+                while ((i < cbCities.Items.Count) && (Founded == false))
+                {
+                    cbCities.SelectedIndex = i;
+                    if (Int32.Parse(cbCities.SelectedValue.ToString()) == query.Cit_CityId) Founded = true;
+                    i++;
+                }
+                //-----------------------------------------------------
+
+
+                //-----------------------------------------------------
+                i = 0;
+                Founded = false;
+                while ((i < cbTitles.Items.Count) && (Founded == false))
+                {
+                    cbTitles.SelectedIndex = i;
+                    if (Int32.Parse(cbTitles.SelectedValue.ToString()) == query.Tit_TitleId) Founded = true;
+                    i++;
+                }
+                //-----------------------------------------------------
+
+
+                //-----------------------------------------------------
+                i = 0;
+                Founded = false;
+                while ((i < cbPositions.Items.Count) && (Founded == false))
+                {
+                    cbPositions.SelectedIndex = i;
+                    if (Int32.Parse(cbPositions.SelectedValue.ToString()) == query.Pos_PositionId) Founded = true;
+                    i++;
+                }
+                //-----------------------------------------------------
+
+                //-----------------------------------------------------
+                i = 0;
+                Founded = false;
+                while ((i < cbDepartment.Items.Count) && (Founded == false))
+                {
+                    cbDepartment.SelectedIndex = i;
+                    if (Int32.Parse(cbDepartment.SelectedValue.ToString()) == query.Dep_DepartmentId) Founded = true;
+                    i++;
+                }
+                //-----------------------------------------------------
+
 
                 txtAddress.Text = query.Emp_Address;
                 txtAnnualSalary.Text = query.Emp_AnualSalary.ToString();
@@ -242,6 +371,17 @@ namespace HumanResourcesTool
             return query;
         }
 
+        private int fSearchProvinceIdByCityId(int CityId)
+        {
+            int query = WCFHRHumanResources.GetProvinceIdByCityId(CityId);
+            return query;
+        }
+
+        private int fSearchCountryIdByProvinceId(int ProvinceId)
+        {
+            int query = WCFHRHumanResources.GetCountryIdByProvinceId(ProvinceId);
+            return query;
+        }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
@@ -1070,10 +1210,22 @@ namespace HumanResourcesTool
             }
         }
 
+        private void cbCountries_LostFocus(object sender, RoutedEventArgs e)
+        {
+            //Fill Provinces by CountryId
+            Fill_cbProvincesByCountry();
+
+            Fill_cbCitiesByProvince();
 
 
+        }
 
+        private void cbProvinces_LostFocus(object sender, RoutedEventArgs e)
+        {
+            //Fill Cities by ProvinceId
+            Fill_cbCitiesByProvince();
 
+        }
     }
 }
 

@@ -29,7 +29,19 @@ namespace WCFResourceHumanServices
         List<tblProvince> GetProvinces();
 
         [OperationContract]
+        List<tblProvince> GetProvincesByCountry(int CountryId);
+
+        [OperationContract]
         List<tblCity> GetCities();
+
+        [OperationContract]
+        List<tblCity> GetCitiesByProvince(int ProvinceId);
+
+        [OperationContract]
+        int GetProvinceIdByCityId(int CityId);
+
+        [OperationContract]
+        int GetCountryIdByProvinceId(int ProvinceId);
 
         [OperationContract]
         List<tblEmployee> GetEmployees();

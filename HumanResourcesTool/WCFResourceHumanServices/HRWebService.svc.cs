@@ -90,12 +90,12 @@ namespace WCFResourceHumanServices
             }
         }
 
-
-        List<tblCity> HRWebServices.GetCities()
+        List<tblProvince> HRWebServices.GetProvincesByCountry(int CountryId)
         {
             using (var dbcontext = new HRDBContext())
             {
-                List<tblCity> runnersObjects = dbcontext.tblCities.ToList();
+                List<tblProvince> runnersObjects = dbcontext.tblProvinces.ToList().FindAll(x => x.Cou_Countryid == CountryId);
+                //var itemToRemove = dbcontext.tblEmployees.SingleOrDefault(x => x.Emp_EmployeeId == EmployeeId);
 
 
 
@@ -103,6 +103,24 @@ namespace WCFResourceHumanServices
             }
         }
 
+
+        List<tblCity> HRWebServices.GetCities()
+        {
+            using (var dbcontext = new HRDBContext())
+            {
+                List<tblCity> runnersObjects = dbcontext.tblCities.ToList();
+                return runnersObjects;
+            }
+        }
+
+        List<tblCity> HRWebServices.GetCitiesByProvince(int ProvinceId)
+        {
+            using (var dbcontext = new HRDBContext())
+            {
+                List<tblCity> runnersObjects = dbcontext.tblCities.ToList().FindAll(x => x.Pro_ProvinceId == ProvinceId);
+                return runnersObjects;
+            }
+        }
 
         int HRWebServices.GetLastEmployeeId()
         {
@@ -114,6 +132,35 @@ namespace WCFResourceHumanServices
                 return maxEmployeeId;
             }
         }
+
+
+        int HRWebServices.GetProvinceIdByCityId(int CityId)
+        {
+            using (var dbcontext = new HRDBContext())
+            {
+
+                var ProvinceId = (from City in dbcontext.tblCities 
+                                  where City.Cit_CityId.Equals(CityId)
+                                  select City.Pro_ProvinceId).SingleOrDefault();
+
+                return ProvinceId;
+            }
+        }
+
+
+        int HRWebServices.GetCountryIdByProvinceId(int ProvinceId)
+        {
+            using (var dbcontext = new HRDBContext())
+            {
+
+                var CountryId = (from Province in dbcontext.tblProvinces
+                                  where Province.Pro_ProvinceId.Equals(ProvinceId)
+                                  select Province.Cou_Countryid).SingleOrDefault();
+
+                return CountryId;
+            }
+        }
+
 
 
         public bool insertDepartments(tblDepartment objDepartment)
