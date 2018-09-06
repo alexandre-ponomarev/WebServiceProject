@@ -107,7 +107,7 @@ Luis
 - Insert Employees into Database
 3. Where do I need assistance, research, test things, etc.
 
-2018-09-04
+2018-09-05
 ----------
 
 Alex

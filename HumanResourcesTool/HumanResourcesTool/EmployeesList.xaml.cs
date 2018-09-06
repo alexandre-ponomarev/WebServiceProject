@@ -20,40 +20,58 @@ namespace HumanResourcesTool
     /// </summary>
     public partial class EmployeesList : Window
     {
+        ServiceReference.HRWebServicesClient HRWebServices;
         public EmployeesList()
         {
             InitializeComponent();
+            Loading();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Loading()
         {
-            ServiceReference.HRWebServicesClient HRWebServices = new ServiceReference.HRWebServicesClient();
-            //ServiceReference.HRWebServicesClient positions = new ServiceReference.HRWebServicesClient();
-
-
+            HRWebServices = new ServiceReference.HRWebServicesClient();
 
             var query = HRWebServices.GetEmployees();
             dataGrid1.ItemsSource = query;
 
-            var query2 = HRWebServices.GetPositions();
-            cbPositions.ItemsSource = query2;
-            cbPositions.DisplayMemberPath = "Pos_Description";
-
-            //DataTable dt = new DataTable();
-            //dt.Columns.Add("Employee Id");
-            //dt.Columns.Add("Fist Name");
-            //dt.Columns.Add("Last Name");
-            //dt.Columns.Add("Sur Name");
-            //dt.Columns.Add("Orher Name");
-            //dt.Rows.Add("1", "Luis", "Roman", "Lucho", "Ernesto");
-            //dataGrid1.ItemsSource = dt.DefaultView;
         }
+
+        
 
         private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
         {
-            MasterEmployees myWindow1 = new MasterEmployees();
-            myWindow1.Owner = this;
-            myWindow1.Show();
+            MasterEmployees editWindow = new MasterEmployees();
+            editWindow.Owner = this;
+            editWindow.Show();
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            MasterEmployees addWindow = new MasterEmployees();
+            addWindow.Owner = this;
+            addWindow.Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var fd = new Microsoft.Win32.OpenFileDialog();
+            fd.Filter = "All image formats (*.jpg; *.jpeg; *.bmp; *.png; *.gif)|*.jpg;*.jpeg;*.bmp;*.png;*.gif";
+            var ret = fd.ShowDialog();
+
+            if (ret.GetValueOrDefault())
+            {
+                txtFileName.Text = fd.FileName;
+
+                try
+                {
+                    BitmapImage bmp = new BitmapImage(new Uri(fd.FileName, UriKind.Absolute));
+                    imgPhoto.Source = bmp;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Invalid image file.", "Browse", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
+            }
         }
     }
 }
