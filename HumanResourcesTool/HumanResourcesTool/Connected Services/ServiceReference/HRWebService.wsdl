@@ -67,6 +67,30 @@
   <wsdl:message name="HRWebServices_insertEmployees_OutputMessage">
     <wsdl:part name="parameters" element="tns:insertEmployeesResponse" />
   </wsdl:message>
+  <wsdl:message name="HRWebServices_GetVerifyIfEmployeeExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVerifyIfEmployeeExist" />
+  </wsdl:message>
+  <wsdl:message name="HRWebServices_GetVerifyIfEmployeeExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVerifyIfEmployeeExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="HRWebServices_GetEmployeeInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeInfo" />
+  </wsdl:message>
+  <wsdl:message name="HRWebServices_GetEmployeeInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="HRWebServices_updateEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateEmployees" />
+  </wsdl:message>
+  <wsdl:message name="HRWebServices_updateEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="HRWebServices_deleteEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteEmployees" />
+  </wsdl:message>
+  <wsdl:message name="HRWebServices_deleteEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteEmployeesResponse" />
+  </wsdl:message>
   <wsdl:portType name="HRWebServices">
     <wsdl:operation name="GetPositions">
       <wsdl:input wsaw:Action="http://tempuri.org/HRWebServices/GetPositions" message="tns:HRWebServices_GetPositions_InputMessage" />
@@ -107,6 +131,22 @@
     <wsdl:operation name="insertEmployees">
       <wsdl:input wsaw:Action="http://tempuri.org/HRWebServices/insertEmployees" message="tns:HRWebServices_insertEmployees_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/HRWebServices/insertEmployeesResponse" message="tns:HRWebServices_insertEmployees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVerifyIfEmployeeExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/HRWebServices/GetVerifyIfEmployeeExist" message="tns:HRWebServices_GetVerifyIfEmployeeExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/HRWebServices/GetVerifyIfEmployeeExistResponse" message="tns:HRWebServices_GetVerifyIfEmployeeExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/HRWebServices/GetEmployeeInfo" message="tns:HRWebServices_GetEmployeeInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/HRWebServices/GetEmployeeInfoResponse" message="tns:HRWebServices_GetEmployeeInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateEmployees">
+      <wsdl:input wsaw:Action="http://tempuri.org/HRWebServices/updateEmployees" message="tns:HRWebServices_updateEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/HRWebServices/updateEmployeesResponse" message="tns:HRWebServices_updateEmployees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteEmployees">
+      <wsdl:input wsaw:Action="http://tempuri.org/HRWebServices/deleteEmployees" message="tns:HRWebServices_deleteEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/HRWebServices/deleteEmployeesResponse" message="tns:HRWebServices_deleteEmployees_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_HRWebServices" type="tns:HRWebServices">
@@ -194,6 +234,42 @@
     </wsdl:operation>
     <wsdl:operation name="insertEmployees">
       <soap:operation soapAction="http://tempuri.org/HRWebServices/insertEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVerifyIfEmployeeExist">
+      <soap:operation soapAction="http://tempuri.org/HRWebServices/GetVerifyIfEmployeeExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeInfo">
+      <soap:operation soapAction="http://tempuri.org/HRWebServices/GetEmployeeInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateEmployees">
+      <soap:operation soapAction="http://tempuri.org/HRWebServices/updateEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEmployees">
+      <soap:operation soapAction="http://tempuri.org/HRWebServices/deleteEmployees" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

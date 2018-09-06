@@ -1,0 +1,9 @@
+https://social.msdn.microsoft.com/Forums/vstudio/en-US/65b8896a-1187-4ada-b4a3-e3f322def487/how-to-insert-image-from-image-control-into-wpf-to-sql-database-using-entity-data-model?forum=wpf
+
+https://code.msdn.microsoft.com/windowsdesktop/WPF-Upload-Image-Using-b8d1daed
+
+WCF:
+https://romiller.com/2008/05/15/transmitting-images-in-wcf-databinding-images-in-wpf/
+
+http://kinycodes.blogspot.com/2015/05/storing-and-retrieving-image-from-sql.html
+

@@ -903,6 +903,30 @@ namespace HumanResourcesTool.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/insertEmployees", ReplyAction="http://tempuri.org/HRWebServices/insertEmployeesResponse")]
         System.Threading.Tasks.Task<bool> insertEmployeesAsync(HumanResourcesTool.ServiceReference.tblEmployee objEmployee);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetVerifyIfEmployeeExist", ReplyAction="http://tempuri.org/HRWebServices/GetVerifyIfEmployeeExistResponse")]
+        bool GetVerifyIfEmployeeExist(int EmployeeId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetVerifyIfEmployeeExist", ReplyAction="http://tempuri.org/HRWebServices/GetVerifyIfEmployeeExistResponse")]
+        System.Threading.Tasks.Task<bool> GetVerifyIfEmployeeExistAsync(int EmployeeId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetEmployeeInfo", ReplyAction="http://tempuri.org/HRWebServices/GetEmployeeInfoResponse")]
+        HumanResourcesTool.ServiceReference.tblEmployee GetEmployeeInfo(int EmployeeId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetEmployeeInfo", ReplyAction="http://tempuri.org/HRWebServices/GetEmployeeInfoResponse")]
+        System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblEmployee> GetEmployeeInfoAsync(int EmployeeId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/updateEmployees", ReplyAction="http://tempuri.org/HRWebServices/updateEmployeesResponse")]
+        bool updateEmployees(HumanResourcesTool.ServiceReference.tblEmployee objEmployee, int EmployeeId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/updateEmployees", ReplyAction="http://tempuri.org/HRWebServices/updateEmployeesResponse")]
+        System.Threading.Tasks.Task<bool> updateEmployeesAsync(HumanResourcesTool.ServiceReference.tblEmployee objEmployee, int EmployeeId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/deleteEmployees", ReplyAction="http://tempuri.org/HRWebServices/deleteEmployeesResponse")]
+        bool deleteEmployees(int EmployeeId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/deleteEmployees", ReplyAction="http://tempuri.org/HRWebServices/deleteEmployeesResponse")]
+        System.Threading.Tasks.Task<bool> deleteEmployeesAsync(int EmployeeId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1010,6 +1034,38 @@ namespace HumanResourcesTool.ServiceReference {
         
         public System.Threading.Tasks.Task<bool> insertEmployeesAsync(HumanResourcesTool.ServiceReference.tblEmployee objEmployee) {
             return base.Channel.insertEmployeesAsync(objEmployee);
+        }
+        
+        public bool GetVerifyIfEmployeeExist(int EmployeeId) {
+            return base.Channel.GetVerifyIfEmployeeExist(EmployeeId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> GetVerifyIfEmployeeExistAsync(int EmployeeId) {
+            return base.Channel.GetVerifyIfEmployeeExistAsync(EmployeeId);
+        }
+        
+        public HumanResourcesTool.ServiceReference.tblEmployee GetEmployeeInfo(int EmployeeId) {
+            return base.Channel.GetEmployeeInfo(EmployeeId);
+        }
+        
+        public System.Threading.Tasks.Task<HumanResourcesTool.ServiceReference.tblEmployee> GetEmployeeInfoAsync(int EmployeeId) {
+            return base.Channel.GetEmployeeInfoAsync(EmployeeId);
+        }
+        
+        public bool updateEmployees(HumanResourcesTool.ServiceReference.tblEmployee objEmployee, int EmployeeId) {
+            return base.Channel.updateEmployees(objEmployee, EmployeeId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> updateEmployeesAsync(HumanResourcesTool.ServiceReference.tblEmployee objEmployee, int EmployeeId) {
+            return base.Channel.updateEmployeesAsync(objEmployee, EmployeeId);
+        }
+        
+        public bool deleteEmployees(int EmployeeId) {
+            return base.Channel.deleteEmployees(EmployeeId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> deleteEmployeesAsync(int EmployeeId) {
+            return base.Channel.deleteEmployeesAsync(EmployeeId);
         }
     }
 }

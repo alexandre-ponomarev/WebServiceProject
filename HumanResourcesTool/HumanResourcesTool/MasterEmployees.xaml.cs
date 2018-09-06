@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,8 @@ namespace HumanResourcesTool
             InitializeComponent();
 
             Clear_Controls();
+            txtEmployeeId.Text = "";
+
             Enabled_Desabled_Controls(true);
             //case special
             txtAge.IsEnabled = false;
@@ -45,10 +48,10 @@ namespace HumanResourcesTool
 
         //**************************************************************************
         // Additional Methods
-        public void Clear_Controls ()
+        public void Clear_Controls()
         {
 
-            txtEmployeeId.Text = "";
+            //txtEmployeeId.Text = "";
             txtFirstName.Text = "";
             txtLastName.Text = "";
             txtAddress.Text = "";
@@ -67,7 +70,7 @@ namespace HumanResourcesTool
             txtHouralyRate.Text = "0";
 
             //imgGenderMale.Visibility = true;
-            imgGenderMale.Visibility = System.Windows.Visibility.Visible;
+            imgGenderMale.Visibility = System.Windows.Visibility.Hidden;
             imgGenderFemale.Visibility = System.Windows.Visibility.Hidden;
             imgGenderMaleAndFemale.Visibility = System.Windows.Visibility.Hidden;
 
@@ -77,6 +80,8 @@ namespace HumanResourcesTool
             Fill_cbCountries();
             Fill_cbProvinces();
             Fill_cbCities();
+
+            imgEmployee.Source = null;
 
         }
 
@@ -155,6 +160,47 @@ namespace HumanResourcesTool
         }
 
 
+        private void Fill_Employee_Info(int EmployeeId)
+        {
+
+            var query = WCFHRHumanResources.GetEmployeeInfo(EmployeeId);
+
+            if (query != null)
+            {
+                //objEmployee.Cit_CityId = Int32.Parse(cbCities.SelectedValue.ToString());
+                //objEmployee.Dep_DepartmentId = Int32.Parse(cbDepartment.SelectedValue.ToString());
+                //objEmployee.Tit_TitleId = Int32.Parse(cbTitles.SelectedValue.ToString());
+                //objEmployee.Pos_PositionId = Int32.Parse(cbPositions.SelectedValue.ToString());
+                //query.Cit_CityId
+                //query.Dep_DepartmentId
+
+                txtAddress.Text = query.Emp_Address;
+                txtAnnualSalary.Text = query.Emp_AnualSalary.ToString();
+                txtHouralyRate.Text = query.Emp_HourlyRate.ToString();
+                txtMobileTelephone.Text = query.Emp_CellPhone;
+                txtHomeTelephone.Text = query.Emp_Phone;
+                txtEmail.Text = query.Emp_Email;
+                txtFirstName.Text = query.Emp_FirstName;
+                txtLastName.Text = query.Emp_LastName;
+                txtPostCode.Text = query.Emp_PostalCode;
+                if (query.Emp_Gender == "M") imgGenderMale.Visibility = System.Windows.Visibility.Visible;
+                if (query.Emp_Gender == "F") imgGenderFemale.Visibility = System.Windows.Visibility.Visible;
+                if (query.Emp_Gender == "B") imgGenderMaleAndFemale.Visibility = System.Windows.Visibility.Visible;
+
+                dpDOB.Text = query.Emp_BirthOfDate.ToString();
+                dpDateStart.Text = query.Emp_StartDate.ToString();
+                dpDateFinish.Text = query.Emp_TerminationDate.ToString();
+
+
+                //----------------------------------------------------------------------
+                //Special procesus for the photo
+                //objEmployee.Emp_Photo = null;
+                //----------------------------------------------------------------------
+
+            }
+
+        }
+
         private void Enabled_Desabled_Controls(bool option)
         {
             txtEmployeeId.IsEnabled = option;
@@ -186,6 +232,7 @@ namespace HumanResourcesTool
             btnGenderFemale.IsEnabled = option;
             btnGenderMaleAndFemale.IsEnabled = option;
 
+            btnEmployeePhoto.IsEnabled = option;
 
         }
 
@@ -403,12 +450,25 @@ namespace HumanResourcesTool
                 {
                     case "i":
                         insertEmployee();
+                        Clear_Controls();
+                        Enabled_Desabled_Controls(true);
+                        txtEmployeeId.IsEnabled = false;
+                        txtFirstName.Focus();
                         break;
                     case "u":
-                        //updateEmployee();
+                        updateEmployee();
+                        Clear_Controls();
+                        Enabled_Desabled_Controls(false);
+                        txtEmployeeId.IsEnabled = true;
+                        txtEmployeeId.Focus();
+
                         break;
                     case "d":
-                        //deleteEmployee();
+                        deleteEmployee();
+                        Clear_Controls();
+                        Enabled_Desabled_Controls(false);
+                        txtEmployeeId.IsEnabled = true;
+                        txtEmployeeId.Focus();
                         break;
                 }
             }
@@ -520,7 +580,8 @@ namespace HumanResourcesTool
             if (txtAnnualSalary.Text.Length <= 0)
             {
                 errorMessage += "Field: " + lblAnnualSalary.Content + " is Invalid." + "\n";
-            } else
+            }
+            else
             {
                 if (!IsNumber(txtAnnualSalary.Text.ToString()))
                 {
@@ -603,46 +664,24 @@ namespace HumanResourcesTool
             //***************************************************************
             //***************************************************************
 
-
             if (errorMessage == "")
             {
                 return true;
-            } else
+            }
+            else
             {
                 MessageBox.Show(errorMessage, "Verification Data");
                 return false;
             }
 
 
-            
+
         }
 
         private void insertEmployee()
         {
             //reference to clase
             ServiceReference.tblEmployee objEmployee = new ServiceReference.tblEmployee();
-
-            ////mapping data
-            //objEmployee.Cit_CityId = 1;
-            //objEmployee.Dep_DepartmentId = 1;
-            //objEmployee.Emp_Address = "Address 2";
-            //objEmployee.Emp_AnualSalary = 65000;
-            //objEmployee.Emp_CellPhone = "514836664";
-            //objEmployee.Emp_Email = "Lromanz@132.com";
-            //objEmployee.Emp_FirstName = "Ernesto";
-            //objEmployee.Emp_Gender = "M";
-            //objEmployee.Emp_HourlyRate = 30;
-            //objEmployee.Emp_LastName = "Zambrano";
-            //objEmployee.Emp_Phone = "514524154";
-            //objEmployee.Emp_Photo = null;
-            //objEmployee.Emp_PostalCode = "H3E1C9";
-
-            //objEmployee.Emp_BirthOfDate = DateTime.Now;
-            //objEmployee.Emp_StartDate = DateTime.Now;
-            //objEmployee.Emp_TerminationDate = DateTime.Now;
-
-            //objEmployee.Tit_TitleId = 1;
-            //objEmployee.Pos_PositionId = 1;
 
 
             //mapping data
@@ -675,7 +714,7 @@ namespace HumanResourcesTool
 
             //----------------------------------------------------------------------
             objEmployee.Emp_StartDate = DateTime.Now;
-            DateTime? selectedDateStart = dpDOB.SelectedDate;
+            DateTime? selectedDateStart = dpDateStart.SelectedDate;
             if (selectedDateStart.HasValue)
             {
                 //string formatted = selectedDate.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
@@ -685,7 +724,7 @@ namespace HumanResourcesTool
 
             //----------------------------------------------------------------------
             objEmployee.Emp_TerminationDate = DateTime.Now;
-            DateTime? selectedDateFinish = dpDOB.SelectedDate;
+            DateTime? selectedDateFinish = dpDateFinish.SelectedDate;
             if (selectedDateFinish.HasValue)
             {
                 //string formatted = selectedDate.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
@@ -701,19 +740,129 @@ namespace HumanResourcesTool
             if (WCFHRHumanResources.insertEmployees(objEmployee))
             {
                 MessageBox.Show("Employee inserted successfully");
-            } else
+                txtEmployeeId.Text = fSearchLastEmployeeId().ToString();
+            }
+            else
             {
                 MessageBox.Show("Failed insert Employee");
             }
-            
+
 
         }
+
+
+
+        private void updateEmployee()
+        {
+            //reference to clase
+            ServiceReference.tblEmployee objEmployee = new ServiceReference.tblEmployee();
+
+            int EmployeeId = Int32.Parse(txtEmployeeId.Text.ToString());
+
+
+            //mapping data
+            objEmployee.Emp_EmployeeId = EmployeeId;
+            objEmployee.Cit_CityId = Int32.Parse(cbCities.SelectedValue.ToString());
+            objEmployee.Dep_DepartmentId = Int32.Parse(cbDepartment.SelectedValue.ToString());
+            objEmployee.Emp_Address = txtAddress.Text;
+            objEmployee.Emp_AnualSalary = Decimal.Parse(txtAnnualSalary.Text);
+            objEmployee.Emp_HourlyRate = Decimal.Parse(txtHouralyRate.Text);
+            objEmployee.Emp_CellPhone = txtMobileTelephone.Text;
+            objEmployee.Emp_Phone = txtHomeTelephone.Text;
+            objEmployee.Emp_Email = txtEmail.Text;
+            objEmployee.Emp_FirstName = txtFirstName.Text;
+            objEmployee.Emp_LastName = txtLastName.Text;
+            objEmployee.Emp_PostalCode = txtPostCode.Text;
+            objEmployee.Tit_TitleId = Int32.Parse(cbTitles.SelectedValue.ToString());
+            objEmployee.Pos_PositionId = Int32.Parse(cbPositions.SelectedValue.ToString());
+            if (imgGenderMale.IsVisible) objEmployee.Emp_Gender = "M";
+            if (imgGenderFemale.IsVisible) objEmployee.Emp_Gender = "F";
+            if (imgGenderMaleAndFemale.IsVisible) objEmployee.Emp_Gender = "B";
+
+            //----------------------------------------------------------------------
+            objEmployee.Emp_BirthOfDate = DateTime.Now;
+            DateTime? selectedDateDOB = dpDOB.SelectedDate;
+            if (selectedDateDOB.HasValue)
+            {
+                //string formatted = selectedDate.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                objEmployee.Emp_BirthOfDate = selectedDateDOB.Value;
+            }
+            //----------------------------------------------------------------------
+
+            //----------------------------------------------------------------------
+            objEmployee.Emp_StartDate = DateTime.Now;
+            DateTime? selectedDateStart = dpDateStart.SelectedDate;
+            if (selectedDateStart.HasValue)
+            {
+                //string formatted = selectedDate.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                objEmployee.Emp_StartDate = selectedDateStart.Value;
+            }
+            //----------------------------------------------------------------------
+
+            //----------------------------------------------------------------------
+            objEmployee.Emp_TerminationDate = DateTime.Now;
+            DateTime? selectedDateFinish = dpDateFinish.SelectedDate;
+            if (selectedDateFinish.HasValue)
+            {
+                //string formatted = selectedDate.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                objEmployee.Emp_TerminationDate = selectedDateFinish.Value;
+            }
+            //----------------------------------------------------------------------
+
+
+            objEmployee.Emp_Photo = null;
+            //objEmployee.Emp_Photo = Bytes2Image(imgEmployee.Source);
+            
+
+            if (WCFHRHumanResources.updateEmployees(objEmployee, EmployeeId))
+            {
+                MessageBox.Show("Employee updated successfully");
+                txtEmployeeId.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Failed update Employee");
+            }
+
+
+        }
+
+
+
+        private void deleteEmployee()
+        {
+
+            if (MessageBox.Show("Are you sure that you delete this Employee?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
+            {
+                int EmployeeId = Int32.Parse(txtEmployeeId.Text.ToString());
+
+                if (WCFHRHumanResources.deleteEmployees(EmployeeId))
+                {
+                    MessageBox.Show("Employee deleted successfully");
+                    txtEmployeeId.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Failed delete Employee");
+                }
+            }
+
+        }
+
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
 
             optionSelectedCRUM = "u";
             sbItem3.Content = "Update Employee";
+
+            Clear_Controls();
+            txtEmployeeId.Text = "";
+
+            Enabled_Desabled_Controls(false);
+            txtEmployeeId.IsEnabled = true;
+            //cbTitles.Focus();
+            txtEmployeeId.Focus();
 
 
         }
@@ -724,6 +873,23 @@ namespace HumanResourcesTool
             optionSelectedCRUM = "d";
             sbItem3.Content = "Delete Employee";
 
+            Clear_Controls();
+            txtEmployeeId.Text = "";
+
+            Enabled_Desabled_Controls(false);
+            txtEmployeeId.IsEnabled = true;
+            //cbTitles.Focus();
+            txtEmployeeId.Focus();
+
+
+        }
+
+        private void btnGenderMale_Click(object sender, RoutedEventArgs e)
+        {
+            imgGenderMale.Visibility = System.Windows.Visibility.Visible;
+            imgGenderFemale.Visibility = System.Windows.Visibility.Hidden;
+            imgGenderMaleAndFemale.Visibility = System.Windows.Visibility.Hidden;
+            txtAddress.Focus();
 
         }
 
@@ -745,14 +911,6 @@ namespace HumanResourcesTool
 
         }
 
-        private void btnGenderMale_Click(object sender, RoutedEventArgs e)
-        {
-            imgGenderMale.Visibility = System.Windows.Visibility.Visible;
-            imgGenderFemale.Visibility = System.Windows.Visibility.Hidden;
-            imgGenderMaleAndFemale.Visibility = System.Windows.Visibility.Hidden;
-            txtAddress.Focus();
-
-        }
 
 
         public bool IsNumber(string num)
@@ -769,6 +927,22 @@ namespace HumanResourcesTool
                 }
             }
         }
+
+        public bool IsIntegerNumber(string num)
+        {
+            {
+                try
+                {
+                    int x = Convert.ToInt32(num);
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+        }
+
 
         private Boolean validationEmail(String email)
         {
@@ -812,10 +986,6 @@ namespace HumanResourcesTool
             sbItem3.Content = "";
             sbItem4.Content = DateTime.Now;
 
-            //sbInfo.ItemsPanel[0].te
-            //int row = sbInfo.GetLineIndexFromCharacterIndex(sbInfo.CaretIndex);
-            //int col = sbInfo.CaretIndex - sbInfo.GetCharacterIndexFromLineIndex(row);
-            //lblCursorPosition.Text = "Line " + (row + 1) + ", Char " + (col + 1);
         }
 
 
@@ -831,6 +1001,78 @@ namespace HumanResourcesTool
         {
             sbItem4.Content = DateTime.Now;
         }
+
+        private void txtEmployeeId_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+
+                if (txtEmployeeId.Text.Length > 0 && IsIntegerNumber(txtEmployeeId.Text.ToString()))
+                {
+                    int EmployeeId = Int32.Parse(txtEmployeeId.Text.ToString());
+
+                    bool query = WCFHRHumanResources.GetVerifyIfEmployeeExist(EmployeeId);
+                    if (query == true)
+                    {
+                        //fill fields in form
+                        Fill_Employee_Info(EmployeeId);
+
+
+                        if (optionSelectedCRUM == "u")
+                        {
+
+                            Enabled_Desabled_Controls(true);
+                            txtFirstName.Focus();
+                        }
+                        else //delete
+                        {
+
+                            Enabled_Desabled_Controls(false);
+                            btnSave.Focus();
+                        }
+
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Employee not found.");
+                        txtEmployeeId.Text = "";
+                        txtEmployeeId.Focus();
+                    }
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Data field invalid. You need insert only integer numbers");
+                    txtEmployeeId.Text = "";
+                }
+
+            }
+
+        }
+
+        private void txtEmployeeId_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Clear_Controls();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog op = new OpenFileDialog();
+            op.Title = "Select a picture";
+            op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+                "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+                "Portable Network Graphic (*.png)|*.png";
+            if (op.ShowDialog() == true)
+            {
+                imgEmployee.Source = new BitmapImage(new Uri(op.FileName));
+            }
+        }
+
+
+
+
 
     }
 }

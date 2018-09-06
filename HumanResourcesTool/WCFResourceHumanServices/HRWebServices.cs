@@ -43,6 +43,19 @@ namespace WCFResourceHumanServices
         [OperationContract]
         bool insertEmployees(tblEmployee objEmployee);
 
+
+        [OperationContract]
+        bool GetVerifyIfEmployeeExist(int EmployeeId);
+
+        [OperationContract]
+        tblEmployee GetEmployeeInfo(int EmployeeId);
+
+        [OperationContract]
+        bool updateEmployees(tblEmployee objEmployee, int EmployeeId);
+
+        [OperationContract]
+        bool deleteEmployees(int EmployeeId);
+
     }
 
 
