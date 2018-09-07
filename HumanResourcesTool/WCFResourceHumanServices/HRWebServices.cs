@@ -49,6 +49,9 @@ namespace WCFResourceHumanServices
         List<tblEmployee> GetEmployees();
 
         [OperationContract]
+        List<tblEmployee> GetEmployeesByLastAndFirstName(string lastName, string firstName);
+
+        [OperationContract]
         int GetLastEmployeeId();
 
         [OperationContract]

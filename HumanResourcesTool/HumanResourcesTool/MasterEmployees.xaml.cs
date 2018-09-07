@@ -47,6 +47,8 @@ namespace HumanResourcesTool
             Initial_Status_Bar();
             Initial_Timer();
 
+            btnSearchEmployee.Visibility = System.Windows.Visibility.Hidden;
+
         }
 
 
