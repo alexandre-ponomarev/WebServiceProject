@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HumanResourcesTool"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        mc:Ignorable="d" Height="600" Width="1080" Foreground="White" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        mc:Ignorable="d" Height="900" Width="1500" Foreground="White" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Window.Resources>
         <Storyboard x:Key="MenuOpen">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
@@ -15,7 +15,7 @@
         </Storyboard>
         <Storyboard x:Key="CloseMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="200"/> 
+                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="60"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
@@ -93,6 +93,6 @@
                 </ListView>
             </StackPanel>
         </Grid>
-        
+
     </Grid>
 </Window>

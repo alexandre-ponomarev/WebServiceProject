@@ -69,5 +69,15 @@ namespace HumanResourcesTool
             var query = HRWebServices.GetEmployees();
             dataGrid1.ItemsSource = query;
         }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void dataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

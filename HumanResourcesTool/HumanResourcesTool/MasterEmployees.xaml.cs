@@ -38,9 +38,10 @@ namespace HumanResourcesTool
             Initilice_CombosBox();
             txtEmployeeId.Text = "";
 
-            Enabled_Desabled_Controls(true);
+            Enabled_Desabled_Controls(false);
             //case special
             txtAge.IsEnabled = false;
+            btnSearchEmployee.IsEnabled = false;
 
 
             Initial_Status_Bar();
@@ -335,7 +336,7 @@ namespace HumanResourcesTool
         private void Enabled_Desabled_Controls(bool option)
         {
             txtEmployeeId.IsEnabled = option;
-            btnSearchEmployee.IsEnabled = option;
+            //btnSearchEmployee.IsEnabled = option;
             cbTitles.IsEnabled = option;
             txtFirstName.IsEnabled = option;
             txtLastName.IsEnabled = option;
@@ -400,7 +401,7 @@ namespace HumanResourcesTool
 
         private void btnNew_Click(object sender, RoutedEventArgs e)
         {
-
+            btnSearchEmployee.IsEnabled = false;
             optionSelectedCRUM = "i";
             sbItem3.Content = "New Employee";
 
@@ -409,26 +410,24 @@ namespace HumanResourcesTool
             Enabled_Desabled_Controls(true);
             txtEmployeeId.IsEnabled = false;
             //cbTitles.Focus();
-            txtFirstName.Focus();
+            txtLastName.Focus();
 
         }
 
+
+        //**********************************************************************************
+        // This is for change focus with ENTER
         private void cbTitles_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter) txtFirstName.Focus();
-        }
-
-        private void txtFirstName_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter) txtLastName.Focus();
         }
 
         private void txtLastName_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter) cbDepartment.Focus();
+            if (e.Key == Key.Enter) txtFirstName.Focus();
         }
 
-        private void cbDepartment_KeyDown(object sender, KeyEventArgs e)
+        private void txtFirstName_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter) btnGenderMale.Focus();
         }
@@ -455,11 +454,6 @@ namespace HumanResourcesTool
 
         private void txtPostCode_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter) cbPositions.Focus();
-        }
-
-        private void cbPositions_KeyDown(object sender, KeyEventArgs e)
-        {
             if (e.Key == Key.Enter) txtHomeTelephone.Focus();
         }
 
@@ -480,8 +474,29 @@ namespace HumanResourcesTool
 
         private void dpDOB_PreviewKeyUp(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.Enter) txtHouralyRate.Focus();
+        }
+
+        private void txtHouralyRate_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter) cbPositions.Focus();
+        }
+
+        private void cbPositions_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter) cbDepartment.Focus();
+        }
+
+        private void cbDepartment_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter) txtAnnualSalary.Focus();
+        }
+
+        private void txtAnnualSalary_KeyDown(object sender, KeyEventArgs e)
+        {
             if (e.Key == Key.Enter) dpDateStart.Focus();
         }
+
 
         private void dpDateStart_PreviewKeyUp(object sender, KeyEventArgs e)
         {
@@ -490,19 +505,14 @@ namespace HumanResourcesTool
 
         private void dpDateFinish_PreviewKeyUp(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter) txtAnnualSalary.Focus();
-        }
-
-        private void txtAnnualSalary_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter) txtHouralyRate.Focus();
-        }
-
-        private void txtHouralyRate_KeyDown(object sender, KeyEventArgs e)
-        {
             if (e.Key == Key.Enter) btnSave.Focus();
         }
 
+        //**********************************************************************************
+
+
+
+        //**********************************************************************************
         private void txtFirstName_GotFocus(object sender, RoutedEventArgs e)
         {
             if (!String.IsNullOrEmpty(txtFirstName.Text))
@@ -603,7 +613,7 @@ namespace HumanResourcesTool
                         Clear_Controls();
                         Enabled_Desabled_Controls(true);
                         txtEmployeeId.IsEnabled = false;
-                        txtFirstName.Focus();
+                        txtLastName.Focus();
                         break;
                     case "u":
                         updateEmployee();
@@ -616,7 +626,7 @@ namespace HumanResourcesTool
                         {
                             this.Owner.Focus();
                             this.Close();
-                            
+
                         }
 
                         break;
@@ -969,7 +979,7 @@ namespace HumanResourcesTool
 
             objEmployee.Emp_Photo = null;
             //objEmployee.Emp_Photo = Bytes2Image(imgEmployee.Source);
-            
+
 
             if (WCFHRHumanResources.updateEmployees(objEmployee, EmployeeId))
             {
@@ -1009,7 +1019,7 @@ namespace HumanResourcesTool
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-
+            btnSearchEmployee.IsEnabled = true;
             optionSelectedCRUM = "u";
             sbItem3.Content = "Update Employee";
 
@@ -1026,7 +1036,7 @@ namespace HumanResourcesTool
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            btnSearchEmployee.IsEnabled = true;
             optionSelectedCRUM = "d";
             sbItem3.Content = "Delete Employee";
 
@@ -1179,7 +1189,7 @@ namespace HumanResourcesTool
                         {
 
                             Enabled_Desabled_Controls(true);
-                            txtFirstName.Focus();
+                            txtLastName.Focus();
                         }
                         else //delete
                         {
@@ -1241,6 +1251,14 @@ namespace HumanResourcesTool
         {
             //Fill Cities by ProvinceId
             Fill_cbCitiesByProvince();
+
+        }
+
+        private void btnSearchEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            SearchEmployee SearchWindow = new SearchEmployee();
+            SearchWindow.Owner = this;
+            SearchWindow.ShowDialog();
 
         }
     }
