@@ -19,6 +19,7 @@ namespace WCFResourceHumanServices
         public virtual DbSet<tblPosition> tblPositions { get; set; }
         public virtual DbSet<tblProvince> tblProvinces { get; set; }
         public virtual DbSet<tblTitle> tblTitles { get; set; }
+        public virtual DbSet<tblAccounts> TblAccounts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

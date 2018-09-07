@@ -844,6 +844,12 @@ namespace HumanResourcesTool.ServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.HRWebServices")]
     public interface HRWebServices {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/Login", ReplyAction="http://tempuri.org/HRWebServices/LoginResponse")]
+        bool Login(string pass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/Login", ReplyAction="http://tempuri.org/HRWebServices/LoginResponse")]
+        System.Threading.Tasks.Task<bool> LoginAsync(string pass);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetPositions", ReplyAction="http://tempuri.org/HRWebServices/GetPositionsResponse")]
         System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblPosition> GetPositions();
         
@@ -978,6 +984,14 @@ namespace HumanResourcesTool.ServiceReference {
         
         public HRWebServicesClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public bool Login(string pass) {
+            return base.Channel.Login(pass);
+        }
+        
+        public System.Threading.Tasks.Task<bool> LoginAsync(string pass) {
+            return base.Channel.LoginAsync(pass);
         }
         
         public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblPosition> GetPositions() {

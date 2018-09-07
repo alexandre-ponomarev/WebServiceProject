@@ -12,6 +12,28 @@ namespace WCFResourceHumanServices
     public class HRWebService : HRWebServices
     {
 
+        bool HRWebServices.Login(string pass)
+        {
+            using (var dbcontext = new HRDBContext())
+            {
+
+
+                tblAccounts admin = dbcontext.TblAccounts.Where(a => a.Acc_Id == 1).SingleOrDefault();
+
+                if (admin.Acc_Pass == pass)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+
+
+            }
+        }
+
         List<tblEmployee> HRWebServices.GetEmployees()
         {
             using (var dbcontext = new HRDBContext())
@@ -139,7 +161,7 @@ namespace WCFResourceHumanServices
             using (var dbcontext = new HRDBContext())
             {
 
-                var ProvinceId = (from City in dbcontext.tblCities 
+                var ProvinceId = (from City in dbcontext.tblCities
                                   where City.Cit_CityId.Equals(CityId)
                                   select City.Pro_ProvinceId).SingleOrDefault();
 
@@ -154,8 +176,8 @@ namespace WCFResourceHumanServices
             {
 
                 var CountryId = (from Province in dbcontext.tblProvinces
-                                  where Province.Pro_ProvinceId.Equals(ProvinceId)
-                                  select Province.Cou_Countryid).SingleOrDefault();
+                                 where Province.Pro_ProvinceId.Equals(ProvinceId)
+                                 select Province.Cou_Countryid).SingleOrDefault();
 
                 return CountryId;
             }
@@ -234,14 +256,15 @@ namespace WCFResourceHumanServices
             {
                 try
                 {
-                    var itemToRemove = dbcontext.tblEmployees.SingleOrDefault(x => x.Emp_EmployeeId == EmployeeId); 
+                    var itemToRemove = dbcontext.tblEmployees.SingleOrDefault(x => x.Emp_EmployeeId == EmployeeId);
 
                     if (itemToRemove != null)
                     {
                         dbcontext.tblEmployees.Remove(itemToRemove);
                         dbcontext.SaveChanges();
                         return true;
-                    } else
+                    }
+                    else
                     {
                         return false;
                     }
@@ -267,11 +290,12 @@ namespace WCFResourceHumanServices
                 if (dbcontext.tblEmployees.Any(e => e.Emp_EmployeeId == EmployeeId))
                 {
                     return true;
-                } else
+                }
+                else
                 {
                     return false;
                 }
-                    
+
             }
         }
 

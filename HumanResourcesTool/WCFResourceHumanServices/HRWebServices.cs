@@ -12,6 +12,8 @@ namespace WCFResourceHumanServices
     public interface HRWebServices
     {
 
+        [OperationContract]
+        bool Login(string pass);
 
         [OperationContract]
         List<tblPosition> GetPositions();

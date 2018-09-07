@@ -119,3 +119,15 @@ Alex
 - think about the logic of calendar planner
 3. Where do I need assistance, research, test things, etc.
 -
+
+2018-09-06
+----------
+
+Alex
+1. What was done since last scrum
+- on double click to be able to edit employee
+- responsive main screen
+2. What is to be done now, until next scrum
+- login
+3. Where do I need assistance, research, test things, etc.
+-

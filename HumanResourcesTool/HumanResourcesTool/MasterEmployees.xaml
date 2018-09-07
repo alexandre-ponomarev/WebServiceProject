@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HumanResourcesTool"
         mc:Ignorable="d"
-        Title="MasterEmployees" Height="752.312" Width="1008.834" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+        Title="MasterEmployees" Height="752.312" Width="1008.834" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
     <Window.Resources>
         <Style x:Key="GlassButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="BitmapEffect">
@@ -164,7 +164,7 @@
         <DatePicker x:Name="dpDateStart" HorizontalAlignment="Left" Margin="684,341,0,0" VerticalAlignment="Top" Width="296" Height="30" FontFamily="Arial" FontSize="14"   PreviewKeyUp="dpDateStart_PreviewKeyUp"/>
         <Label x:Name="lblDateFinish" Content="Date Finish Works:" HorizontalAlignment="Left" Margin="542,403,0,0" VerticalAlignment="Top" Width="137" FontFamily="Arial Black"   Height="24"/>
         <DatePicker x:Name="dpDateFinish" HorizontalAlignment="Left" Margin="685,397,0,0" VerticalAlignment="Top" Width="296" Height="30" FontFamily="Arial" FontSize="14"   PreviewKeyUp="dpDateFinish_PreviewKeyUp"/>
-        <Grid HorizontalAlignment="Center" Margin="11,650,11,26">
+        <Grid HorizontalAlignment="Center" Grid.Row="1" Margin="0,0,0,0">
 
             <Button x:Name="btnNew" HorizontalAlignment="Left" Margin="2,0,0,0"   VerticalAlignment="Top" Width="160" Height="62" FontFamily="Arial Black" FontSize="14" Click="btnNew_Click">
                 <Image Height="62" Width="79" Source="images/ico-new02.ico"/>
@@ -183,7 +183,7 @@
             </Button>
         </Grid>
         <Label x:Name="lblCity" Content="City:" HorizontalAlignment="Left" Margin="24,447,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"   Height="24"/>
-        <StatusBar x:Name="sbInfo" Height="Auto" Margin="0,720,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FF8DB2AB" Grid.RowSpan="3">
+        <StatusBar x:Name="sbInfo" Height="Auto" Grid.Row="2" Margin="0,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FF8DB2AB" Grid.RowSpan="3">
             <StatusBar.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Grid>
