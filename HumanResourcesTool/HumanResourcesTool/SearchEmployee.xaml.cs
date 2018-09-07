@@ -19,10 +19,24 @@ namespace HumanResourcesTool
     /// </summary>
     public partial class SearchEmployee : Window
     {
+
+        ServiceReference.HRWebServicesClient HRWebServices;
+
         public SearchEmployee()
         {
             InitializeComponent();
+            Loading();
         }
+
+        private void Loading()
+        {
+            //HRWebServices = new ServiceReference.HRWebServicesClient();
+
+            //var query = HRWebServices.GetEmployees();
+            //dataGrid1.ItemsSource = query;
+
+        }
+
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
