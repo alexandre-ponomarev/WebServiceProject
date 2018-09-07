@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HumanResourcesTool.ServiceReference;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -41,7 +42,11 @@ namespace HumanResourcesTool
         private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             MasterEmployees editWindow = new MasterEmployees();
+            var selectedItem = dataGrid1.SelectedItem as tblEmployee;
+            if (selectedItem != null)
+                //MessageBox.Show(selectedItem.Emp_EmployeeId.ToString());
             editWindow.Owner = this;
+            editWindow.Fill_Employee_Info(selectedItem.Emp_EmployeeId);
             editWindow.Show();
         }
 
@@ -52,26 +57,6 @@ namespace HumanResourcesTool
             addWindow.Show();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var fd = new Microsoft.Win32.OpenFileDialog();
-            fd.Filter = "All image formats (*.jpg; *.jpeg; *.bmp; *.png; *.gif)|*.jpg;*.jpeg;*.bmp;*.png;*.gif";
-            var ret = fd.ShowDialog();
-
-            if (ret.GetValueOrDefault())
-            {
-                txtFileName.Text = fd.FileName;
-
-                try
-                {
-                    BitmapImage bmp = new BitmapImage(new Uri(fd.FileName, UriKind.Absolute));
-                    imgPhoto.Source = bmp;
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Invalid image file.", "Browse", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                }
-            }
-        }
+        
     }
 }

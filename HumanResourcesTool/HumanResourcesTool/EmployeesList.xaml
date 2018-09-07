@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HumanResourcesTool"
         mc:Ignorable="d"
-        Title="EmployeesList" Height="460.857" Width="1112" WindowStartupLocation="CenterScreen">
+        Title="EmployeesList" Height="460.857" Width="1112" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize">
     <Grid>
-        <Grid HorizontalAlignment="Left" Height="373" Margin="0,47,0,0" VerticalAlignment="Top" Width="1104">
+        <Grid HorizontalAlignment="Stretch" Margin="0,47,0,0" VerticalAlignment="Stretch" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1127*"/>
                 <ColumnDefinition Width="6*"/>
             </Grid.ColumnDefinitions>
-            <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Height="363" VerticalAlignment="Top" Width="1104" ItemsSource="{Binding}" AutoGenerateColumns="false" CanUserAddRows="False" Grid.ColumnSpan="2" >
+            <DataGrid x:Name="dataGrid1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding}" AutoGenerateColumns="false" CanUserAddRows="False" Grid.ColumnSpan="2" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding Emp_EmployeeId}" />
                     <DataGridTextColumn Header="Title" Binding="{Binding tblTitle.Tit_Name}" />
@@ -42,10 +42,7 @@
             </DataGrid>
 
         </Grid>
-        <Button Name="btnAdd" Content="Add Employee" HorizontalAlignment="Left" Margin="507,10,0,0" VerticalAlignment="Top" Width="96" Click="btnAdd_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="695,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Image x:Name="imgPhoto" Width="320" Height="240" Stretch="Uniform" Margin="175,180,609,10"/>
-        <TextBox IsReadOnly="True" Grid.Row="0" x:Name="txtFileName" Width="300" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="105,5,0,0"/>
+        <Button Name="btnAdd" Content="Add Employee" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="141" Click="btnAdd_Click"/>
 
     </Grid>
 </Window>

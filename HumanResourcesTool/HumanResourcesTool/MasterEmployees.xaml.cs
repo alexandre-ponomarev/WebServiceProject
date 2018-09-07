@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using HumanResourcesTool.ServiceReference;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,7 @@ namespace HumanResourcesTool
             Initial_Timer();
 
         }
+
 
 
         //**************************************************************************
@@ -211,7 +213,7 @@ namespace HumanResourcesTool
 
         }
 
-        private void Fill_Employee_Info(int EmployeeId)
+        public void Fill_Employee_Info(int EmployeeId)
         {
 
             var query = WCFHRHumanResources.GetEmployeeInfo(EmployeeId);
