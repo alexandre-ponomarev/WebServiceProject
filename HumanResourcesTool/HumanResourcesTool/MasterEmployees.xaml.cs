@@ -27,7 +27,8 @@ namespace HumanResourcesTool
         System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
 
         ServiceReference.HRWebServicesClient WCFHRHumanResources = new ServiceReference.HRWebServicesClient();
-        string optionSelectedCRUM = "i";
+        public string optionSelectedCRUM = "i";
+        public bool flag = false;
 
         public MasterEmployees()
         {
@@ -304,10 +305,9 @@ namespace HumanResourcesTool
                 }
                 //-----------------------------------------------------
 
-
                 txtAddress.Text = query.Emp_Address;
-                txtAnnualSalary.Text = query.Emp_AnualSalary.ToString();
-                txtHouralyRate.Text = query.Emp_HourlyRate.ToString();
+                txtAnnualSalary.Text = Convert.ToDouble(query.Emp_AnualSalary).ToString("0.##");
+                txtHouralyRate.Text = Convert.ToDouble(query.Emp_HourlyRate).ToString("0.##");
                 txtMobileTelephone.Text = query.Emp_CellPhone;
                 txtHomeTelephone.Text = query.Emp_Phone;
                 txtEmail.Text = query.Emp_Email;
@@ -364,6 +364,13 @@ namespace HumanResourcesTool
             btnGenderMaleAndFemale.IsEnabled = option;
 
             //btnEmployeePhoto.IsEnabled = option;
+
+            if (flag)
+            {
+                btnDelete.IsEnabled = flag;
+                btnUpdate.IsEnabled = flag;
+                btnNew.IsEnabled = flag;
+            }
 
         }
 
@@ -601,9 +608,16 @@ namespace HumanResourcesTool
                     case "u":
                         updateEmployee();
                         Clear_Controls();
-                        Enabled_Desabled_Controls(false);
+                        Enabled_Desabled_Controls(false || flag);
                         txtEmployeeId.IsEnabled = true;
                         txtEmployeeId.Focus();
+
+                        if (flag)
+                        {
+                            this.Owner.Focus();
+                            this.Close();
+                            
+                        }
 
                         break;
                     case "d":

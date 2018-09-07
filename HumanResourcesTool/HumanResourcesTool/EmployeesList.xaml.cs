@@ -46,6 +46,13 @@ namespace HumanResourcesTool
             if (selectedItem != null)
                 //MessageBox.Show(selectedItem.Emp_EmployeeId.ToString());
             editWindow.Owner = this;
+            editWindow.btnDelete.IsEnabled = false;
+            editWindow.btnUpdate.IsEnabled = false;
+            editWindow.btnNew.IsEnabled = false;
+
+            editWindow.optionSelectedCRUM = "u";
+            editWindow.flag = true;
+            editWindow.txtEmployeeId.Text = selectedItem.Emp_EmployeeId.ToString();
             editWindow.Fill_Employee_Info(selectedItem.Emp_EmployeeId);
             editWindow.Show();
         }
@@ -57,6 +64,10 @@ namespace HumanResourcesTool
             addWindow.Show();
         }
 
-        
+        private void Window_Activated(object sender, EventArgs e)
+        {
+            var query = HRWebServices.GetEmployees();
+            dataGrid1.ItemsSource = query;
+        }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HumanResourcesTool"
         mc:Ignorable="d"
-        Title="EmployeesList" Height="460.857" Width="1112" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize">
+        Title="EmployeesList" Height="460.857" Width="1112" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" Activated="Window_Activated">
     <Grid>
         <Grid HorizontalAlignment="Stretch" Margin="0,47,0,0" VerticalAlignment="Stretch" >
             <Grid.ColumnDefinitions>
