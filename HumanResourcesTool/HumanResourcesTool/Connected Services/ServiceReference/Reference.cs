@@ -840,6 +840,83 @@ namespace HumanResourcesTool.ServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ClassEmployee", Namespace="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices")]
+    [System.SerializableAttribute()]
+    public partial class ClassEmployee : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string employeeFirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int employeeIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string employeeLastNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string employeeFirstName {
+            get {
+                return this.employeeFirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.employeeFirstNameField, value) != true)) {
+                    this.employeeFirstNameField = value;
+                    this.RaisePropertyChanged("employeeFirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int employeeId {
+            get {
+                return this.employeeIdField;
+            }
+            set {
+                if ((this.employeeIdField.Equals(value) != true)) {
+                    this.employeeIdField = value;
+                    this.RaisePropertyChanged("employeeId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string employeeLastName {
+            get {
+                return this.employeeLastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.employeeLastNameField, value) != true)) {
+                    this.employeeLastNameField = value;
+                    this.RaisePropertyChanged("employeeLastName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.HRWebServices")]
     public interface HRWebServices {
@@ -915,6 +992,12 @@ namespace HumanResourcesTool.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetEmployees", ReplyAction="http://tempuri.org/HRWebServices/GetEmployeesResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee>> GetEmployeesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetEmployeesByLastAndFirstName", ReplyAction="http://tempuri.org/HRWebServices/GetEmployeesByLastAndFirstNameResponse")]
+        System.Collections.Generic.List<HumanResourcesTool.ServiceReference.ClassEmployee> GetEmployeesByLastAndFirstName(string lastName, string firstName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetEmployeesByLastAndFirstName", ReplyAction="http://tempuri.org/HRWebServices/GetEmployeesByLastAndFirstNameResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.ClassEmployee>> GetEmployeesByLastAndFirstNameAsync(string lastName, string firstName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HRWebServices/GetLastEmployeeId", ReplyAction="http://tempuri.org/HRWebServices/GetLastEmployeeIdResponse")]
         int GetLastEmployeeId();
@@ -1080,6 +1163,14 @@ namespace HumanResourcesTool.ServiceReference {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.tblEmployee>> GetEmployeesAsync() {
             return base.Channel.GetEmployeesAsync();
+        }
+        
+        public System.Collections.Generic.List<HumanResourcesTool.ServiceReference.ClassEmployee> GetEmployeesByLastAndFirstName(string lastName, string firstName) {
+            return base.Channel.GetEmployeesByLastAndFirstName(lastName, firstName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<HumanResourcesTool.ServiceReference.ClassEmployee>> GetEmployeesByLastAndFirstNameAsync(string lastName, string firstName) {
+            return base.Channel.GetEmployeesByLastAndFirstNameAsync(lastName, firstName);
         }
         
         public int GetLastEmployeeId() {

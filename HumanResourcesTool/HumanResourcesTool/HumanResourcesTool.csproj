@@ -136,6 +136,9 @@
     <None Include="Connected Services\ServiceReference\HRWebService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiceReference\HumanResourcesTool.ServiceReference.ClassEmployee.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceReference\HumanResourcesTool.ServiceReference.tblCity.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

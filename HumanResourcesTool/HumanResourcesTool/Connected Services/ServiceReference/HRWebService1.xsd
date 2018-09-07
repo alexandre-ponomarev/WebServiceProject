@@ -155,6 +155,21 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetEmployeesByLastAndFirstName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeesByLastAndFirstNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="GetEmployeesByLastAndFirstNameResult" nillable="true" type="q10:ArrayOfClassEmployee" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetLastEmployeeId">
     <xs:complexType>
       <xs:sequence />
@@ -170,7 +185,7 @@
   <xs:element name="insertDepartments">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="objDepartment" nillable="true" type="q10:tblDepartment" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="objDepartment" nillable="true" type="q11:tblDepartment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -184,7 +199,7 @@
   <xs:element name="insertEmployees">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="objEmployee" nillable="true" type="q11:tblEmployee" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="objEmployee" nillable="true" type="q12:tblEmployee" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -219,14 +234,14 @@
   <xs:element name="GetEmployeeInfoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="GetEmployeeInfoResult" nillable="true" type="q12:tblEmployee" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="GetEmployeeInfoResult" nillable="true" type="q13:tblEmployee" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="updateEmployees">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="objEmployee" nillable="true" type="q13:tblEmployee" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="objEmployee" nillable="true" type="q14:tblEmployee" />
         <xs:element minOccurs="0" name="EmployeeId" type="xs:int" />
       </xs:sequence>
     </xs:complexType>

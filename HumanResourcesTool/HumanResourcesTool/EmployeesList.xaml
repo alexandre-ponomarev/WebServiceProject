@@ -5,9 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HumanResourcesTool"
         mc:Ignorable="d"
-        Title="EmployeesList" Height="460.857" Width="1112" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" Activated="Window_Activated">
+        Title="EmployeesList" Height="460.857" Width="1112" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Activated="Window_Activated">
     <Grid>
-        <Grid HorizontalAlignment="Stretch" Margin="0,47,0,0" VerticalAlignment="Stretch" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="447*"/>
+            <ColumnDefinition Width="659*"/>
+        </Grid.ColumnDefinitions>
+        <Grid HorizontalAlignment="Stretch" Margin="0,47,0,0" VerticalAlignment="Stretch" Grid.ColumnSpan="2" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1127*"/>
                 <ColumnDefinition Width="6*"/>

@@ -79,6 +79,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassEmployee.cs" />
     <Compile Include="HRDBContext.cs" />
     <Compile Include="HRWebService.svc.cs">
       <DependentUpon>HRWebService.svc</DependentUpon>

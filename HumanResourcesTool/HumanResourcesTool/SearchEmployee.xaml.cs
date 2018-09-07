@@ -30,11 +30,20 @@ namespace HumanResourcesTool
 
         private void Loading()
         {
-            //HRWebServices = new ServiceReference.HRWebServicesClient();
+            string lastName = "";
+            string firstName = "";
 
-            //var query = HRWebServices.GetEmployees();
-            //dataGrid1.ItemsSource = query;
+            lastName = txtLastName.Text;
+            firstName = txtFirstName.Text;
 
+            if (lastName.Length <= 0) lastName = "";
+            if (firstName.Length <= 0) firstName = "";
+
+            HRWebServices = new ServiceReference.HRWebServicesClient();
+
+            var query = HRWebServices.GetEmployeesByLastAndFirstName(lastName, firstName);
+            dataGrid1.ItemsSource = query;
+            
         }
 
 
@@ -47,18 +56,14 @@ namespace HumanResourcesTool
         private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             //MasterEmployees editWindow = new MasterEmployees();
-            //var selectedItem = dataGrid1.SelectedItem as tblEmployee;
+            //var selectedItem = dataGrid1.SelectedItem as sender;
             //if (selectedItem != null)
             //    //MessageBox.Show(selectedItem.Emp_EmployeeId.ToString());
             //    editWindow.Owner = this;
-            //editWindow.btnDelete.IsEnabled = false;
-            //editWindow.btnUpdate.IsEnabled = false;
-            //editWindow.btnNew.IsEnabled = false;
 
-            //editWindow.optionSelectedCRUM = "u";
-            //editWindow.flag = true;
-            //editWindow.txtEmployeeId.Text = selectedItem.Emp_EmployeeId.ToString();
-            //editWindow.Fill_Employee_Info(selectedItem.Emp_EmployeeId);
+            //editWindow.txtEmployeeId.Text = "1";
+
+
             //editWindow.Show();
         }
 
@@ -79,6 +84,24 @@ namespace HumanResourcesTool
 
         private void txtLastName_KeyDown(object sender, KeyEventArgs e)
         {
+
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            string lastName;
+            string firstName;
+
+            lastName = txtLastName.Text;
+            firstName = txtFirstName.Text;
+
+            if (lastName.Length <= 0) lastName = "";
+            if (firstName.Length <= 0) firstName = "";
+
+            HRWebServices = new ServiceReference.HRWebServicesClient();
+
+            var query = HRWebServices.GetEmployeesByLastAndFirstName(lastName, firstName);
+            dataGrid1.ItemsSource = query;
 
         }
     }

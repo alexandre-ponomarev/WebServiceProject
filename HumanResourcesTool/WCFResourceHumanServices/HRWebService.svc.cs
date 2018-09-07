@@ -50,21 +50,23 @@ namespace WCFResourceHumanServices
         }
 
 
-        List<tblEmployee> HRWebServices.GetEmployeesByLastAndFirstName(string lastName, string firstName)
+        List<ClassEmployee> HRWebServices.GetEmployeesByLastAndFirstName(string lastName, string firstName)
         {
             using (var dbcontext = new HRDBContext())
             {
 
+                var dataset2 =
+                    (from recordset in dbcontext.tblEmployees
+                     where recordset.Emp_LastName.Contains(lastName) || recordset.Emp_FirstName.Contains(firstName)
+                     select new ClassEmployee
+                     {
+                         employeeId = recordset.Emp_EmployeeId,
+                         employeeLastName = recordset.Emp_LastName,
+                         employeeFirstName = recordset.Emp_FirstName
+                     }).ToList();
 
-                //List<tblEmployee> runnersObjects = dbcontext.tblEmployees.ToList().FindAll(x => x.Emp_LastName == lastName).ToList();
 
-                List<tblEmployee> runnersObjects  = (from s in dbcontext.tblEmployees
-                                                     where s.Emp_LastName.StartsWith("" + lastName + "")
-                                   select s).ToList();
-
-
-
-                return runnersObjects;
+                return dataset2;
             }
         }
 
@@ -363,7 +365,6 @@ namespace WCFResourceHumanServices
 
             }
         }
-
 
     }
 }
