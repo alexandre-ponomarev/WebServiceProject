@@ -25,7 +25,7 @@
         <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="28" Margin="187,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="576" FontFamily="Arial" FontSize="14" KeyDown="txtFirstName_KeyDown" GotFocus="txtFirstName_GotFocus"/>
         <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="28" Margin="187,23,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="576" FontFamily="Arial" FontSize="14" KeyDown="txtLastName_KeyDown" GotFocus="txtLastName_GotFocus"  />
         <Label x:Name="lblLastName" Content="Last Name:" HorizontalAlignment="Left" Margin="21,25,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" Height="24"  />
-        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="649,109,0,0" VerticalAlignment="Top" Width="141" Click="btnAdd_Click"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="649,109,0,0" VerticalAlignment="Top" Width="141" />
 
     </Grid>
 </Window>

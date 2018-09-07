@@ -28,5 +28,44 @@ namespace HumanResourcesTool
         {
             this.Close();
         }
+
+
+        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            //MasterEmployees editWindow = new MasterEmployees();
+            //var selectedItem = dataGrid1.SelectedItem as tblEmployee;
+            //if (selectedItem != null)
+            //    //MessageBox.Show(selectedItem.Emp_EmployeeId.ToString());
+            //    editWindow.Owner = this;
+            //editWindow.btnDelete.IsEnabled = false;
+            //editWindow.btnUpdate.IsEnabled = false;
+            //editWindow.btnNew.IsEnabled = false;
+
+            //editWindow.optionSelectedCRUM = "u";
+            //editWindow.flag = true;
+            //editWindow.txtEmployeeId.Text = selectedItem.Emp_EmployeeId.ToString();
+            //editWindow.Fill_Employee_Info(selectedItem.Emp_EmployeeId);
+            //editWindow.Show();
+        }
+
+        private void txtLastName_GotFocus(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void txtFirstName_GotFocus(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void txtFirstName_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void txtLastName_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }
