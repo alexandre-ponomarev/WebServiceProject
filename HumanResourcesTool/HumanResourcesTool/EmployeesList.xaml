@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HumanResourcesTool"
         mc:Ignorable="d"
-        Title="EmployeesList" Height="460.857" Width="1112" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Activated="Window_Activated">
+        Title="EmployeesList" Height="474.857" Width="1112" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Activated="Window_Activated">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="447*"/>
             <ColumnDefinition Width="659*"/>
         </Grid.ColumnDefinitions>
-        <Grid HorizontalAlignment="Stretch" Margin="0,47,0,0" VerticalAlignment="Stretch" Grid.ColumnSpan="2" >
+        <Grid HorizontalAlignment="Stretch" Margin="0,47,0,70" VerticalAlignment="Stretch" Grid.ColumnSpan="2" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1127*"/>
                 <ColumnDefinition Width="6*"/>
             </Grid.ColumnDefinitions>
-            <DataGrid x:Name="dataGrid1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding}" AutoGenerateColumns="false" CanUserAddRows="False" Grid.ColumnSpan="2" >
+            <DataGrid x:Name="dataGrid1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding}" AutoGenerateColumns="false" CanUserAddRows="False" Grid.ColumnSpan="2" Margin="0,0,0,-66" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding Emp_EmployeeId}" />
                     <DataGridTextColumn Header="Title" Binding="{Binding tblTitle.Tit_Name}" />
@@ -39,14 +39,22 @@
                 </DataGrid.Columns>
 
                 <DataGrid.ItemContainerStyle>
-                    <Style TargetType="DataGridRow">
-                        <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
+                    <Style TargetType="{x:Type DataGridRow}">
+                        <EventSetter Event="Control.MouseDoubleClick" Handler="Row_DoubleClick"/>
                     </Style>
                 </DataGrid.ItemContainerStyle>
             </DataGrid>
 
         </Grid>
+<<<<<<< HEAD
         <Button Name="btnAdd" Content="Add Employee" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="141" Click="btnAdd_Click"/>
+        <Button Name="btnPDF" Content="Export to PDF" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="137" Click="btnPDF_Click"/>
+=======
+        <Grid>
+            <Button Name="btnAdd" Content="Add Employee" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="141" Click="btnAdd_Click"/>
+        </Grid>
+
+>>>>>>> 31d1b6f09a2a0f8defb340b9b5a6a5b3ed122f79
 
     </Grid>
 </Window>

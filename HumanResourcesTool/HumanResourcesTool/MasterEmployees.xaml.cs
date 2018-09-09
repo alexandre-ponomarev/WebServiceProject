@@ -11,6 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -29,10 +30,12 @@ namespace HumanResourcesTool
         ServiceReference.HRWebServicesClient WCFHRHumanResources = new ServiceReference.HRWebServicesClient();
         public string optionSelectedCRUM = "i";
         public bool flag = false;
+        public bool flagSearchEmployee = false;
 
         public MasterEmployees()
         {
             InitializeComponent();
+
 
             Clear_Controls();
             Initilice_CombosBox();
@@ -375,6 +378,12 @@ namespace HumanResourcesTool
                 btnNew.IsEnabled = flag;
             }
 
+
+            //if (flagSearchEmployee == true)
+            //{
+
+            //}
+
         }
 
         private int fSearchLastEmployeeId()
@@ -398,7 +407,28 @@ namespace HumanResourcesTool
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             //App.Current.Shutdown();
+            //this.Close();
+
+            //CloseAllWindows();
+
             this.Close();
+
+        }
+
+        private void CloseAllWindows()
+        {
+            for (int intCounter = App.Current.Windows.Count - 1; intCounter >= 0; intCounter--)
+            {
+
+                MessageBox.Show(App.Current.Windows[intCounter].Name.ToString());
+
+                App.Current.Windows[intCounter].Close();
+
+
+                //App.Current.Windows[intCounter].Name = "";
+
+            }
+
         }
 
         private void btnNew_Click(object sender, RoutedEventArgs e)
@@ -1171,7 +1201,7 @@ namespace HumanResourcesTool
             sbItem4.Content = DateTime.Now;
         }
 
-        private void txtEmployeeId_KeyDown(object sender, KeyEventArgs e)
+        public void txtEmployeeId_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
@@ -1223,7 +1253,7 @@ namespace HumanResourcesTool
 
         private void txtEmployeeId_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Clear_Controls();
+            if (flagSearchEmployee == false) Clear_Controls();
         }
 
         //private void Button_Click(object sender, RoutedEventArgs e)
@@ -1258,11 +1288,14 @@ namespace HumanResourcesTool
 
         private void btnSearchEmployee_Click(object sender, RoutedEventArgs e)
         {
-            SearchEmployee SearchWindow = new SearchEmployee();
+            SearchEmployee SearchWindow = new SearchEmployee(optionSelectedCRUM, this);
             SearchWindow.Owner = this;
             SearchWindow.ShowDialog();
+            //SearchWindow.myOptionSended = optionSelectedCRUM;
+            //this.Close();
 
         }
+
     }
 }
 

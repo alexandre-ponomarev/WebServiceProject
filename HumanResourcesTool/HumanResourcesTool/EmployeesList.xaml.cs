@@ -1,18 +1,16 @@
 ﻿using HumanResourcesTool.ServiceReference;
+using MigraDoc.DocumentObjectModel;
+using MigraDoc.DocumentObjectModel.Tables;
+using MigraDoc.Rendering;
+using PdfSharp.Pdf;
 using System;
 using System.Collections.Generic;
-using System.Data;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace HumanResourcesTool
 {
@@ -22,6 +20,8 @@ namespace HumanResourcesTool
     public partial class EmployeesList : Window
     {
         ServiceReference.HRWebServicesClient HRWebServices;
+        List<tblEmployee> query;
+
         public EmployeesList()
         {
             InitializeComponent();
@@ -32,12 +32,12 @@ namespace HumanResourcesTool
         {
             HRWebServices = new ServiceReference.HRWebServicesClient();
 
-            var query = HRWebServices.GetEmployees();
+            query = HRWebServices.GetEmployees();
             dataGrid1.ItemsSource = query;
 
         }
 
-        
+
 
         private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -45,7 +45,7 @@ namespace HumanResourcesTool
             var selectedItem = dataGrid1.SelectedItem as tblEmployee;
             if (selectedItem != null)
                 //MessageBox.Show(selectedItem.Emp_EmployeeId.ToString());
-            editWindow.Owner = this;
+                editWindow.Owner = this;
             editWindow.btnDelete.IsEnabled = false;
             editWindow.btnUpdate.IsEnabled = false;
             editWindow.btnNew.IsEnabled = false;
@@ -77,6 +77,107 @@ namespace HumanResourcesTool
 
         private void dataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
+        }
+
+        private void btnPDF_Click(object sender, RoutedEventArgs e)
+        {
+
+            Document document = new Document();
+
+            String tPdfFont = "Verdana";
+            MigraDoc.DocumentObjectModel.Style style = document.Styles["Normal"];
+            style.Font.Name = tPdfFont;
+            style.Font.Size = 6;
+
+            Section section = document.AddSection();
+
+            Table table = new Table();
+            table.Borders.Width = 0.75;
+
+            Column column = table.AddColumn(Unit.FromCentimeter(1.5));
+            column = table.AddColumn(Unit.FromCentimeter(1.5));
+            column = table.AddColumn(Unit.FromCentimeter(1.5));
+            column = table.AddColumn(Unit.FromCentimeter(1.5));
+            column = table.AddColumn(Unit.FromCentimeter(1.5));
+            column = table.AddColumn(Unit.FromCentimeter(1.5));
+            column = table.AddColumn(Unit.FromCentimeter(1.5));
+            column = table.AddColumn(Unit.FromCentimeter(1.5));
+            column = table.AddColumn(Unit.FromCentimeter(1.5));
+            column = table.AddColumn(Unit.FromCentimeter(1.5));
+            column.Format.Alignment = ParagraphAlignment.Center;
+
+            table.AddColumn(Unit.FromCentimeter(1.5));
+
+            Row row = table.AddRow();
+            row.Shading.Color = MigraDoc.DocumentObjectModel.Colors.PaleGoldenrod;
+            Cell cell = row.Cells[0];
+            cell.AddParagraph("ID");
+            cell = row.Cells[1];
+            cell.AddParagraph("FN");
+            cell = row.Cells[2];
+            cell.AddParagraph("LN");
+            cell = row.Cells[3];
+            cell.AddParagraph("Gender");
+            cell = row.Cells[4];
+            cell.AddParagraph("DOB");
+            cell = row.Cells[5];
+            cell.AddParagraph("Address");
+            cell = row.Cells[6];
+            cell.AddParagraph("City");
+            cell = row.Cells[7];
+            cell.AddParagraph("ZIP");
+            cell = row.Cells[8];
+            cell.AddParagraph("Department");
+            cell = row.Cells[9];
+            cell.AddParagraph("Position");
+            cell = row.Cells[10];
+            cell.AddParagraph("Salary");
+
+            foreach (var emp in query)
+            {
+                row = table.AddRow();
+                cell = row.Cells[0];
+                cell.AddParagraph(emp.Emp_EmployeeId.ToString());
+                cell = row.Cells[1];
+                cell.AddParagraph(emp.Emp_FirstName);
+                cell = row.Cells[2];
+                cell.AddParagraph(emp.Emp_LastName);
+                cell = row.Cells[3];
+                cell.AddParagraph(emp.Emp_Gender);
+                cell = row.Cells[4];
+                cell.AddParagraph(emp.Emp_BirthOfDate.ToShortDateString());
+                cell = row.Cells[5];
+                cell.AddParagraph(emp.Emp_Address);
+                cell = row.Cells[6];
+                cell.AddParagraph(emp.tblCity.Cit_Name);
+                cell = row.Cells[7];
+                cell.AddParagraph(emp.Emp_PostalCode);
+                cell = row.Cells[8];
+                cell.AddParagraph(emp.tblDepartment.Dep_Name);
+                cell = row.Cells[9];
+                cell.AddParagraph(emp.tblPosition.Pos_Description);
+                cell = row.Cells[10];
+                cell.AddParagraph(Convert.ToDouble(emp.Emp_AnualSalary).ToString("0.##"));
+            }
+
+            //table.SetEdge(0, 0, 2, 3, Edge.Box, BorderStyle.Single, 1.5, MigraDoc.DocumentObjectModel.Colors.Black);
+
+            document.LastSection.Add(table);
+
+            PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(false,
+  PdfFontEmbedding.Always);
+
+            pdfRenderer.Document = document;
+
+            pdfRenderer.RenderDocument();
+
+
+            string filename = "HelloWorld.pdf";
+            pdfRenderer.PdfDocument.Save(filename);
+
+            Process.Start(filename);
+
 
         }
     }
