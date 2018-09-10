@@ -42,18 +42,15 @@ namespace HumanResourcesTool
 
         private void Loading()
         {
-            string lastName = "";
-            string firstName = "";
+            string searchString = "";
 
-            lastName = txtLastName.Text;
-            firstName = txtFirstName.Text;
+            searchString = txtSearch.Text;
 
-            if (lastName.Length <= 0) lastName = "";
-            if (firstName.Length <= 0) firstName = "";
+            if (searchString.Length <= 0) searchString = "";
 
             HRWebServices = new ServiceReference.HRWebServicesClient();
 
-            var query = HRWebServices.GetEmployeesByLastAndFirstName(lastName, firstName);
+            var query = HRWebServices.GetEmployeesByLastAndFirstName(searchString);
             dataGrid1.ItemsSource = query;
             
         }
@@ -71,14 +68,14 @@ namespace HumanResourcesTool
             //MasterEmployees editWindow = new MasterEmployees();
             MasterEmployees editWindow = newFormReceived;
             
-            var selectedItem = dataGrid1.SelectedItem as ClassEmployee;
+            var selectedItem = dataGrid1.SelectedItem as tblEmployee;
             if (selectedItem != null)
                 //MessageBox.Show(selectedItem.Emp_EmployeeId.ToString());
             //editWindow.Owner = this;
 
             editWindow.flagSearchEmployee = true;
 
-            editWindow.txtEmployeeId.Text = selectedItem.employeeId.ToString();
+            editWindow.txtEmployeeId.Text = selectedItem.Emp_EmployeeId.ToString();
 
             if (myOptionSended.ToString() == "u")
             {
@@ -140,16 +137,14 @@ namespace HumanResourcesTool
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            string lastName;
-            string firstName;
+            string searchString;
+            
 
-            lastName = txtLastName.Text;
-            firstName = txtFirstName.Text;
+            searchString = txtSearch.Text;
 
-            if (lastName.Length <= 0) lastName = "";
-            if (firstName.Length <= 0) firstName = "";
+            if (searchString.Length <= 0) searchString = "";
 
-            var query = HRWebServices.GetEmployeesByLastAndFirstName(lastName, firstName);
+            var query = HRWebServices.GetEmployeesByLastAndFirstName(searchString);
             dataGrid1.ItemsSource = query;
 
         }

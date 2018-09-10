@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HumanResourcesTool"
         mc:Ignorable="d"
-        Title="MasterEmployees" Height="752.312" Width="1008.834" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
+        Title="CHOOSE OPTION - 3 BOTTOM LEFT BTNS (Add, Edit, Delete) FILL OUT REQUIRED INFO THEN CLICK ON SAVE BTN ON BOTTOM RIGHT" Height="752.312" Width="1008.834" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
     <Window.Resources>
         <Style x:Key="GlassButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="BitmapEffect">
@@ -117,35 +117,35 @@
         <Label x:Name="lblPostCode" Content="Postcode:" HorizontalAlignment="Left" Margin="24,497,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" RenderTransformOrigin="0.531,2.01"   Height="24"/>
         <Label x:Name="lblHomeTepehone" Content="Home Telephone:" HorizontalAlignment="Left" Margin="27,535,0,0" VerticalAlignment="Top" Width="137" FontFamily="Arial Black"   Height="24"/>
         <Label x:Name="lblMobile" Content="Mobile:" HorizontalAlignment="Left" Margin="25,581,0,0" VerticalAlignment="Top" Width="137" FontFamily="Arial Black"   Height="24"/>
-        <Label x:Name="lblPersonalEmail" Content="Personal Email:" HorizontalAlignment="Left" Margin="542,14,0,0" VerticalAlignment="Top" Width="137" FontFamily="Arial Black"   Height="24"/>
-        <Label x:Name="lblDateDOB" Content="Date Of Birth:" HorizontalAlignment="Left" Margin="542,59,0,0" VerticalAlignment="Top" Width="137" FontFamily="Arial Black"   Height="24"/>
-        <Label x:Name="lblAge" Content="Age:" HorizontalAlignment="Left" Margin="542,106,0,0" VerticalAlignment="Top" Width="137" FontFamily="Arial Black"   Height="24"/>
+        <Label x:Name="lblPersonalEmail" Content="Personal Email:" HorizontalAlignment="Left" Margin="538,196,0,0" VerticalAlignment="Top" Width="137" FontFamily="Arial Black"   Height="24"/>
+        <Label x:Name="lblDateDOB" Content="Date Of Birth:" HorizontalAlignment="Left" Margin="538,241,0,0" VerticalAlignment="Top" Width="137" FontFamily="Arial Black"   Height="24"/>
+        <Label x:Name="lblAge" Content="Age:" HorizontalAlignment="Left" Margin="538,288,0,0" VerticalAlignment="Top" Width="137" FontFamily="Arial Black"   Height="24"/>
         <ComboBox x:Name="cbTitles" HorizontalAlignment="Left" Margin="191,57,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26" KeyDown="cbTitles_KeyDown"/>
         <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="28" Margin="190,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" KeyDown="txtFirstName_KeyDown" GotFocus="txtFirstName_GotFocus"/>
         <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Height="54" Margin="191,277,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"   KeyDown="txtAddress_KeyDown" GotFocus="txtAddress_GotFocus"/>
         <ComboBox x:Name="cbCountries" HorizontalAlignment="Left" Margin="191,361,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26"   KeyDown="cbCountries_KeyDown" LostFocus="cbCountries_LostFocus"/>
         <TextBox x:Name="txtHomeTelephone" HorizontalAlignment="Left" Height="28" Margin="192,531,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"   KeyDown="txtHomeTelephone_KeyDown" GotFocus="txtHomeTelephone_GotFocus"/>
         <TextBox x:Name="txtMobileTelephone" HorizontalAlignment="Left" Height="28" Margin="190,581,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"   KeyDown="txtMobileTelephone_KeyDown" GotFocus="txtMobileTelephone_GotFocus"/>
-        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="28" Margin="685,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"   KeyDown="txtEmail_KeyDown" GotFocus="txtEmail_GotFocus"/>
-        <DatePicker x:Name="dpDOB" HorizontalAlignment="Left" Margin="685,57,0,0" VerticalAlignment="Top" Width="296" Height="30" FontFamily="Arial" FontSize="14"   PreviewKeyUp="dpDOB_PreviewKeyUp"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="28" Margin="681,192,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"   KeyDown="txtEmail_KeyDown" GotFocus="txtEmail_GotFocus"/>
+        <DatePicker x:Name="dpDOB" HorizontalAlignment="Left" Margin="681,239,0,0" VerticalAlignment="Top" Width="296" Height="30" FontFamily="Arial" FontSize="14" PreviewKeyUp="dpDOB_PreviewKeyUp" Focusable="False" CalendarClosed="dpDOB_CalendarClosed"/>
         <TextBox x:Name="txtPostCode" HorizontalAlignment="Left" Height="28" Margin="191,493,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"   KeyDown="txtPostCode_KeyDown" GotFocus="txtPostCode_GotFocus"/>
-        <TextBox x:Name="txtAge" HorizontalAlignment="Left" Height="28" Margin="685,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"   Background="Gray"/>
+        <TextBox x:Name="txtAge" HorizontalAlignment="Left" Height="28" Margin="681,288,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"   Background="Gray"/>
         <Label x:Name="lblEmployeeId" Content="Employee Id:" HorizontalAlignment="Left" Margin="25,10,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" Height="24"/>
         <TextBox x:Name="txtEmployeeId" HorizontalAlignment="Left" Height="28" Margin="191,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" FontFamily="Arial" FontSize="14" KeyDown="txtEmployeeId_KeyDown" TextChanged="txtEmployeeId_TextChanged"/>
         <Button x:Name="btnSearchEmployee" HorizontalAlignment="Left" Height="28" Margin="449,10,0,0" VerticalAlignment="Top" Width="38" Click="btnSearchEmployee_Click" Content="?"/>
 
         <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="28" Margin="190,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" KeyDown="txtLastName_KeyDown" GotFocus="txtLastName_GotFocus"  />
         <Label x:Name="lblLastName" Content="Last Name:" HorizontalAlignment="Left" Margin="24,107,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" Height="24"  />
-        <Label x:Name="lblPosition" Content="Possition:" HorizontalAlignment="Left" Margin="541,197,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"   Height="24"/>
-        <ComboBox x:Name="cbPositions" HorizontalAlignment="Left" Margin="684,195,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26"   KeyDown="cbPositions_KeyDown"/>
-        <Label x:Name="lblAnnualSalary" Content="Annual Salary:" HorizontalAlignment="Left" Margin="542,295,0,0" VerticalAlignment="Top" Width="137" FontFamily="Arial Black"   Height="24"/>
-        <Label x:Name="lblHouralyRate" Content="Houraly Rate:" HorizontalAlignment="Left" Margin="541,154,0,0" VerticalAlignment="Top" Width="137" FontFamily="Arial Black"   Height="24"/>
-        <TextBox x:Name="txtAnnualSalary" HorizontalAlignment="Left" Height="28" Margin="684,291,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"   KeyDown="txtAnnualSalary_KeyDown" GotFocus="txtAnnualSalary_GotFocus"/>
-        <TextBox x:Name="txtHouralyRate" HorizontalAlignment="Left" Height="28" Margin="685,150,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"   KeyDown="txtHouralyRate_KeyDown" GotFocus="txtHouralyRate_GotFocus"/>
+        <Label x:Name="lblPosition" Content="Possition:" HorizontalAlignment="Left" Margin="537,379,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"   Height="24"/>
+        <ComboBox x:Name="cbPositions" HorizontalAlignment="Left" Margin="680,377,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26"   KeyDown="cbPositions_KeyDown"/>
+        <Label x:Name="lblAnnualSalary" Content="Annual Salary:" HorizontalAlignment="Left" Margin="538,477,0,0" VerticalAlignment="Top" Width="137" FontFamily="Arial Black"   Height="24"/>
+        <Label x:Name="lblHouralyRate" Content="Houraly Rate:" HorizontalAlignment="Left" Margin="537,336,0,0" VerticalAlignment="Top" Width="137" FontFamily="Arial Black"   Height="24"/>
+        <TextBox x:Name="txtAnnualSalary" HorizontalAlignment="Left" Height="28" Margin="680,473,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"   KeyDown="txtAnnualSalary_KeyDown" GotFocus="txtAnnualSalary_GotFocus"/>
+        <TextBox x:Name="txtHouralyRate" HorizontalAlignment="Left" Height="28" Margin="681,332,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14"   KeyDown="txtHouralyRate_KeyDown" GotFocus="txtHouralyRate_GotFocus"/>
         <Label x:Name="lblRegion" Content="Region:" HorizontalAlignment="Left" Margin="24,403,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black"   Height="24"/>
         <ComboBox x:Name="cbProvinces" HorizontalAlignment="Left" Margin="190,403,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26"   KeyDown="cbProvinces_KeyDown" LostFocus="cbProvinces_LostFocus"/>
-        <Label x:Name="lblDepartment" Content="Department:" HorizontalAlignment="Left" Margin="542,244,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" Height="24"  />
-        <ComboBox x:Name="cbDepartment" HorizontalAlignment="Left" Margin="685,242,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26" KeyDown="cbDepartment_KeyDown"  />
+        <Label x:Name="lblDepartment" Content="Department:" HorizontalAlignment="Left" Margin="538,426,0,0" VerticalAlignment="Top" Width="119" FontFamily="Arial Black" Height="24"  />
+        <ComboBox x:Name="cbDepartment" HorizontalAlignment="Left" Margin="681,424,0,0" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26" KeyDown="cbDepartment_KeyDown"  />
         <ComboBox x:Name="cbCities" HorizontalAlignment="Left" VerticalAlignment="Top" Width="296" FontFamily="Arial" FontSize="14" Height="26"   KeyDown="cbCities_KeyDown" Margin="190,445,0,0"/>
 
         <Image x:Name="imgGenderMale" HorizontalAlignment="Left" Height="23" Margin="230,195,0,0" VerticalAlignment="Top" Width="35" Source="images/ico-chech01.png"  />
@@ -160,10 +160,10 @@
         </Button>
         <Image x:Name="imgGenderFemale" HorizontalAlignment="Left" Height="23" Margin="336,195,0,0" VerticalAlignment="Top" Width="39" Source="images/ico-chech01.png"  />
         <Image x:Name="imgGenderMaleAndFemale" HorizontalAlignment="Left" Height="21" Margin="433,195,0,0" VerticalAlignment="Top" Width="39" Source="images/ico-chech01.png"  />
-        <Label x:Name="lblDateStart" Content="Date Start Works:" HorizontalAlignment="Left" Margin="541,348,0,0" VerticalAlignment="Top" Width="147" FontFamily="Arial Black"   Height="25"/>
-        <DatePicker x:Name="dpDateStart" HorizontalAlignment="Left" Margin="684,341,0,0" VerticalAlignment="Top" Width="296" Height="30" FontFamily="Arial" FontSize="14"   PreviewKeyUp="dpDateStart_PreviewKeyUp"/>
-        <Label x:Name="lblDateFinish" Content="Date Finish Works:" HorizontalAlignment="Left" Margin="542,403,0,0" VerticalAlignment="Top" Width="137" FontFamily="Arial Black"   Height="24"/>
-        <DatePicker x:Name="dpDateFinish" HorizontalAlignment="Left" Margin="685,397,0,0" VerticalAlignment="Top" Width="296" Height="30" FontFamily="Arial" FontSize="14"   PreviewKeyUp="dpDateFinish_PreviewKeyUp"/>
+        <Label x:Name="lblDateStart" Content="Date Start Works:" HorizontalAlignment="Left" Margin="537,530,0,0" VerticalAlignment="Top" Width="147" FontFamily="Arial Black"   Height="25"/>
+        <DatePicker x:Name="dpDateStart" HorizontalAlignment="Left" Margin="680,523,0,0" VerticalAlignment="Top" Width="296" Height="30" FontFamily="Arial" FontSize="14"   PreviewKeyUp="dpDateStart_PreviewKeyUp"/>
+        <Label x:Name="lblDateFinish" Content="Date Finish Works:" HorizontalAlignment="Left" Margin="538,585,0,0" VerticalAlignment="Top" Width="137" FontFamily="Arial Black"   Height="24"/>
+        <DatePicker x:Name="dpDateFinish" HorizontalAlignment="Left" Margin="681,579,0,0" VerticalAlignment="Top" Width="296" Height="30" FontFamily="Arial" FontSize="14"   PreviewKeyUp="dpDateFinish_PreviewKeyUp"/>
         <Grid HorizontalAlignment="Center" Grid.Row="1" Margin="0,0,0,0">
 
             <Button x:Name="btnNew" HorizontalAlignment="Left" Margin="2,0,0,0"   VerticalAlignment="Top" Width="160" Height="62" FontFamily="Arial Black" FontSize="14" Click="btnNew_Click">
@@ -212,5 +212,8 @@
                 <TextBlock><Run Text="Item 4"/></TextBlock>
             </StatusBarItem>
         </StatusBar>
+        <Image Name="imgBox" HorizontalAlignment="Left" Height="162" Margin="538,10,0,0" VerticalAlignment="Top" Width="219"/>
+        <Button Name="btnUpload" Content="Upload Image" HorizontalAlignment="Left" Height="28" Margin="779,10,0,0" VerticalAlignment="Top" Width="123" Click="btnUpload_Click"/>
+        <Image x:Name="imgBoxBG" HorizontalAlignment="Left" Height="162" Margin="538,10,0,0" VerticalAlignment="Top" Width="219" Source="images/ico-maleandfemale06.png"/>
     </Grid>
 </Window>

@@ -106,7 +106,7 @@
       <xs:element minOccurs="0" name="Emp_Photo" nillable="true" type="xs:base64Binary" />
       <xs:element minOccurs="0" name="Emp_PostalCode" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Emp_StartDate" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Emp_TerminationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Emp_TerminationDate" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Pos_PositionId" type="xs:int" />
       <xs:element minOccurs="0" name="Tit_TitleId" type="xs:int" />
       <xs:element minOccurs="0" name="tblCity" nillable="true" type="tns:tblCity" />
@@ -116,18 +116,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="tblEmployee" nillable="true" type="tns:tblEmployee" />
-  <xs:complexType name="ArrayOfClassEmployee">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClassEmployee" nillable="true" type="tns:ClassEmployee" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfClassEmployee" nillable="true" type="tns:ArrayOfClassEmployee" />
-  <xs:complexType name="ClassEmployee">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="employeeFirstName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="employeeId" type="xs:int" />
-      <xs:element minOccurs="0" name="employeeLastName" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ClassEmployee" nillable="true" type="tns:ClassEmployee" />
 </xs:schema>

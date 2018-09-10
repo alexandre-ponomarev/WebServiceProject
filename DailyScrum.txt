@@ -131,3 +131,42 @@ Alex
 - login
 3. Where do I need assistance, research, test things, etc.
 -
+
+2018-09-07
+----------
+
+Alex
+1. What was done since last scrum
+- login
+2. What is to be done now, until next scrum
+- photos
+- fix search
+- pdf export
+3. Where do I need assistance, research, test things, etc.
+-
+
+2018-09-08
+----------
+
+Alex
+1. What was done since last scrum
+- photos
+- fix search
+- pdf export
+2. What is to be done now, until next scrum
+- DOB fix
+- when changing some information on employee photo disappears
+3. Where do I need assistance, research, test things, etc.
+-
+
+2018-09-09
+----------
+
+Alex
+1. What was done since last scrum
+- DOB fix
+- when changing some information on employee photo disappears
+2. What is to be done now, until next scrum
+- test for some glitches
+3. Where do I need assistance, research, test things, etc.
+-

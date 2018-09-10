@@ -44,7 +44,7 @@ namespace WCFResourceHumanServices
         public DateTime Emp_StartDate { get; set; }
 
         [DataMember]
-        public DateTime Emp_TerminationDate { get; set; }
+        public DateTime? Emp_TerminationDate { get; set; }
 
         [DataMember]
         public int Cit_CityId { get; set; }

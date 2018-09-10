@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Enter your password" Height="111.099" Width="191.945" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Content="Login" HorizontalAlignment="Stretch" Margin="0,41,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button Content="Login (use 654321)" HorizontalAlignment="Stretch" Margin="0,41,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         <PasswordBox Name="pbPass" HorizontalAlignment="Stretch" Margin="0,10,0,0" VerticalAlignment="Top" Height="26"/>
 
     </Grid>

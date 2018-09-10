@@ -46,21 +46,13 @@
             </DataGrid>
 
         </Grid>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         <Button Name="btnAdd" Content="Add Employee" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="141" Click="btnAdd_Click"/>
         <Button Name="btnPDF" Content="Export to PDF" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="137" Click="btnPDF_Click"/>
-=======
-=======
->>>>>>> 31d1b6f09a2a0f8defb340b9b5a6a5b3ed122f79
-        <Grid>
-            <Button Name="btnAdd" Content="Add Employee" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="141" Click="btnAdd_Click"/>
-        </Grid>
+        <Label Content="DOUBLE-CLICK ON ROW TO EDIT" HorizontalAlignment="Left" Margin="331,13,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="29" Width="373"/>
 
-<<<<<<< HEAD
->>>>>>> 31d1b6f09a2a0f8defb340b9b5a6a5b3ed122f79
-=======
->>>>>>> 31d1b6f09a2a0f8defb340b9b5a6a5b3ed122f79
+
+
 
     </Grid>
 </Window>

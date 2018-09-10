@@ -158,15 +158,14 @@
   <xs:element name="GetEmployeesByLastAndFirstName">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="searchString" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeesByLastAndFirstNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="GetEmployeesByLastAndFirstNameResult" nillable="true" type="q10:ArrayOfClassEmployee" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WCFResourceHumanServices" minOccurs="0" name="GetEmployeesByLastAndFirstNameResult" nillable="true" type="q10:ArrayOftblEmployee" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

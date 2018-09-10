@@ -11,7 +11,6 @@ namespace WCFResourceHumanServices
     [ServiceContract]
     public interface HRWebServices
     {
-
         [OperationContract]
         bool Login(string pass);
 
@@ -49,7 +48,7 @@ namespace WCFResourceHumanServices
         List<tblEmployee> GetEmployees();
 
         [OperationContract]
-        List<ClassEmployee> GetEmployeesByLastAndFirstName(string lastName, string firstName);
+        List<tblEmployee> GetEmployeesByLastAndFirstName(string searchString);
 
         [OperationContract]
         int GetLastEmployeeId();

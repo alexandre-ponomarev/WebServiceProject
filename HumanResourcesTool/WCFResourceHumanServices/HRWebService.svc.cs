@@ -6,6 +6,8 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using System.Data.Entity;
+using System.IO;
+using System.Drawing;
 
 namespace WCFResourceHumanServices
 {
@@ -50,20 +52,12 @@ namespace WCFResourceHumanServices
         }
 
 
-        List<ClassEmployee> HRWebServices.GetEmployeesByLastAndFirstName(string lastName, string firstName)
+        List<tblEmployee> HRWebServices.GetEmployeesByLastAndFirstName(string searchString)
         {
             using (var dbcontext = new HRDBContext())
             {
 
-                var dataset2 =
-                    (from recordset in dbcontext.tblEmployees
-                     where recordset.Emp_LastName.Contains(lastName) || recordset.Emp_FirstName.Contains(firstName)
-                     select new ClassEmployee
-                     {
-                         employeeId = recordset.Emp_EmployeeId,
-                         employeeLastName = recordset.Emp_LastName,
-                         employeeFirstName = recordset.Emp_FirstName
-                     }).ToList();
+                var dataset2 = dbcontext.tblEmployees.Where(e => e.Emp_LastName.Contains(searchString) || e.Emp_FirstName.Contains(searchString)).ToList();
 
 
                 return dataset2;
@@ -257,6 +251,7 @@ namespace WCFResourceHumanServices
             {
                 try
                 {
+
                     dbcontext.tblEmployees.Add(objEmployee);
                     dbcontext.Entry(objEmployee).State = System.Data.Entity.EntityState.Modified;
                     dbcontext.SaveChanges();

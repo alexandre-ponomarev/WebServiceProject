@@ -47,7 +47,7 @@
                     </StackPanel>
                 </materialDesign:PopupBox>
             </StackPanel>
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">PROJECT JAVA 3 AND WEB SERVICES</TextBlock>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">PROJECT JAVA 3 AND WEB SERVICES (DBLCLICK on menu on the left to open modules)</TextBlock>
         </Grid>
         <Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left" Background="#FF1B3861">
             <StackPanel>

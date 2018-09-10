@@ -2,6 +2,7 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -31,6 +32,8 @@ namespace HumanResourcesTool
         public string optionSelectedCRUM = "i";
         public bool flag = false;
         public bool flagSearchEmployee = false;
+
+        private byte[] imageByteArr;
 
         public MasterEmployees()
         {
@@ -71,9 +74,9 @@ namespace HumanResourcesTool
             txtMobileTelephone.Text = "";
             txtEmail.Text = "";
 
-            dpDOB.Text = DateTime.Now.Date.ToString();
+            dpDOB.Text = DateTime.Now.AddYears(-18).ToShortDateString();
             dpDateStart.Text = DateTime.Now.Date.ToString();
-            dpDateFinish.Text = DateTime.Now.Date.ToString();
+            dpDateFinish.Text = "";
 
             txtAge.Text = "";
             txtAnnualSalary.Text = "0";
@@ -93,7 +96,8 @@ namespace HumanResourcesTool
             Fill_cbProvincesByCountry();
             Fill_cbCitiesByProvince();
 
-            //imgEmployee.Source = null;
+            imgBox.Source = null;
+            imgBoxBG.Visibility = Visibility.Visible;
 
         }
 
@@ -220,8 +224,26 @@ namespace HumanResourcesTool
 
         }
 
+
+        public static ImageSource ByteToImage(byte[] imageData)
+        {
+            BitmapImage biImg = new BitmapImage();
+            MemoryStream ms = new MemoryStream(imageData);
+            biImg.BeginInit();
+            biImg.StreamSource = ms;
+            biImg.EndInit();
+
+            ImageSource imgSrc = biImg as ImageSource;
+
+            return imgSrc;
+        }
+
+
         public void Fill_Employee_Info(int EmployeeId)
         {
+
+            if (flag)
+                Enabled_Desabled_Controls(flag);
 
             var query = WCFHRHumanResources.GetEmployeeInfo(EmployeeId);
 
@@ -325,14 +347,24 @@ namespace HumanResourcesTool
                 if (query.Emp_Gender == "B") imgGenderMaleAndFemale.Visibility = System.Windows.Visibility.Visible;
 
                 dpDOB.Text = query.Emp_BirthOfDate.ToString();
+
+                checkYears();
+
+                //txtAge.Text = ((DateTime.Now - query.Emp_BirthOfDate).Days / 365).ToString();
+
                 dpDateStart.Text = query.Emp_StartDate.ToString();
                 dpDateFinish.Text = query.Emp_TerminationDate.ToString();
 
-
-                //----------------------------------------------------------------------
-                //Special procesus for the photo
-                //objEmployee.Emp_Photo = null;
-                //----------------------------------------------------------------------
+                if (query.Emp_Photo != null)
+                {
+                    imageByteArr = query.Emp_Photo;
+                    imgBox.Source = ByteToImage(query.Emp_Photo);
+                    imgBoxBG.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    imgBoxBG.Visibility = Visibility.Visible;
+                }
 
             }
 
@@ -368,14 +400,14 @@ namespace HumanResourcesTool
             btnGenderMale.IsEnabled = option;
             btnGenderFemale.IsEnabled = option;
             btnGenderMaleAndFemale.IsEnabled = option;
+            btnUpload.IsEnabled = option;
 
-            //btnEmployeePhoto.IsEnabled = option;
 
             if (flag)
             {
-                btnDelete.IsEnabled = flag;
-                btnUpdate.IsEnabled = flag;
-                btnNew.IsEnabled = flag;
+                btnDelete.IsEnabled = !flag;
+                btnUpdate.IsEnabled = !flag;
+                btnNew.IsEnabled = !flag;
             }
 
 
@@ -433,6 +465,7 @@ namespace HumanResourcesTool
 
         private void btnNew_Click(object sender, RoutedEventArgs e)
         {
+            imageByteArr = null;
             btnSearchEmployee.IsEnabled = false;
             optionSelectedCRUM = "i";
             sbItem3.Content = "New Employee";
@@ -643,7 +676,7 @@ namespace HumanResourcesTool
                     case "i":
                         insertEmployee();
                         Clear_Controls();
-                        Enabled_Desabled_Controls(true);
+                        Enabled_Desabled_Controls(false);
                         txtEmployeeId.IsEnabled = false;
                         txtLastName.Focus();
                         break;
@@ -681,7 +714,7 @@ namespace HumanResourcesTool
             //***************************************************************
             var varDOB = dpDOB as DatePicker;
             DateTime? dateDOB = varDOB.SelectedDate;
-            if (dateDOB == null)
+            if (checkYears() == false)
             {
                 errorMessage += "Field: " + lblDateDOB.Content + " is Invalid." + "\n";
             }
@@ -696,17 +729,6 @@ namespace HumanResourcesTool
             if (dateStart == null)
             {
                 errorMessage += "Field: " + lblDateStart.Content + " is Invalid." + "\n";
-            }
-            //***************************************************************
-            //***************************************************************
-
-            //***************************************************************
-            //***************************************************************
-            var varDateFinish = dpDateFinish as DatePicker;
-            DateTime? dateFinish = varDateFinish.SelectedDate;
-            if (dateFinish == null)
-            {
-                errorMessage += "Field: " + lblDateFinish.Content + " is Invalid." + "\n";
             }
             //***************************************************************
             //***************************************************************
@@ -808,7 +830,7 @@ namespace HumanResourcesTool
 
             //***************************************************************
             //***************************************************************
-            if (txtMobileTelephone.Text.Length <= 0)
+            if (txtMobileTelephone.Text.Length <= 0 || !IsIntegerNumber(txtMobileTelephone.Text))
             {
                 errorMessage += "Field: " + lblMobile.Content + " is Invalid." + "\n";
             }
@@ -818,7 +840,7 @@ namespace HumanResourcesTool
 
             //***************************************************************
             //***************************************************************
-            if (txtHomeTelephone.Text.Length <= 0)
+            if (txtHomeTelephone.Text.Length <= 0 || !IsIntegerNumber(txtHomeTelephone.Text))
             {
                 errorMessage += "Field: " + lblHomeTepehone.Content + " is Invalid." + "\n";
             }
@@ -912,7 +934,6 @@ namespace HumanResourcesTool
             //----------------------------------------------------------------------
 
             //----------------------------------------------------------------------
-            objEmployee.Emp_StartDate = DateTime.Now;
             DateTime? selectedDateStart = dpDateStart.SelectedDate;
             if (selectedDateStart.HasValue)
             {
@@ -922,24 +943,19 @@ namespace HumanResourcesTool
             //----------------------------------------------------------------------
 
             //----------------------------------------------------------------------
-            objEmployee.Emp_TerminationDate = DateTime.Now;
-            DateTime? selectedDateFinish = dpDateFinish.SelectedDate;
-            if (selectedDateFinish.HasValue)
-            {
-                //string formatted = selectedDate.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                objEmployee.Emp_TerminationDate = selectedDateFinish.Value;
-            }
+            objEmployee.Emp_TerminationDate = dpDateFinish.SelectedDate;
             //----------------------------------------------------------------------
 
-
-            objEmployee.Emp_Photo = null;
+            if (imageByteArr != null)
+                objEmployee.Emp_Photo = imageByteArr;
 
 
 
             if (WCFHRHumanResources.insertEmployees(objEmployee))
             {
                 MessageBox.Show("Employee inserted successfully");
-                txtEmployeeId.Text = fSearchLastEmployeeId().ToString();
+                //txtEmployeeId.Text = fSearchLastEmployeeId().ToString();
+                txtEmployeeId.Text = "";
             }
             else
             {
@@ -999,19 +1015,14 @@ namespace HumanResourcesTool
             //----------------------------------------------------------------------
 
             //----------------------------------------------------------------------
-            objEmployee.Emp_TerminationDate = DateTime.Now;
-            DateTime? selectedDateFinish = dpDateFinish.SelectedDate;
-            if (selectedDateFinish.HasValue)
-            {
-                //string formatted = selectedDate.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                objEmployee.Emp_TerminationDate = selectedDateFinish.Value;
-            }
+
+
+            objEmployee.Emp_TerminationDate = dpDateFinish.SelectedDate;
+
             //----------------------------------------------------------------------
 
-
-            objEmployee.Emp_Photo = null;
-            //objEmployee.Emp_Photo = Bytes2Image(imgEmployee.Source);
-
+            if (imageByteArr != null)
+                objEmployee.Emp_Photo = imageByteArr;
 
             if (WCFHRHumanResources.updateEmployees(objEmployee, EmployeeId))
             {
@@ -1132,7 +1143,7 @@ namespace HumanResourcesTool
             {
                 try
                 {
-                    int x = Convert.ToInt32(num);
+                    long x = Convert.ToInt64(num);
                     return true;
                 }
                 catch (Exception)
@@ -1206,6 +1217,8 @@ namespace HumanResourcesTool
             if (e.Key == Key.Enter)
             {
 
+                Clear_Controls();
+
                 if (txtEmployeeId.Text.Length > 0 && IsIntegerNumber(txtEmployeeId.Text.ToString()))
                 {
                     int EmployeeId = Int32.Parse(txtEmployeeId.Text.ToString());
@@ -1253,21 +1266,10 @@ namespace HumanResourcesTool
 
         private void txtEmployeeId_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (flagSearchEmployee == false) Clear_Controls();
+            // if (flagSearchEmployee == false) Clear_Controls();
         }
 
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    OpenFileDialog op = new OpenFileDialog();
-        //    op.Title = "Select a picture";
-        //    op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
-        //        "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
-        //        "Portable Network Graphic (*.png)|*.png";
-        //    if (op.ShowDialog() == true)
-        //    {
-        //        imgEmployee.Source = new BitmapImage(new Uri(op.FileName));
-        //    }
-        //}
+
 
         private void cbCountries_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -1294,6 +1296,51 @@ namespace HumanResourcesTool
             //SearchWindow.myOptionSended = optionSelectedCRUM;
             //this.Close();
 
+        }
+
+        private void btnUpload_Click(object sender, RoutedEventArgs e)
+        {
+            string fileName = string.Empty;
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            ofd.Filter = "Images | *.jpg;*.jpeg;*.tif;*.tiff;*.bmp;*.png";
+
+            if (ofd.ShowDialog() == true)
+            {
+                fileName = ofd.FileName;
+                imageByteArr = File.ReadAllBytes(fileName);
+                imgBox.Source = ByteToImage(imageByteArr);
+                imgBoxBG.Visibility = Visibility.Hidden;
+            }
+
+        }
+
+
+
+        private void dpDOB_CalendarClosed(object sender, RoutedEventArgs e)
+        {
+            if (!checkYears())
+                MessageBox.Show("An employee cannot be younger than 18 y.o.");
+
+        }
+
+        private bool checkYears()
+        {
+            var today = DateTime.Today;
+            var age = today.Year - dpDOB.SelectedDate.Value.Year;
+            if (dpDOB.SelectedDate.Value > today.AddYears(-age)) age--;
+
+            txtAge.Text = age.ToString();
+
+            if (age < 18)
+            {
+
+                dpDOB.Text = DateTime.Now.AddYears(-18).ToShortDateString();
+                txtAge.Text = (today.Year - dpDOB.SelectedDate.Value.Year).ToString();
+                return false;
+            }
+
+            return true;
         }
 
     }
